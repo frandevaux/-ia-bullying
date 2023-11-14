@@ -12,16 +12,14 @@ df = pd.read_csv("./data/Bullying_2018.csv",sep=';')
 df.replace(r'^\s*$', np.nan, regex=True, inplace=True)
 print(df.isnull().sum())
 
-'''
-for col in df.columns:
-    percent_missing_value = (df[col].isnull().sum()/df.shape[0]) * 100
-    print("Percent of missing values for the column ", col, " is ", percent_missing_value)
-'''
-
 result = ""
 
 for col in df.columns:
-    result += str(df[col].value_counts()) + "\n" + "\n"
+    col_count = str(df[col].value_counts())
+    lines = col_count.split('\n')
+    lines.pop()
+    fixed_col_count = '\n'.join(lines)
+    result += fixed_col_count + "\n" + "Null " + str(df[col].isnull().sum()) + "\n" + "\n"
 
 # Save in txt file
 with open("./results/raw-feature-count.txt", "w") as f:

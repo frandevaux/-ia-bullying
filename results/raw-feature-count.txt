@@ -10,22 +10,22 @@ record
 19023    1
 19024    1
 57095    1
-Name: count, Length: 56981, dtype: int64
+Null 0
 
 Bullied_on_school_property_in_past_12_months
 No     43839
 Yes    11903
-Name: count, dtype: int64
+Null 1239
 
 Bullied_not_on_school_property_in_past_12_months
 No     44263
 Yes    12229
-Name: count, dtype: int64
+Null 489
 
 Cyber_bullied_in_past_12_months
 No     44213
 Yes    12197
-Name: count, dtype: int64
+Null 571
 
 Custom_Age
 14 years old               12946
@@ -36,12 +36,12 @@ Custom_Age
 18 years old or older        383
 12 years old                 145
 11 years old or younger       48
-Name: count, dtype: int64
+Null 108
 
 Sex
 Female    29362
 Male      27083
-Name: count, dtype: int64
+Null 536
 
 Physically_attacked
 0 times             46997
@@ -52,7 +52,7 @@ Physically_attacked
 6 or 7 times          302
 8 or 9 times          189
 10 or 11 times        115
-Name: count, dtype: int64
+Null 240
 
 Physical_fighting
 0 times             43246
@@ -63,7 +63,7 @@ Physical_fighting
 6 or 7 times          489
 8 or 9 times          264
 10 or 11 times        165
-Name: count, dtype: int64
+Null 268
 
 Felt_lonely
 Never               17931
@@ -71,14 +71,14 @@ Sometimes           14714
 Rarely              14427
 Most of the time     6422
 Always               3121
-Name: count, dtype: int64
+Null 366
 
 Close_friends
 3 or more    38731
 2             9111
 1             4732
 0             3331
-Name: count, dtype: int64
+Null 1076
 
 Miss_school_no_permission
 0 days             38654
@@ -86,7 +86,7 @@ Miss_school_no_permission
 3 to 5 days         3925
 10 or more days     1468
 6 to 9 days         1331
-Name: count, dtype: int64
+Null 1864
 
 Other_students_kind_and_helpful
 Most of the time    15820
@@ -94,7 +94,7 @@ Sometimes           14150
 Rarely              10967
 Always               9710
 Never                4775
-Name: count, dtype: int64
+Null 1559
 
 Parents_understand_problems
 Always              13072
@@ -102,30 +102,30 @@ Never               11965
 Rarely              10459
 Most of the time     9570
 Sometimes            9542
-Name: count, dtype: int64
+Null 2373
 
 Most_of_the_time_or_always_felt_lonely
 No     47072
 Yes     9543
-Name: count, dtype: int64
+Null 366
 
 Missed_classes_or_school_without_permission
 No     38654
 Yes    16463
-Name: count, dtype: int64
+Null 1864
 
 Were_underweight
 No     35319
 Yes      733
-Name: count, dtype: int64
+Null 20929
 
 Were_overweight
 No     25377
 Yes    10675
-Name: count, dtype: int64
+Null 20929
 
 Were_obese
 No     33397
 Yes     2655
-Name: count, dtype: int64
+Null 20929
 
