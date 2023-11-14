@@ -1,5 +1,7 @@
 # EDA
 
+## Features originales
+
 | Bullied_on_school_property_in_past_12_months | Count |
 | -------------------------------------------- | ----- |
 | No                                           | 43839 |
@@ -133,3 +135,113 @@
 | No         | 33397 |
 | Yes        | 2655  |
 | Null       | 20929 |
+
+## Features modificadas
+
+| Bullied in Past 12 Months | Count |
+|---------------------------|-------|
+| 0                         | 34169 |
+| 1                         | 22812 |
+| Null                      | 0     |
+
+| Custom_Age              | Count |
+|-------------------------|-------|
+| 14 years old            | 12946 |
+| 15 years old            | 12812 |
+| 16 years old            | 11738 |
+| 13 years old            | 10574 |
+| 17 years old            | 8227  |
+| 18 years old or older   | 383   |
+| 12 years old            | 145   |
+| 11 years old or younger | 48    |
+| Null                    | 108   |
+
+| Sex   | Count |
+|-------|-------|
+| Female| 29362 |
+| Male  | 27083 |
+| Null  | 536   |
+
+| Physically_attacked      | Count |
+|-------------------------|-------|
+| 0 times                 | 46997 |
+| 1 time                  | 5248  |
+| 2 or 3 times            | 2405  |
+| 12 or more times        | 790   |
+| 4 or 5 times            | 695   |
+| 6 or 7 times            | 302   |
+| 8 or 9 times            | 189   |
+| 10 or 11 times          | 115   |
+| Null                    | 240   |
+
+| Physical_fighting        | Count |
+|--------------------------|-------|
+| 0 times                  | 43246 |
+| 1 time                   | 6932  |
+| 2 or 3 times             | 3650  |
+| 4 or 5 times             | 1028  |
+| 12 or more times         | 939   |
+| 6 or 7 times             | 489   |
+| 8 or 9 times             | 264   |
+| 10 or 11 times           | 165   |
+| Null                     | 268   |
+
+| Felt_lonely        | Count |
+|--------------------|-------|
+| Never              | 17931 |
+| Sometimes          | 14714 |
+| Rarely             | 14427 |
+| Most of the time   | 6422  |
+| Always             | 3121  |
+| Null               | 366   |
+
+| Close_friends      | Count |
+|--------------------|-------|
+| 3 or more          | 38731 |
+| 2                  | 9111  |
+| 1                  | 4732  |
+| 0                  | 3331  |
+| Null               | 1076  |
+
+| Miss_school_no_permission  | Count |
+|---------------------------|-------|
+| 0 days                    | 38654 |
+| 1 or 2 days               | 9739  |
+| 3 to 5 days               | 3925  |
+| 10 or more days           | 1468  |
+| 6 to 9 days               | 1331  |
+| Null                      | 1864  |
+
+| Other_students_kind_and_helpful | Count |
+|---------------------------------|-------|
+| Most of the time               | 15820 |
+| Sometimes                      | 14150 |
+| Rarely                         | 10967 |
+| Always                         | 9710  |
+| Never                          | 4775  |
+| Null                           | 1559  |
+
+| Parents_understand_problems   | Count |
+|-------------------------------|-------|
+| Always                        | 13072 |
+| Never                         | 11965 |
+| Rarely                        | 10459 |
+| Most of the time              | 9570  |
+| Sometimes                     | 9542  |
+| Null                          | 2373  |
+
+| Most_of_the_time_or_always_felt_lonely | Count |
+|----------------------------------------|-------|
+| 0.0                                    | 47072 |
+| 1.0                                    | 9543  |
+| Null                                   | 366   |
+
+| Missed_classes_or_school_without_permission | Count |
+|-------------------------------------------|-------|
+| 0.0                                       | 38654 |
+| 1.0                                       | 16463 |
+| Null                                      | 1864  |
+
+## Gráficos
+
+![Distribución Bullied_in_past_12_months](./results/Bullied_in_past_12_months.png)
