@@ -267,44 +267,19 @@
 
 Índice de correlación de Cramer's V entre cada una de las variables y Bullied_in_past_12_months.
 
-Variable: Custom_Age
-Cramer's V: 0.020020473152699978
-
-Variable: Sex
-Cramer's V: 0.1010648424129439
-
-Variable: Physically_attacked
-Cramer's V: 0.23154321567889047
-
-Variable: Physical_fighting
-Cramer's V: 0.12324990208733567
-
-Variable: Felt_lonely
-Cramer's V: 0.2726072072581656
-
-Variable: Close_friends
-Cramer's V: 0.07364435597446765
-
-Variable: Miss_school_no_permission
-Cramer's V: 0.08803480691919753
-
-Variable: Other_students_kind_and_helpful
-Cramer's V: 0.13117254343399898
-
-Variable: Parents_understand_problems
-Cramer's V: 0.11609267319217477
-
-Variable: Most_of_the_time_or_always_felt_lonely
-Cramer's V: 0.21002465668566908
-
-Variable: Missed_classes_or_school_without_permission
-Cramer's V: 0.08438424530657992
-
-Variable: Were_underweight
-Cramer's V: 0.02189826267397687
-
-Variable: Were_overweight
-Cramer's V: 0.021917650571953416
-
-Variable: Were_obese
-Cramer's V: 0.022156982271592063
+| Variable                                     | Cramer's V                       |
+|----------------------------------------------|----------------------------------|
+| Felt_lonely                                  | 0.2726072072581656               |
+| Physically_attacked                          | 0.23154321567889047              |
+| Most_of_the_time_or_always_felt_lonely       | 0.21002465668566908              |
+| Sex                                          | 0.1010648424129439               |
+| Other_students_kind_and_helpful              | 0.13117254343399898              |
+| Physical_fighting                            | 0.12324990208733567              |
+| Parents_understand_problems                  | 0.11609267319217477              |
+| Miss_school_no_permission                    | 0.08803480691919753              |
+| Missed_classes_or_school_without_permission  | 0.08438424530657992              |
+| Close_friends                                | 0.07364435597446765              |
+| Were_obese                                   | 0.022156982271592063             |
+| Were_overweight                              | 0.021917650571953416             |
+| Were_underweight                             | 0.02189826267397687              |
+| Custom_Age                                   | 0.020020473152699978             |
