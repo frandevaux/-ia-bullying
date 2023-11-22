@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from scipy.stats import chi2_contingency
 
 df = pd.read_csv("./data/Bullying_2018.csv",sep=';')
 #print(df.head())
@@ -34,6 +33,23 @@ df.dropna(subset=['Custom_Age'], inplace=True)
 
 # Fill null values
 df.fillna("Prefers not to answer", inplace=True)
+
+"""# Create a new feature 'Has_close_friends' based on 'Close_Friends'
+df['Has_close_friends'] = df['Close_friends'].apply(lambda x: 1 if x != '0' else 0)
+
+# Create a new feature 'Physically_attacked_num' based on 'Physically_attacked'
+mapping = {
+    '0 times': 0,
+    '1 time': 1,
+    '2 or 3 times': 2.5,
+    '4 or 5 times': 4.5,
+    '6 or 7 times': 6.5,
+    'Prefers not to answer': 0,
+    '8 or 9 times': 8.5,
+    '10 or 11 times': 10.5
+}
+
+df['Physically_attacked_num'] = df['Physically_attacked'].map(mapping)"""
 
 # Write in txt all the features and their count
 result = ""

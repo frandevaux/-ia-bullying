@@ -10,7 +10,7 @@ categorical_columns = ['Custom_Age', 'Sex', 'Physically_attacked', 'Physical_fig
                         'Close_friends', 'Miss_school_no_permission', 'Other_students_kind_and_helpful',
                         'Parents_understand_problems', 'Most_of_the_time_or_always_felt_lonely',
                         'Missed_classes_or_school_without_permission', 'Were_underweight', 'Were_overweight',
-                        'Were_obese', 'Bullied_in_past_12_months']
+                        'Were_obese', 'Has_close_friends']
 
 for col in categorical_columns:
     # Construye una tabla de contingencia
