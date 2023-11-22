@@ -283,3 +283,5 @@
 | Were_overweight                              | 0.021917650571953416             |
 | Were_underweight                             | 0.02189826267397687              |
 | Custom_Age                                   | 0.020020473152699978             |
+
+Se probó agregar una feature Has_close_friends a partir de Close_friends pero empeoraba su valor de correlación de Cramer's V y también se probó cambiar algunos de los datos a valores numéricos (como Physically_attacked) y realizar una matriz de correlación pero tampoco representó una mejora de lo obtenido en los resultados previos.
