@@ -14,25 +14,16 @@ df.replace(r'^\s*$', np.nan, regex=True, inplace=True)
 # Convert "Yes" and "No" to 1 and 0
 df.replace({'Yes': 1, 'No': 0}, inplace=True)
 
-columns_to_check = ['Bullied_on_school_property_in_past_12_months', 'Bullied_not_on_school_property_in_past_12_months', 'Cyber_bullied_in_past_12_months']
-
-# Find rows with null values in all specified columns
-rows_with_all_null = df[df[columns_to_check].isnull().all(axis=1)]
-
-# Drop the rows from the DataFrame
-df.drop(rows_with_all_null.index, inplace=True)
-
-# Join 3 columns into 1
-df['Bullied_in_past_12_months'] = df[columns_to_check].apply(lambda row: 1 if row.any() == 1 else 0, axis=1)
-
 # Drop columns with a high proportion of missing values
-df.drop(['record', 'Bullied_on_school_property_in_past_12_months', 'Bullied_not_on_school_property_in_past_12_months', 'Cyber_bullied_in_past_12_months'], axis=1, inplace=True)
+df.drop(['record'], axis=1, inplace=True)
 
 # Dropping na values from 'Custom_Age' column
 df.dropna(subset=['Custom_Age'], inplace=True)
 
-# Fill null values
-df.fillna("Prefers not to answer", inplace=True)
+df.dropna(inplace=True)
+
+"""# Fill null values
+df.fillna("Prefers not to answer", inplace=True)"""
 
 """# Create a new feature 'Has_close_friends' based on 'Close_Friends'
 df['Has_close_friends'] = df['Close_friends'].apply(lambda x: 1 if x != '0' else 0)
@@ -74,10 +65,10 @@ print(result)"""
 # Save in csv file
 df.to_csv("./results/fixed-Bullying_2018.csv", index=False, sep=';')
 
-# Plot the distribution of 'Bullied_in_past_12_months'
+"""# Plot the distribution of 'Bullied_in_past_12_months'
 plt.figure(figsize=(8, 6))
 sns.countplot(x='Bullied_in_past_12_months', data=df, palette='viridis')
 plt.title('Distribution of Bullied_in_past_12_months')
 plt.xlabel('Bullied_in_past_12_months')
 plt.ylabel('Count')
-plt.savefig('./results/Bullied_in_past_12_months.png')
+plt.savefig('./results/Bullied_in_past_12_months.png')"""

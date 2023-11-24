@@ -6,6 +6,9 @@ from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 
 df = pd.read_csv("./results/fixed-Bullying_2018.csv",sep=';')
 
+df= df[['Bullied_on_school_property_in_past_12_months', 'Cyber_bullied_in_past_12_months', 'Custom_Age','Sex',
+            'Felt_lonely', 'Close_friends', 'Other_students_kind_and_helpful', 'Parents_understand_problems', 'Were_overweight']]
+
 # Identify categorical columns
 categorical_columns = df.select_dtypes(include=['object']).columns.tolist()
 
@@ -21,12 +24,12 @@ df = pd.concat([df, df_onehot], axis=1)
 df = df.drop(categorical_columns, axis=1)
 
 # Split the dataset
-x = df.drop('Bullied_in_past_12_months', axis=1)
-y = df['Bullied_in_past_12_months']
+x = df.drop('Bullied_on_school_property_in_past_12_months', axis=1)
+y = df['Bullied_on_school_property_in_past_12_months']
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
 # Create the model
-rf_model = RandomForestClassifier(n_estimators=300, random_state=42)
+rf_model = RandomForestClassifier(n_estimators=250, random_state=42)
 
 # Train the model
 rf_model.fit(x_train, y_train)
