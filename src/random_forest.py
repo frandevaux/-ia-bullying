@@ -6,8 +6,7 @@ from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 
 df = pd.read_csv("./results/fixed-Bullying_2018.csv",sep=';')
 
-df= df[['Bullied_on_school_property_in_past_12_months', 'Cyber_bullied_in_past_12_months', 'Custom_Age','Sex',
-            'Felt_lonely', 'Close_friends', 'Other_students_kind_and_helpful', 'Parents_understand_problems', 'Were_overweight']]
+df= df[['Bullied_on_school_property_in_past_12_months',  'Physically_attacked', 'Felt_lonely', 'Close_friends', 'Miss_school_no_permission', 'Missed_classes_or_school_without_permission', ]]
 
 # Identify categorical columns
 categorical_columns = df.select_dtypes(include=['object']).columns.tolist()
