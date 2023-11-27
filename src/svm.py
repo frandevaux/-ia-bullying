@@ -3,14 +3,15 @@ import matplotlib.pyplot as plt
 import seaborn as sns; sns.set()
 import pandas as pd
 from sklearn import svm
-from sklearn.model_selection import train_test_split
+from sklearn.svm import SVC
+from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from mlxtend.plotting import plot_confusion_matrix
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score
 
 df = pd.read_csv("./results/fixed-Bullying_2018.csv",sep=';')
 
-df= df[['Bullied_on_school_property_in_past_12_months', 'Bullied_not_on_school_property_in_past_12_months', 'Cyber_bullied_in_past_12_months','Sex', 'Felt_lonely', 'Close_friends', 'Other_students_kind_and_helpful', 'Parents_understand_problems']]
+df= df[['Bullied_on_school_property_in_past_12_months','Sex', 'Felt_lonely', 'Close_friends', 'Other_students_kind_and_helpful', 'Parents_understand_problems']]
 
 """age_mapping = {
     '11 years old or younger': 11,
@@ -88,7 +89,7 @@ df = df.drop(categorical_columns, axis=1)
 # Split the dataset
 x = df.drop('Bullied_on_school_property_in_past_12_months', axis=1)
 y = df['Bullied_on_school_property_in_past_12_months']
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
 # Definimos la configuración del clasificador
 clf = svm.SVC(kernel='rbf', C=2, gamma='auto', random_state=0, probability=True, verbose=True)
@@ -100,13 +101,15 @@ clf.fit(x_train, y_train)
 score = clf.score(x_test, y_test)
 print(score)
 
-ypred = clf.predict(x_test)
-matriz = confusion_matrix(y_test,ypred)
+y_pred = clf.predict(x_test)
 
-plot_confusion_matrix(conf_mat=matriz, figsize=(6,6), show_normed=False)
-plt.tight_layout()
+print(confusion_matrix(y_test, y_pred), ": is the confusion matrix")
+print(accuracy_score(y_test, y_pred), ": is the accuracy score")
+print(precision_score(y_test, y_pred), ": is the precision score")
+print(recall_score(y_test, y_pred), ": is the recall score")
+print(f1_score(y_test, y_pred), ": is the f1 score")
 
-# Identifica los índices de los vectores de soporte
+"""# Identifica los índices de los vectores de soporte
 support_indices = clf.support_
 
 # Extrae las variables asociadas a los vectores de soporte
@@ -118,4 +121,4 @@ feature_importance = support_features.mean(axis=0)
 # Crea un DataFrame para visualizar las importancias
 importance_df = pd.DataFrame({'Feature': x.columns, 'Importance': feature_importance})
 importance_df = importance_df.sort_values(by='Importance', ascending=False)
-print(importance_df)
+print(importance_df)"""
