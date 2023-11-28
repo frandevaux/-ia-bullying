@@ -260,8 +260,11 @@
 
 ## Gráficos
 
-![Distribución Bullied_in_past_12_months](./results/Bullied_in_past_12_months.png)
+![Distribución Bullied_Distribution](./results/plots/Bullied_Distribution.png)
 
+![Distribución Bullied_Sex_Distribution](./results/plots/Bullied_Sex_Distribution.png)
+
+![Distribución Bullied_Felt_lonely_Distribution](./results/plots/Bullied_Felt_lonely_Distribution.png)
 
 ## Correlación con Cramer's V
 

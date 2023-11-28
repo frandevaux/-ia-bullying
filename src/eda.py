@@ -7,6 +7,8 @@ df = pd.read_csv("./data/Bullying_2018.csv",sep=';')
 #print(df.head())
 #df.info()
 
+df.drop(['record', 'Were_underweight', 'Were_overweight', 'Were_obese'], axis=1, inplace=True)
+
 # Replace empty strings with NaN
 df.replace(r'^\s*$', np.nan, regex=True, inplace=True)
 #print(df.isnull().sum())
@@ -14,13 +16,19 @@ df.replace(r'^\s*$', np.nan, regex=True, inplace=True)
 # Convert "Yes" and "No" to 1 and 0
 df.replace({'Yes': 1, 'No': 0}, inplace=True)
 
-# Drop columns with a high proportion of missing values
-df.drop(['record'], axis=1, inplace=True)
-
-# Dropping na values from 'Custom_Age' column
-df.dropna(subset=['Custom_Age'], inplace=True)
-
+df['Sex'].fillna("Prefers not to answer", inplace=True)
 df.dropna(inplace=True)
+
+columns_to_check = ['Bullied_on_school_property_in_past_12_months', 'Bullied_not_on_school_property_in_past_12_months', 'Cyber_bullied_in_past_12_months']
+
+# Find rows with null values in all specified columns
+rows_with_all_null = df[df[columns_to_check].isnull().all(axis=1)]
+
+# Drop the rows from the DataFrame
+df.drop(rows_with_all_null.index, inplace=True)
+
+# Join 3 columns into 1
+df['Bullied_in_past_12_months'] = df[columns_to_check].apply(lambda row: 1 if row.any() == 1 else 0, axis=1)
 
 """# Fill null values
 df.fillna("Prefers not to answer", inplace=True)"""
@@ -71,4 +79,60 @@ sns.countplot(x='Bullied_in_past_12_months', data=df, palette='viridis')
 plt.title('Distribution of Bullied_in_past_12_months')
 plt.xlabel('Bullied_in_past_12_months')
 plt.ylabel('Count')
-plt.savefig('./results/Bullied_in_past_12_months.png')"""
+plt.savefig('./results/plots/Bullied_in_past_12_months.png')"""
+
+"""# Contar la cantidad de 0s y 1s para cada característica
+counts = df[['Bullied_in_past_12_months', 'Bullied_on_school_property_in_past_12_months', 
+              'Bullied_not_on_school_property_in_past_12_months', 'Cyber_bullied_in_past_12_months']].apply(pd.Series.value_counts)
+
+# Crear un gráfico de barras apiladas
+ax = counts.T.plot(kind='bar', stacked=True, color=['gray', 'black'])
+
+# Configurar el gráfico
+ax.set_ylabel('Count')
+ax.set_title('Distribution of features about Bullying')
+ax.legend(title='Bullied', labels=['0', '1'])
+
+# Abreviar y mostrar los nombres horizontalmente
+abbreviated_labels = ['Bullied', 'On_school', 'Not_on_school', 'Cyber_bullied']
+ax.set_xticklabels(abbreviated_labels, rotation=0)
+
+plt.savefig('./results/plots/Bullied_Distribution.png')"""
+
+
+"""fig, ax = plt.subplots(figsize=(10, 6))
+
+distribution = pd.crosstab(df['Sex'], df['Bullied_in_past_12_months'], margins=True, margins_name='Total')
+
+# Crear un gráfico de barras apiladas con la cantidad total en lugar del porcentaje
+ax = distribution[[0, 1]].plot(kind='bar', stacked=True, color=['gray', 'black'], ax=ax)
+
+# Configurar el gráfico
+ax.set_ylabel('Count')
+ax.set_title('Distribution of Sex based on Bullied_in_past_12_months')
+plt.legend(title='Bullied', labels=['0', '1'], loc='lower center')
+
+abbreviated_labels = ['Female', 'Male', 'No answer', 'Total']
+ax.set_xticklabels(abbreviated_labels, rotation=0)
+
+plt.tight_layout()
+plt.savefig('./results/plots/Bullied_Sex_Distribution.png')"""
+
+
+"""fig, ax = plt.subplots(figsize=(10, 6))
+
+distribution = pd.crosstab(df['Felt_lonely'], df['Bullied_in_past_12_months'], margins=True, margins_name='Total')
+
+# Crear un gráfico de barras apiladas con la cantidad total en lugar del porcentaje
+ax = distribution[[0, 1]].plot(kind='bar', stacked=True, color=['gray', 'black'], ax=ax)
+
+# Configurar el gráfico
+ax.set_ylabel('Count')
+ax.set_title('Distribution of Felt_lonely based on Bullied_in_past_12_months')
+plt.legend(title='Bullied', labels=['0', '1'], loc='lower center')
+
+abbreviated_labels = ['Always', 'Most time', 'Never', 'Rarely', 'Sometimes', 'Total']
+ax.set_xticklabels(abbreviated_labels, rotation=0)
+
+plt.tight_layout()
+plt.savefig('./results/plots/Bullied_Felt_lonely_Distribution.png')"""

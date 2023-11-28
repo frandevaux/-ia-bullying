@@ -38,9 +38,9 @@ y = df['Bullied_on_school_property_in_past_12_months']
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
 param_grid_svm = {
-    'C': [0.1, 1, 10, 100],                   
-    'gamma': [1, 0.1, 0.01, 0.001],                
-    'kernel': ['linear', 'rbf', 'poly', 'sigmoid'],
+    'C': [0.1, 1, 100],                   
+    'gamma': [1, 0.1, 0.001],                
+    'kernel': ['linear', 'rbf'],
     'class_weight': ['balanced']                    
 }
 

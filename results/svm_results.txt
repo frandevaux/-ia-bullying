@@ -1,0 +1,118 @@
+clf = svm.SVC(kernel='rbf', C=2, gamma='auto', random_state=0, probability=True, verbose=True)
+'Bullied_on_school_property_in_past_12_months', 'Sex', 'Felt_lonely', 'Close_friends', 'Other_students_kind_and_helpful', 'Parents_understand_problems'
+
+Train
+[[20878     0]
+ [ 5472     0]] : is the confusion matrix
+0.7923339658444023 : is the accuracy score
+0.0 : is the precision score
+0.0 : is the recall score
+0.0 : is the f1 score
+
+Test
+[[5190    0]
+ [1398    0]] : is the confusion matrix
+0.7877959927140255 : is the accuracy score
+0.0 : is the precision score
+0.0 : is the recall score
+0.0 : is the f1 score
+
+clf = svm.SVC(kernel='rbf', C=0.1, random_state=0, probability=True, verbose=True)
+'Bullied_on_school_property_in_past_12_months', 'Sex', 'Felt_lonely', 'Close_friends', 'Other_students_kind_and_helpful', 'Parents_understand_problems'
+
+Train
+[[20878     0]
+ [ 5472     0]] : is the confusion matrix
+0.7923339658444023 : is the accuracy score
+0.0 : is the precision score
+0.0 : is the recall score
+0.0 : is the f1 score
+
+Test
+[[5190    0]
+ [1398    0]] : is the confusion matrix
+0.7877959927140255 : is the accuracy score
+0.0 : is the precision score
+0.0 : is the recall score
+0.0 : is the f1 score
+
+clf = svm.SVC(kernel='rbf', C=1, gamma='auto', random_state=0, probability=True, verbose=True)
+'Bullied_on_school_property_in_past_12_months', 'Cyber_bullied_in_past_12_months', 'Sex', 'Felt_lonely', 'Close_friends', 'Other_students_kind_and_helpful', 'Parents_understand_problems'
+
+Train
+[[20871     7]
+ [ 5446    26]] : is the confusion matrix
+0.7930550284629981 : is the accuracy score
+0.7878787878787878 : is the precision score
+0.004751461988304093 : is the recall score
+0.00944595821980018 : is the f1 score
+
+Test
+[[5189    1]
+ [1391    7]] : is the confusion matrix
+0.7887067395264117 : is the accuracy score
+0.875 : is the precision score
+0.005007153075822604 : is the recall score
+0.00995732574679943 : is the f1 score
+
+clf = svm.SVC(kernel='rbf', C=1, gamma='auto', random_state=0, probability=True, verbose=True)
+'Bullied_in_past_12_months', 'Sex', 'Felt_lonely', 'Close_friends', 'Other_students_kind_and_helpful', 'Parents_understand_problems'
+
+Train
+[[13524  2176]
+ [ 7106  3544]] : is the confusion matrix
+0.6477419354838709 : is the accuracy score
+0.6195804195804195 : is the precision score
+0.3327699530516432 : is the recall score
+0.4329871716554673 : is the f1 score
+
+Test
+[[3298  555]
+ [1831  904]] : is the confusion matrix
+0.6378263509411051 : is the accuracy score
+0.6196024674434544 : is the precision score
+0.33053016453382084 : is the recall score
+0.43109203624225084 : is the f1 score
+              precision    recall  f1-score   support
+
+     Class 0       0.64      0.86      0.73      3853
+     Class 1       0.62      0.33      0.43      2735
+
+    accuracy                           0.64      6588
+   macro avg       0.63      0.59      0.58      6588
+weighted avg       0.63      0.64      0.61      6588
+
+clf = svm.SVC(kernel='rbf', C=1, gamma='auto', random_state=0, probability=True, verbose=True)
+'Bullied_in_past_12_months', 'Sex', 'Felt_lonely', 'Close_friends', 'Other_students_kind_and_helpful', 'Parents_understand_problems', 'Physically_attacked', 'Physical_fighting', 'Miss_school_no_permission'
+
+Train
+[[20650  3951]
+ [ 9431  6856]] : is the confusion matrix
+0.6727157112111133 : is the accuracy score
+0.6344036272786158 : is the precision score
+0.4209492233069319 : is the recall score
+0.5060899092049901 : is the f1 score
+              precision    recall  f1-score   support
+
+     Class 0       0.69      0.84      0.76     24601
+     Class 1       0.63      0.42      0.51     16287
+
+    accuracy                           0.67     40888
+   macro avg       0.66      0.63      0.63     40888
+weighted avg       0.67      0.67      0.66     40888
+
+Test
+[[5151 1008]
+ [2379 1684]] : is the confusion matrix
+0.6686558403443553 : is the accuracy score
+0.62555720653789 : is the precision score
+0.41447206497661826 : is the recall score
+0.4985936343449297 : is the f1 score
+              precision    recall  f1-score   support
+
+     Class 0       0.68      0.84      0.75      6159
+     Class 1       0.63      0.41      0.50      4063
+
+    accuracy                           0.67     10222
+   macro avg       0.65      0.63      0.63     10222
+weighted avg       0.66      0.67      0.65     10222

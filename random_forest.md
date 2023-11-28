@@ -1,6 +1,6 @@
 # Random Forest
 
-Estos son los resultados obtenidos con nuestro primer modelo de random forest:
+Estos son los resultados obtenidos con el modelo de random forest:
 
 ## Matriz de confusión
 
