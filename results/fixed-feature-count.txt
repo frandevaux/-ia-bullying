@@ -1,16 +1,12 @@
-Bullied_on_school_property_in_past_12_months
 0.0    26068
 1.0     6870
 
-Bullied_not_on_school_property_in_past_12_months
 0.0    25625
 1.0     7313
 
-Cyber_bullied_in_past_12_months
 0.0    25558
 1.0     7380
 
-Custom_Age
 16 years old               7611
 15 years old               7349
 14 years old               6967
@@ -20,11 +16,9 @@ Custom_Age
 12 years old                 56
 11 years old or younger      12
 
-Sex
 Female    17679
 Male      15259
 
-Physically_attacked
 0 times             27461
 1 time               3003
 2 or 3 times         1345
@@ -34,7 +28,6 @@ Physically_attacked
 8 or 9 times           95
 10 or 11 times         57
 
-Physical_fighting
 0 times             25496
 1 time               3884
 2 or 3 times         2045
@@ -44,57 +37,47 @@ Physical_fighting
 8 or 9 times          133
 10 or 11 times         84
 
-Felt_lonely
 Never               9941
 Sometimes           8874
 Rarely              8733
 Most of the time    3712
 Always              1678
 
-Close_friends
 3 or more    22938
 2             5562
 1             2685
 0             1753
 
-Miss_school_no_permission
 0 days             23466
 1 or 2 days         5677
 3 to 5 days         2217
 10 or more days      820
 6 to 9 days          758
 
-Other_students_kind_and_helpful
 Most of the time    10011
 Sometimes            8375
 Rarely               6238
 Always               5976
 Never                2338
 
-Parents_understand_problems
 Always              8048
 Never               6679
 Rarely              6342
 Most of the time    6011
 Sometimes           5858
 
-Most_of_the_time_or_always_felt_lonely
 0.0    27548
 1.0     5390
 
-Missed_classes_or_school_without_permission
 0.0    23466
 1.0     9472
 
-Were_underweight
 0.0    32284
 1.0      654
 
-Were_overweight
 0.0    23229
 1.0     9709
 
-Were_obese
 0.0    30552
 1.0     2386
 

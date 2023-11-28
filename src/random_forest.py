@@ -3,6 +3,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+import random
+import matplotlib.pyplot as plt
 
 df = pd.read_csv("./results/fixed-Bullying_2018.csv",sep=';')
 
@@ -25,18 +27,47 @@ df = df.drop(categorical_columns, axis=1)
 # Split the dataset
 x = df.drop('Bullied_on_school_property_in_past_12_months', axis=1)
 y = df['Bullied_on_school_property_in_past_12_months']
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
-# Create the model
-rf_model = RandomForestClassifier(n_estimators=250, random_state=42)
 
-# Train the model
-rf_model.fit(x_train, y_train)
+# Calculate with different random_states
 
-# Make predictions
-y_pred = rf_model.predict(x_test)
+results = []
 
-# Evaluate the performance
-print("Accuracy:", accuracy_score(y_test, y_pred))
-print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
-print("Classification Report:\n", classification_report(y_test, y_pred))
+for _ in range(15):
+
+
+    random_state = random.randint(0, 100)
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=random_state)
+
+    # Create the model
+    rf_model = RandomForestClassifier(n_estimators=250, random_state=random_state)
+
+    # Train the model
+    rf_model.fit(x_train, y_train)
+
+    """# Make predictions
+    y_pred = rf_model.predict(x_train)
+
+    # Evaluate the performance
+    print("Evaluación con datos de entrenamiento")
+    print("Accuracy:", accuracy_score(y_train, y_pred))
+    print("Confusion Matrix:\n", confusion_matrix(y_train, y_pred))
+    print("Classification Report:\n", classification_report(y_train, y_pred))
+    print()"""
+    # Make predictions
+    y_pred = rf_model.predict(x_test)
+
+    # Evaluate the performance
+    print("Evaluación con datos de prueba")
+    accuracy = accuracy_score(y_test, y_pred)
+    results.append(accuracy)
+    print("Accuracy:", accuracy)
+    print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
+    print("Classification Report:\n", classification_report(y_test, y_pred))
+
+#Create boxplot with the results
+
+plt.boxplot(results)
+plt.title("Accuracy de Random Forest con 15 combinaciones de datos de prueba distintas")
+plt.show()
+plt.savefig("./results/accuracy.png")
