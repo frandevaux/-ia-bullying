@@ -33,7 +33,7 @@ y = df['Bullied_on_school_property_in_past_12_months']
 
 results = []
 
-for _ in range(1):
+for _ in range(15):
 
 
     random_state = random.randint(0, 100)
@@ -45,7 +45,7 @@ for _ in range(1):
     # Train the model
     rf_model.fit(x_train, y_train)
 
-    # Make predictions
+    """ # Make predictions
     y_pred = rf_model.predict(x_train)
 
     # Evaluate the performance
@@ -53,7 +53,7 @@ for _ in range(1):
     print("Accuracy:", accuracy_score(y_train, y_pred))
     print("Confusion Matrix:\n", confusion_matrix(y_train, y_pred))
     print("Classification Report:\n", classification_report(y_train, y_pred))
-    print()
+    print() """
     # Make predictions
     y_pred = rf_model.predict(x_test)
 
@@ -67,8 +67,8 @@ for _ in range(1):
 
 #Create boxplot with the results
 
-""" plt.boxplot(results)
+plt.boxplot(results)
 plt.title("Accuracy de Random Forest con 15 combinaciones distintas de datos")
 
 plt.savefig("./results/accuracy_rf.png")
-plt.show() """
+plt.show()
