@@ -53,7 +53,7 @@ A partir de la implementación con las siguientes columnas:
 
 Tras ejecutarlo con distintos subconjuntos del dataset se obtuvieron los siguientes resultados:
 
-![accuracy](./results/accuracy_rf.png)
+![accuracy](./results/plots/accuracy_rf.png)
 
 ---
 
@@ -109,4 +109,4 @@ A partir de la nueva implementación con las siguientes columnas y evaluando el 
 
 Tras ejecutarlo con distintos subconjuntos del dataset se obtuvieron los siguientes resultados:
 
-![recall](./results/recall_rf.png)
+![recall](./results/plots/recall_rf.png)
