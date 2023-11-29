@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix,recall_score
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 import random
 import matplotlib.pyplot as plt
@@ -14,8 +14,7 @@ columns = ['Custom_Age',
        'Close_friends', 'Miss_school_no_permission',
        'Other_students_kind_and_helpful', 'Parents_understand_problems',
        'Most_of_the_time_or_always_felt_lonely',
-       'Missed_classes_or_school_without_permission', 'Were_underweight',
-       'Were_overweight', 'Were_obese']
+       'Missed_classes_or_school_without_permission']
 
 # Calculate the best combination of features
 
@@ -26,13 +25,14 @@ for r in range(1, len(columns) + 1):
 
 
 best_accuracy = 0
-best_feature_combination = None
+best_recall = 0
+best_feature_combination_ = None
 combination_results = []
 
 for combination in all_combinations:
     print("Current combination:", combination)
     print("Current best accuracy:", best_accuracy)
-    df = original_df[['Bullied_on_school_property_in_past_12_months'] + list(combination)]
+    df = original_df[['Bullied_in_past_12_months'] + list(combination)]
 
 
     # Identify categorical columns
@@ -50,8 +50,8 @@ for combination in all_combinations:
     df = df.drop(categorical_columns, axis=1)
 
     # Split the dataset
-    x = df.drop('Bullied_on_school_property_in_past_12_months', axis=1)
-    y = df['Bullied_on_school_property_in_past_12_months']
+    x = df.drop('Bullied_in_past_12_months', axis=1)
+    y = df['Bullied_in_past_12_months ']
 
 
     """# Calculate with different random_states (splits)
@@ -83,8 +83,10 @@ for combination in all_combinations:
         # Evaluate the performance
         print("Evaluación con datos de prueba")
         accuracy = accuracy_score(y_test, y_pred)
+        recall = recall_score(y_test, y_pred)
         #results.append(accuracy)
         print("Accuracy:", accuracy)
+        print("Recall:", recall)
         print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
         print("Classification Report:\n", classification_report(y_test, y_pred))
 
@@ -93,8 +95,12 @@ for combination in all_combinations:
     if accuracy > best_accuracy:
         best_accuracy = accuracy
         best_feature_combination = combination
-        combination_results.append((combination, accuracy))
+        
 
+    if recall > best_recall:
+        best_recall = recall
+        best_feature_combination_recall = combination
+        
 """#Create boxplot with the results
 
 plt.boxplot(results)
@@ -102,3 +108,7 @@ plt.title("Accuracy")
 plt.show()"""
 
 print("Best accuracy:", best_accuracy)
+print("Best feature combination:", best_feature_combination)
+print()
+print("Best recall:", best_recall)  
+print("Best feature combination recall:", best_feature_combination_recall)

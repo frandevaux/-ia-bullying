@@ -1,14 +1,14 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, recall_score
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 import random
 import matplotlib.pyplot as plt
 
 df = pd.read_csv("./results/fixed-Bullying_2018.csv",sep=';')
 
-df= df[['Bullied_on_school_property_in_past_12_months',  'Physically_attacked', 'Felt_lonely', 'Close_friends', 'Miss_school_no_permission', 'Missed_classes_or_school_without_permission', ]]
+df= df[['Bullied_in_past_12_months',  'Physically_attacked', 'Physical_fighting', 'Felt_lonely', ]]
 
 # Identify categorical columns
 categorical_columns = df.select_dtypes(include=['object']).columns.tolist()
@@ -25,15 +25,15 @@ df = pd.concat([df, df_onehot], axis=1)
 df = df.drop(categorical_columns, axis=1)
 
 # Split the dataset
-x = df.drop('Bullied_on_school_property_in_past_12_months', axis=1)
-y = df['Bullied_on_school_property_in_past_12_months']
+x = df.drop('Bullied_in_past_12_months', axis=1)
+y = df['Bullied_in_past_12_months']
 
 
 # Calculate with different random_states
 
 results = []
 
-for _ in range(15):
+for _ in range(1):
 
 
     random_state = random.randint(0, 100)
@@ -45,7 +45,7 @@ for _ in range(15):
     # Train the model
     rf_model.fit(x_train, y_train)
 
-    """# Make predictions
+    # Make predictions
     y_pred = rf_model.predict(x_train)
 
     # Evaluate the performance
@@ -53,21 +53,23 @@ for _ in range(15):
     print("Accuracy:", accuracy_score(y_train, y_pred))
     print("Confusion Matrix:\n", confusion_matrix(y_train, y_pred))
     print("Classification Report:\n", classification_report(y_train, y_pred))
-    print()"""
+    print()
     # Make predictions
     y_pred = rf_model.predict(x_test)
 
     # Evaluate the performance
     print("Evaluación con datos de prueba")
-    accuracy = accuracy_score(y_test, y_pred)
-    results.append(accuracy)
-    print("Accuracy:", accuracy)
+    recall = recall_score(y_test, y_pred)
+    
+    results.append(recall)
+    print("Accuracy:", accuracy_score(y_test, y_pred))
     print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
     print("Classification Report:\n", classification_report(y_test, y_pred))
 
 #Create boxplot with the results
 
-plt.boxplot(results)
-plt.title("Accuracy de Random Forest con 15 combinaciones de datos de prueba distintas")
-plt.show()
-plt.savefig("./results/accuracy.png")
+""" plt.boxplot(results)
+plt.title("Recall de Random Forest con 15 combinaciones de datos de prueba distintas")
+
+plt.savefig("./results/recall_rf.png")
+plt.show() """
