@@ -1,5 +1,11 @@
 # Random Forest vs Support Vector Machine
 
+Se utilizaron los algoritmos de Random Forest y Support Vector Machine para predecir la columna 'Bullied_in_past_12_months' del dataset, clasificando a los estudiantes en dos clases: 0 si no fueron acosados en los últimos 12 meses y 1 si fueron acosados en los últimos 12 meses.
+
+'Bullied_in_past_12_months' se crea a partir de combinar otras 3 features referidas al bullying: Bullied_on_school_property_in_last_12_months, Bullied_not_on_school_property_in_last_12_months y Cyber_Bullied_in_last_12_months; si alguno de los 3 es true Bullied_in_last_12_months es true.
+
+En cada enfoque se optó por utilizar distintas features debido a que mejoraban el rendimiento general de cada uno, de acuerdo a las métricas elegidas.
+
 # Random Forest
 
 A partir de una implementación de random forest con las siguientes features:
@@ -17,15 +23,15 @@ Y prediciendo la columna 'Bullied_in_past_12_months', generando 250 arboles, se 
 
 |              | Predicted 0 | Predicted 1 |
 | ------------ | ----------- | ----------- |
-| **Actual 0** | 19865       | 4746        |
-| **Actual 1** | 8752        | 7525        |
+| **Actual 0** | 19979       | 4683        |
+| **Actual 1** | 8822        | 7404        |
 
 ### Reporte de la clasificación
 
 |                  | Precision | Recall | F1-Score | Support |
 | ---------------- | --------- | ------ | -------- | ------- |
-| **Class 0**      | 0.69      | 0.81   | 0.75     | 24611   |
-| **Class 1**      | 0.61      | 0.46   | 0.53     | 16277   |
+| **Class 0**      | 0.69      | 0.81   | 0.75     | 24662   |
+| **Class 1**      | 0.61      | 0.46   | 0.52     | 16226   |
 | **Accuracy**     |           |        | 0.67     | 40888   |
 | **Macro Avg**    | 0.65      | 0.63   | 0.64     | 40888   |
 | **Weighted Avg** | 0.66      | 0.67   | 0.66     | 40888   |
@@ -36,22 +42,22 @@ Y prediciendo la columna 'Bullied_in_past_12_months', generando 250 arboles, se 
 
 |              | Predicted 0 | Predicted 1 |
 | ------------ | ----------- | ----------- |
-| **Actual 0** | 5012        | 1137        |
-| **Actual 1** | 2226        | 1847        |
+| **Actual 0** | 4927        | 1171        |
+| **Actual 1** | 2204        | 1920        |
 
 ### Reporte de la clasificación
 
 |                  | Precision | Recall | F1-Score | Support |
 | ---------------- | --------- | ------ | -------- | ------- |
-| **Class 0**      | 0.69      | 0.82   | 0.75     | 6149    |
-| **Class 1**      | 0.62      | 0.45   | 0.52     | 4073    |
+| **Class 0**      | 0.69      | 0.81   | 0.74     | 6098    |
+| **Class 1**      | 0.62      | 0.47   | 0.53     | 4124    |
 | **Accuracy**     |           |        | 0.6710   | 10222   |
-| **Macro Avg**    | 0.66      | 0.63   | 0.64     | 10222   |
+| **Macro Avg**    | 0.66      | 0.64   | 0.64     | 10222   |
 | **Weighted Avg** | 0.66      | 0.67   | 0.66     | 10222   |
 
 ### Gráficos
 
-Tras ejecutarlo con distintos subconjuntos del dataset se obtuvieron los siguientes resultados:
+Cambiando el parámetro random_state al dividir el conjunto de datos, se generaron así distintos subconjuntos del dataset, obteniendo diferentes resultados:
 
 ![recall](./results/plots/recall_rf.png)
 
@@ -86,18 +92,18 @@ Prediciendo la columna 'Bullied_in_past_12_months', utilizando los siguientes pa
 
 |              | Predicted 0 | Predicted 1 |
 | ------------ | ----------- | ----------- |
-| **Actual 0** | 20650       | 3951        |
-| **Actual 1** | 9431        | 6856        |
+| **Actual 0** | 18978       | 5684        |
+| **Actual 1** | 8661        | 7565        |
 
 ### Reporte de la clasificación
 
 |                  | Precision | Recall | F1-Score | Support |
 | ---------------- | --------- | ------ | -------- | ------- |
-| **Class 0**      | 0.69      | 0.84   | 0.76     | 24601   |
-| **Class 1**      | 0.63      | 0.42   | 0.51     | 16287   |
-| **Accuracy**     |           |        | 0.67     | 40888   |
-| **Macro Avg**    | 0.66      | 0.63   | 0.63     | 40888   |
-| **Weighted Avg** | 0.67      | 0.67   | 0.66     | 40888   |
+| **Class 0**      | 0.69      | 0.77   | 0.73     | 24662   |
+| **Class 1**      | 0.57      | 0.47   | 0.51     | 16226   |
+| **Accuracy**     |           |        | 0.65     | 40888   |
+| **Macro Avg**    | 0.63      | 0.62   | 0.62     | 40888   |
+| **Weighted Avg** | 0.64      | 0.65   | 0.64     | 40888   |
 
 ## Test
 
@@ -105,18 +111,18 @@ Prediciendo la columna 'Bullied_in_past_12_months', utilizando los siguientes pa
 
 |              | Predicted 0 | Predicted 1 |
 | ------------ | ----------- | ----------- |
-| **Actual 0** | 5151        | 1008        |
-| **Actual 1** | 2379        | 1684        |
+| **Actual 0** | 4767        | 1331        |
+| **Actual 1** | 2192        | 1932        |
 
 ### Reporte de la clasificación
 
 |                  | Precision | Recall | F1-Score | Support |
 | ---------------- | --------- | ------ | -------- | ------- |
-| **Class 0**      | 0.68      | 0.84   | 0.75     | 6159    |
-| **Class 1**      | 0.63      | 0.41   | 0.50     | 4063    |
-| **Accuracy**     |           |        | 0.67     | 10222   |
-| **Macro Avg**    | 0.65      | 0.63   | 0.63     | 10222   |
-| **Weighted Avg** | 0.66      | 0.67   | 0.65     | 10222   |
+| **Class 0**      | 0.69      | 0.78   | 0.73     | 6098    |
+| **Class 1**      | 0.59      | 0.47   | 0.52     | 4124    |
+| **Accuracy**     |           |        | 0.66     | 10222   |
+| **Macro Avg**    | 0.64      | 0.63   | 0.63     | 10222   |
+| **Weighted Avg** | 0.65      | 0.66   | 0.65     | 10222   |
 
 
 # Comparación de métricas de los modelos

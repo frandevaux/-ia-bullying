@@ -69,9 +69,9 @@ df = pd.concat([df, df_onehot], axis=1)
 df = df.drop(categorical_columns, axis=1)
 
 # Split the dataset
-x = df.drop('Bullied_on_school_property_in_past_12_months', axis=1)
-y = df['Bullied_on_school_property_in_past_12_months']
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+x = df.drop('Bullied_in_past_12_months', axis=1)
+y = df['Bullied_in_past_12_months']
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
 
 param_grid_svm = {
     'C': [0.1, 1, 100],                   
@@ -80,7 +80,7 @@ param_grid_svm = {
     'class_weight': ['balanced']                    
 }
 
-svmModel_grid = GridSearchCV(estimator=SVC(random_state=1234, probability=True), param_grid=param_grid_svm, verbose=1, cv=10, n_jobs=-1)
+svmModel_grid = GridSearchCV(estimator=SVC(random_state=0, probability=True), param_grid=param_grid_svm, verbose=1, cv=10, n_jobs=-1)
 svmModel_grid.fit(x_train, y_train)
 
 print(svmModel_grid.best_estimator_)
