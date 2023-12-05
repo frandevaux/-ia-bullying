@@ -161,3 +161,83 @@ SVC(C=0.1, class_weight='balanced', gamma=0.001, probability=True, random_state=
 0.592093165798345 : is the precision score
 0.4684772065955383 : is the recall score
 0.523081088398538 : is the f1 score
+
+
+clf = svm.SVC(kernel='rbf', C=0.1, gamma=0.001, class_weight='balanced', random_state=0, probability=True, verbose=True)
+'Bullied_in_past_12_months', 'Sex', 'Felt_lonely', 'Close_friends', 'Other_students_kind_and_helpful', 'Parents_understand_problems', 'Physically_attacked', 'Physical_fighting', 'Miss_school_no_permission'
+Undersampling
+
+Train
+[[13282  2944]
+ [ 9900  6326]] : is the confusion matrix
+0.6042154566744731 : is the accuracy score
+0.6824163969795037 : is the precision score
+0.38986811290521384 : is the recall score
+0.4962347034828992 : is the f1 score
+              precision    recall  f1-score   support
+
+     Class 0       0.57      0.82      0.67     16226
+     Class 1       0.68      0.39      0.50     16226
+
+    accuracy                           0.60     32452
+   macro avg       0.63      0.60      0.59     32452
+weighted avg       0.63      0.60      0.59     32452
+
+
+Test
+[[5058 1040]
+ [2524 1600]] : is the confusion matrix
+0.6513402465270984 : is the accuracy score
+0.6060606060606061 : is the precision score
+0.3879728419010669 : is the recall score
+0.47309284447072736 : is the f1 score
+              precision    recall  f1-score   support
+
+     Class 0       0.67      0.83      0.74      6098
+     Class 1       0.61      0.39      0.47      4124
+
+    accuracy                           0.65     10222
+   macro avg       0.64      0.61      0.61     10222
+weighted avg       0.64      0.65      0.63     10222
+
+Execution time: 658.960675239563 s (11min)
+
+
+clf = svm.SVC(kernel='rbf', C=0.1, gamma=0.001, class_weight='balanced', random_state=0, probability=True, verbose=True)
+'Bullied_in_past_12_months', 'Sex', 'Felt_lonely', 'Close_friends', 'Other_students_kind_and_helpful', 'Parents_understand_problems', 'Physically_attacked', 'Physical_fighting', 'Miss_school_no_permission'
+Oversampling
+
+Train
+[[17831  6831]
+ [11565 13097]] : is the confusion matrix
+0.6270375476441489 : is the accuracy score
+0.6572159775190687 : is the precision score
+0.5310599302570757 : is the recall score
+0.5874411302982732 : is the f1 score
+              precision    recall  f1-score   support
+
+ Not bullied       0.61      0.72      0.66     24662
+     Bullied       0.66      0.53      0.59     24662
+
+    accuracy                           0.63     49324
+   macro avg       0.63      0.63      0.62     49324
+weighted avg       0.63      0.63      0.62     49324
+
+
+Test
+[[4455 1643]
+ [1915 2209]] : is the confusion matrix
+0.6519272158090393 : is the accuracy score
+0.5734683281412254 : is the precision score
+0.5356450048496605 : is the recall score
+0.5539117352056169 : is the f1 score
+              precision    recall  f1-score   support
+
+ Not bullied       0.70      0.73      0.71      6098
+     Bullied       0.57      0.54      0.55      4124
+
+    accuracy                           0.65     10222
+   macro avg       0.64      0.63      0.63     10222
+weighted avg       0.65      0.65      0.65     10222
+
+Execution time: 1620.9457430839539 s

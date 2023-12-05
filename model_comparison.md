@@ -23,15 +23,15 @@ Y prediciendo la columna 'Bullied_in_past_12_months', generando 250 arboles, se 
 
 |              | Predicted 0 | Predicted 1 |
 | ------------ | ----------- | ----------- |
-| **Actual 0** | 19979       | 4683        |
-| **Actual 1** | 8822        | 7404        |
+| **Actual Not bullied** | 19979       | 4683        |
+| **Actual Bullied** | 8822        | 7404        |
 
 ### Reporte de la clasificación
 
 |                  | Precision | Recall | F1-Score | Support |
 | ---------------- | --------- | ------ | -------- | ------- |
-| **Class 0**      | 0.69      | 0.81   | 0.75     | 24662   |
-| **Class 1**      | 0.61      | 0.46   | 0.52     | 16226   |
+| **Not bullied**      | 0.69      | 0.81   | 0.75     | 24662   |
+| **Bullied**      | 0.61      | 0.46   | 0.52     | 16226   |
 | **Accuracy**     |           |        | 0.67     | 40888   |
 | **Macro Avg**    | 0.65      | 0.63   | 0.64     | 40888   |
 | **Weighted Avg** | 0.66      | 0.67   | 0.66     | 40888   |
@@ -42,15 +42,15 @@ Y prediciendo la columna 'Bullied_in_past_12_months', generando 250 arboles, se 
 
 |              | Predicted 0 | Predicted 1 |
 | ------------ | ----------- | ----------- |
-| **Actual 0** | 4927        | 1171        |
-| **Actual 1** | 2204        | 1920        |
+| **Actual Not bullied** | 4927        | 1171        |
+| **Actual Bullied** | 2204        | 1920        |
 
 ### Reporte de la clasificación
 
 |                  | Precision | Recall | F1-Score | Support |
 | ---------------- | --------- | ------ | -------- | ------- |
-| **Class 0**      | 0.69      | 0.81   | 0.74     | 6098    |
-| **Class 1**      | 0.62      | 0.47   | 0.53     | 4124    |
+| **Not bullied**      | 0.69      | 0.81   | 0.74     | 6098    |
+| **Bullied**      | 0.62      | 0.47   | 0.53     | 4124    |
 | **Accuracy**     |           |        | 0.6710   | 10222   |
 | **Macro Avg**    | 0.66      | 0.64   | 0.64     | 10222   |
 | **Weighted Avg** | 0.66      | 0.67   | 0.66     | 10222   |
@@ -92,15 +92,15 @@ Prediciendo la columna 'Bullied_in_past_12_months', utilizando los siguientes pa
 
 |              | Predicted 0 | Predicted 1 |
 | ------------ | ----------- | ----------- |
-| **Actual 0** | 18978       | 5684        |
-| **Actual 1** | 8661        | 7565        |
+| **Actual Not bullied** | 18978       | 5684        |
+| **Actual Bullied** | 8661        | 7565        |
 
 ### Reporte de la clasificación
 
 |                  | Precision | Recall | F1-Score | Support |
 | ---------------- | --------- | ------ | -------- | ------- |
-| **Class 0**      | 0.69      | 0.77   | 0.73     | 24662   |
-| **Class 1**      | 0.57      | 0.47   | 0.51     | 16226   |
+| **Not bullied**      | 0.69      | 0.77   | 0.73     | 24662   |
+| **Bullied**      | 0.57      | 0.47   | 0.51     | 16226   |
 | **Accuracy**     |           |        | 0.65     | 40888   |
 | **Macro Avg**    | 0.63      | 0.62   | 0.62     | 40888   |
 | **Weighted Avg** | 0.64      | 0.65   | 0.64     | 40888   |
@@ -111,15 +111,15 @@ Prediciendo la columna 'Bullied_in_past_12_months', utilizando los siguientes pa
 
 |              | Predicted 0 | Predicted 1 |
 | ------------ | ----------- | ----------- |
-| **Actual 0** | 4767        | 1331        |
-| **Actual 1** | 2192        | 1932        |
+| **Actual Not bullied** | 4767        | 1331        |
+| **Actual Bullied** | 2192        | 1932        |
 
 ### Reporte de la clasificación
 
 |                  | Precision | Recall | F1-Score | Support |
 | ---------------- | --------- | ------ | -------- | ------- |
-| **Class 0**      | 0.69      | 0.78   | 0.73     | 6098    |
-| **Class 1**      | 0.59      | 0.47   | 0.52     | 4124    |
+| **Not bullied**      | 0.69      | 0.78   | 0.73     | 6098    |
+| **Bullied**      | 0.59      | 0.47   | 0.52     | 4124    |
 | **Accuracy**     |           |        | 0.66     | 10222   |
 | **Macro Avg**    | 0.64      | 0.63   | 0.63     | 10222   |
 | **Weighted Avg** | 0.65      | 0.66   | 0.65     | 10222   |
