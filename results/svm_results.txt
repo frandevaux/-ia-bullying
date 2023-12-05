@@ -241,3 +241,42 @@ Test
 weighted avg       0.65      0.65      0.65     10222
 
 Execution time: 1620.9457430839539 s
+
+
+clf = svm.SVC(kernel='rbf', C=0.1, gamma=0.001, class_weight={0: 1, 1: 1.75}, random_state=0, probability=True, verbose=True)
+'Bullied_in_past_12_months', 'Sex', 'Felt_lonely', 'Close_friends', 'Other_students_kind_and_helpful', 'Parents_understand_problems', 'Physically_attacked', 'Physical_fighting', 'Miss_school_no_permission'
+
+Train
+[[12380 12282]
+ [ 4071 12155]] : is the confusion matrix
+0.6000538055175112 : is the accuracy score
+0.49740148136023243 : is the precision score
+0.7491063724885986 : is the recall score
+0.5978407889235915 : is the f1 score
+              precision    recall  f1-score   support
+
+ Not bullied       0.75      0.50      0.60     24662
+     Bullied       0.50      0.75      0.60     16226
+
+    accuracy                           0.60     40888
+   macro avg       0.62      0.63      0.60     40888
+weighted avg       0.65      0.60      0.60     40888
+
+
+Test
+[[3051 3047]
+ [ 988 3136]] : is the confusion matrix
+0.6052631578947368 : is the accuracy score
+0.5071971534853631 : is the precision score
+0.7604267701260912 : is the recall score
+0.6085184825846511 : is the f1 score
+              precision    recall  f1-score   support
+
+ Not bullied       0.76      0.50      0.60      6098
+     Bullied       0.51      0.76      0.61      4124
+
+    accuracy                           0.61     10222
+   macro avg       0.63      0.63      0.61     10222
+weighted avg       0.66      0.61      0.60     10222
+
+Execution time: 1445.1684482097626 s

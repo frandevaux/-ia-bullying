@@ -128,3 +128,5 @@ Prediciendo la columna 'Bullied_in_past_12_months', utilizando los siguientes pa
 # Comparación de métricas de los modelos
 
 ![Model_Metrics_Comparison](./results/plots/Model_Metrics_Comparison.png)
+
+![boxplot_rf_metrics](./results/plots/boxplot_rf_metrics.png)
