@@ -33,6 +33,64 @@ df['Bullied_in_past_12_months'] = df[columns_to_check].apply(lambda row: 1 if ro
 """# Fill null values
 df.fillna("Prefers not to answer", inplace=True)"""
 
+age_mapping = {
+    '11 years old or younger': 11,
+    '12 years old': 12,
+    '13 years old': 13,
+    '14 years old': 14,
+    '15 years old': 15,
+    '16 years old': 16,
+    '17 years old': 17,
+    '18 years old or older': 18,
+    'Prefers not to answer': 15
+}
+df['Custom_Age'] = df['Custom_Age'].map(age_mapping)
+
+physically_attacked_mapping = {
+    '0 times': 0.0,
+    '1 time': 1.0,
+    '2 or 3 times': 2.5,
+    '4 or 5 times': 4.5,
+    '6 or 7 times': 6.5,
+    '8 or 9 times': 8.5,
+    '10 or 11 times': 10.5,
+    '12 or more times': 12.0,
+    'Prefers not to answer': 5.0
+}
+df['Physically_attacked'] = df['Physically_attacked'].map(physically_attacked_mapping)
+
+physical_fighting_mapping = {
+    '0 times': 0.0,
+    '1 time': 1.0,
+    '2 or 3 times': 2.5,
+    '4 or 5 times': 4.5,
+    '6 or 7 times': 6.5,
+    '8 or 9 times': 8.5,
+    '10 or 11 times': 10.5,
+    '12 or more times': 12.0,
+    'Prefers not to answer': 5.0
+}
+df['Physical_fighting'] = df['Physical_fighting'].map(physical_fighting_mapping)
+
+close_friends_mapping = {
+    '0': 0,
+    '1': 1,
+    '2': 2,
+    '3 or more': 3,
+    'Prefers not to answer': 0
+}
+df['Close_friends'] = df['Close_friends'].map(close_friends_mapping)
+
+miss_school_mapping = {
+    '0 days': 0.0,
+    '1 or 2 days': 1.5,
+    '3 to 5 days': 4.0,
+    '6 to 9 days': 7.5,
+    '10 or more days': 10.0,
+    'Prefers not to answer': 5.0
+}
+df['Miss_school_no_permission'] = df['Miss_school_no_permission'].map(miss_school_mapping)
+
 """# Create a new feature 'Has_close_friends' based on 'Close_Friends'
 df['Has_close_friends'] = df['Close_friends'].apply(lambda x: 1 if x != '0' else 0)
 

@@ -11,14 +11,14 @@ Cyber_bullied_in_past_12_months
 1.0    10941
 
 Custom_Age
-14 years old               11547
-15 years old               11479
-16 years old               10659
-13 years old                9469
-17 years old                7462
-18 years old or older        337
-12 years old                 122
-11 years old or younger       35
+14    11547
+15    11479
+16    10659
+13     9469
+17     7462
+18      337
+12      122
+11       35
 
 Sex
 Female                   26732
@@ -26,24 +26,24 @@ Male                     24022
 Prefers not to answer      356
 
 Physically_attacked
-0 times             42671
-1 time               4576
-2 or 3 times         2102
-12 or more times      663
-4 or 5 times          599
-6 or 7 times          245
-8 or 9 times          160
-10 or 11 times         94
+0.0     42671
+1.0      4576
+2.5      2102
+12.0      663
+4.5       599
+6.5       245
+8.5       160
+10.5       94
 
 Physical_fighting
-0 times             39464
-1 time               6103
-2 or 3 times         3180
-4 or 5 times          857
-12 or more times      763
-6 or 7 times          393
-8 or 9 times          219
-10 or 11 times        131
+0.0     39464
+1.0      6103
+2.5      3180
+4.5       857
+12.0      763
+6.5       393
+8.5       219
+10.5      131
 
 Felt_lonely
 Never               15908
@@ -53,17 +53,17 @@ Most of the time     5839
 Always               2786
 
 Close_friends
-3 or more    35619
-2             8337
-1             4248
-0             2906
+3    35619
+2     8337
+1     4248
+0     2906
 
 Miss_school_no_permission
-0 days             36128
-1 or 2 days         8937
-3 to 5 days         3551
-10 or more days     1314
-6 to 9 days         1180
+0.0     36128
+1.5      8937
+4.0      3551
+10.0     1314
+7.5      1180
 
 Other_students_kind_and_helpful
 Most of the time    14885
