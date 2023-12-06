@@ -91,6 +91,42 @@ miss_school_mapping = {
 }
 df['Miss_school_no_permission'] = df['Miss_school_no_permission'].map(miss_school_mapping)
 
+felt_lonely_mapping = {
+    'Never': 0,
+    'Sometimes': 1,
+    'Rarely': 2,
+    'Most of the time': 3,
+    'Always': 4
+}
+df['Felt_lonely'] = df['Felt_lonely'].map(felt_lonely_mapping)
+
+other_students_mapping = {
+    'Most of the time': 4,
+    'Sometimes': 3,
+    'Rarely': 2,
+    'Always': 1,
+    'Never': 0
+}
+df['Other_students_kind_and_helpful'] = df['Other_students_kind_and_helpful'].map(other_students_mapping)
+
+parents_mapping = {
+    'Always': 4,
+    'Never': 0,
+    'Rarely': 1,
+    'Most of the time': 3,
+    'Sometimes': 2
+}
+df['Parents_understand_problems'] = df['Parents_understand_problems'].map(parents_mapping)
+
+sex_mapping = {
+    'Female': 0,
+    'Male': 1,
+    'Prefers not to answer': 2
+}
+df['Sex'] = df['Sex'].map(sex_mapping)
+
+
+
 """# Create a new feature 'Has_close_friends' based on 'Close_Friends'
 df['Has_close_friends'] = df['Close_friends'].apply(lambda x: 1 if x != '0' else 0)
 

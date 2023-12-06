@@ -21,9 +21,9 @@ Custom_Age
 11       35
 
 Sex
-Female                   26732
-Male                     24022
-Prefers not to answer      356
+0    26732
+1    24022
+2      356
 
 Physically_attacked
 0.0     42671
@@ -46,11 +46,11 @@ Physical_fighting
 10.5      131
 
 Felt_lonely
-Never               15908
-Sometimes           13468
-Rarely              13109
-Most of the time     5839
-Always               2786
+0    15908
+1    13468
+2    13109
+3     5839
+4     2786
 
 Close_friends
 3    35619
@@ -66,18 +66,18 @@ Miss_school_no_permission
 7.5      1180
 
 Other_students_kind_and_helpful
-Most of the time    14885
-Sometimes           13129
-Rarely              10048
-Always               9048
-Never                4000
+4    14885
+3    13129
+2    10048
+1     9048
+0     4000
 
 Parents_understand_problems
-Always              12359
-Never               11091
-Rarely               9741
-Most of the time     8968
-Sometimes            8951
+4    12359
+0    11091
+1     9741
+3     8968
+2     8951
 
 Most_of_the_time_or_always_felt_lonely
 0.0    42485

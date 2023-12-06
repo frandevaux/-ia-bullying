@@ -4,7 +4,6 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, f1_score, precision_score, recall_score
-from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from result import Result
 import random
 import matplotlib.pyplot as plt
@@ -13,29 +12,15 @@ from result import Result
 
 df = pd.read_csv("./results/fixed-Bullying_2018.csv",sep=';')
 
-df= df[['Bullied_in_past_12_months',  'Physically_attacked', 'Physical_fighting', 'Felt_lonely', ]]
-
-# Identify categorical columns
-categorical_columns = df.select_dtypes(include=['object']).columns.tolist()
-
-# Use LabelEncoder for ordinal categorical columns
-label_encoder = LabelEncoder()
-df[categorical_columns] = df[categorical_columns].apply(label_encoder.fit_transform)
-
-# Use OneHotEncoder for nominal categorical columns
-onehot_encoder = OneHotEncoder(sparse=False, drop='first')
-onehot_encoded = onehot_encoder.fit_transform(df[categorical_columns])
-df_onehot = pd.DataFrame(onehot_encoded, columns=onehot_encoder.get_feature_names_out(categorical_columns))
-df = pd.concat([df, df_onehot], axis=1)
-df = df.drop(categorical_columns, axis=1)
+df= df[['Bullied_in_past_12_months',  'Physically_attacked', 'Physical_fighting', 'Felt_lonely', 'Sex']]
 
 # Split the dataset
 x = df.drop('Bullied_in_past_12_months', axis=1)
 y = df['Bullied_in_past_12_months']
 
-small_random_states = [43, 18]
-random_states = [43, 18 ,76,92,5,61,29,80,12,50,8,37,64,3,97]
 # Calculate with different random_states
+small_random_states = [0]
+random_states = [43, 18 ,76,92,5,61,29,80,12,50,8,37,64,3,97]
 
 results_accuracy = []
 results_precision = []
@@ -46,17 +31,16 @@ target_names = ['Not bullied', 'Bullied']
 test_results = [] 
 has_calc_importance = False
 
-for random_state in random_states:
+for random_state in small_random_states:
 
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=random_state)
 
     # Create the model
     rf_model = RandomForestClassifier(n_estimators=250, random_state=random_state, class_weight={0: 1, 1: 1.5})
-
     
     # Train the model
     rf_model.fit(x_train, y_train)
-
+    
     if not has_calc_importance:
         importance = rf_model.feature_importances_
         has_calc_importance = True
