@@ -139,70 +139,70 @@
 ## Features modificadas
 
 | Bullied_in_past_12_months | Count |
-|---------------------------|-------|
+| ------------------------- | ----- |
 | 0                         | 33946 |
 | 1                         | 22768 |
 
-| Custom_Age                    | Count |
-|-------------------------------|-------|
-| 14 years old                  | 12902 |
-| 15 years old                  | 12777 |
-| 16 years old                  | 11708 |
-| 13 years old                  | 10550 |
-| 17 years old                  | 8203  |
-| 18 years old or older         | 381   |
-| 12 years old                  | 145   |
-| 11 years old or younger       | 48    |
+| Custom_Age              | Count |
+| ----------------------- | ----- |
+| 14 years old            | 12902 |
+| 15 years old            | 12777 |
+| 16 years old            | 11708 |
+| 13 years old            | 10550 |
+| 17 years old            | 8203  |
+| 18 years old or older   | 381   |
+| 12 years old            | 145   |
+| 11 years old or younger | 48    |
 
-| Sex                       | Count |
-|---------------------------|-------|
-| Female                    | 29270 |
-| Male                      | 26968 |
-| Prefers not to answer     | 476   |
+| Sex                   | Count |
+| --------------------- | ----- |
+| Female                | 29270 |
+| Male                  | 26968 |
+| Prefers not to answer | 476   |
 
-| Physically_attacked       | Count |
-|---------------------------|-------|
-| 0 times                   | 46862 |
-| 1 time                    | 5216  |
-| 2 or 3 times              | 2383  |
-| 12 or more times          | 780   |
-| 4 or 5 times              | 685   |
-| 6 or 7 times              | 296   |
-| Prefers not to answer     | 196   |
-| 8 or 9 times              | 184   |
-| 10 or 11 times            | 112   |
+| Physically_attacked   | Count |
+| --------------------- | ----- |
+| 0 times               | 46862 |
+| 1 time                | 5216  |
+| 2 or 3 times          | 2383  |
+| 12 or more times      | 780   |
+| 4 or 5 times          | 685   |
+| 6 or 7 times          | 296   |
+| Prefers not to answer | 196   |
+| 8 or 9 times          | 184   |
+| 10 or 11 times        | 112   |
 
-| Physical_fighting         | Count |
-|---------------------------|-------|
-| 0 times                   | 43126 |
-| 1 time                    | 6898  |
-| 2 or 3 times              | 3627  |
-| 4 or 5 times              | 1012  |
-| 12 or more times          | 924   |
-| 6 or 7 times              | 477   |
-| 8 or 9 times              | 260   |
-| Prefers not to answer     | 228   |
-| 10 or 11 times            | 162   |
+| Physical_fighting     | Count |
+| --------------------- | ----- |
+| 0 times               | 43126 |
+| 1 time                | 6898  |
+| 2 or 3 times          | 3627  |
+| 4 or 5 times          | 1012  |
+| 12 or more times      | 924   |
+| 6 or 7 times          | 477   |
+| 8 or 9 times          | 260   |
+| Prefers not to answer | 228   |
+| 10 or 11 times        | 162   |
 
-| Felt_lonely               | Count |
-|---------------------------|-------|
-| Never                     | 17843 |
-| Sometimes                 | 14662 |
-| Rarely                    | 14377 |
-| Most of the time          | 6401  |
-| Always                    | 3108  |
-| Prefers not to answer     | 323   |
+| Felt_lonely           | Count |
+| --------------------- | ----- |
+| Never                 | 17843 |
+| Sometimes             | 14662 |
+| Rarely                | 14377 |
+| Most of the time      | 6401  |
+| Always                | 3108  |
+| Prefers not to answer | 323   |
 
-| Close_friends             | Count |
-|---------------------------|-------|
-| 3 or more                 | 38616 |
-| 2                         | 9063  |
-| 1                         | 4711  |
-| 0                         | 3308  |
-| Prefers not to answer     | 1016  |
+| Close_friends         | Count |
+| --------------------- | ----- |
+| 3 or more             | 38616 |
+| 2                     | 9063  |
+| 1                     | 4711  |
+| 0                     | 3308  |
+| Prefers not to answer | 1016  |
 
 | Miss_school_no_permission | Count |
-|---------------------------|-------|
+| ------------------------- | ----- |
 | 0 days                    | 38538 |
 | 1 or 2 days               | 9693  |
 | 3 to 5 days               | 3903  |
@@ -211,52 +211,52 @@
 | 6 to 9 days               | 1312  |
 
 | Other_students_kind_and_helpful | Count |
-|---------------------------------|-------|
-| Most of the time               | 15773 |
-| Sometimes                      | 14097 |
-| Rarely                         | 10915 |
-| Always                         | 9678  |
-| Never                          | 4742  |
-| Prefers not to answer          | 1509  |
+| ------------------------------- | ----- |
+| Most of the time                | 15773 |
+| Sometimes                       | 14097 |
+| Rarely                          | 10915 |
+| Always                          | 9678  |
+| Never                           | 4742  |
+| Prefers not to answer           | 1509  |
 
-| Parents_understand_problems    | Count |
-|-------------------------------|-------|
-| Always                        | 13031 |
-| Never                         | 11915 |
-| Rarely                        | 10424 |
-| Most of the time              | 9531  |
-| Sometimes                     | 9498  |
-| Prefers not to answer          | 2315  |
+| Parents_understand_problems | Count |
+| --------------------------- | ----- |
+| Always                      | 13031 |
+| Never                       | 11915 |
+| Rarely                      | 10424 |
+| Most of the time            | 9531  |
+| Sometimes                   | 9498  |
+| Prefers not to answer       | 2315  |
 
 | Most_of_the_time_or_always_felt_lonely | Count |
-|----------------------------------------|-------|
+| -------------------------------------- | ----- |
 | 0.0                                    | 46882 |
 | 1.0                                    | 9509  |
 | Prefers not to answer                  | 323   |
 
 | Missed_classes_or_school_without_permission | Count |
-|-------------------------------------------|-------|
-| 0.0                                       | 38538 |
-| 1.0                                       | 16361 |
-| Prefers not to answer                     | 1815  |
+| ------------------------------------------- | ----- |
+| 0.0                                         | 38538 |
+| 1.0                                         | 16361 |
+| Prefers not to answer                       | 1815  |
 
-| Were_underweight                         | Count |
-|------------------------------------------|-------|
-| 0.0                                      | 35262 |
-| Prefers not to answer                    | 20720 |
-| 1.0                                      | 732   |
+| Were_underweight      | Count |
+| --------------------- | ----- |
+| 0.0                   | 35262 |
+| Prefers not to answer | 20720 |
+| 1.0                   | 732   |
 
-| Were_overweight                          | Count |
-|------------------------------------------|-------|
-| 0.0                                      | 25337 |
-| Prefers not to answer                    | 20720 |
-| 1.0                                      | 10657 |
+| Were_overweight       | Count |
+| --------------------- | ----- |
+| 0.0                   | 25337 |
+| Prefers not to answer | 20720 |
+| 1.0                   | 10657 |
 
-| Were_obese                               | Count |
-|------------------------------------------|-------|
-| 0.0                                      | 33341 |
-| Prefers not to answer                    | 20720 |
-| 1.0                                      | 2653  |
+| Were_obese            | Count |
+| --------------------- | ----- |
+| 0.0                   | 33341 |
+| Prefers not to answer | 20720 |
+| 1.0                   | 2653  |
 
 ## Gráficos
 
@@ -270,21 +270,28 @@
 
 Índice de correlación de Cramer's V entre cada una de las variables y Bullied_in_past_12_months.
 
-| Variable                                     | Cramer's V                       |
-|----------------------------------------------|----------------------------------|
-| Felt_lonely                                  | 0.2726072072581656               |
-| Physically_attacked                          | 0.23154321567889047              |
-| Most_of_the_time_or_always_felt_lonely       | 0.21002465668566908              |
-| Sex                                          | 0.1010648424129439               |
-| Other_students_kind_and_helpful              | 0.13117254343399898              |
-| Physical_fighting                            | 0.12324990208733567              |
-| Parents_understand_problems                  | 0.11609267319217477              |
-| Miss_school_no_permission                    | 0.08803480691919753              |
-| Missed_classes_or_school_without_permission  | 0.08438424530657992              |
-| Close_friends                                | 0.07364435597446765              |
-| Were_obese                                   | 0.022156982271592063             |
-| Were_overweight                              | 0.021917650571953416             |
-| Were_underweight                             | 0.02189826267397687              |
-| Custom_Age                                   | 0.020020473152699978             |
+| Variable                                    | Cramer's V           |
+| ------------------------------------------- | -------------------- |
+| Felt_lonely                                 | 0.2726072072581656   |
+| Physically_attacked                         | 0.23154321567889047  |
+| Most_of_the_time_or_always_felt_lonely      | 0.21002465668566908  |
+| Sex                                         | 0.1010648424129439   |
+| Other_students_kind_and_helpful             | 0.13117254343399898  |
+| Physical_fighting                           | 0.12324990208733567  |
+| Parents_understand_problems                 | 0.11609267319217477  |
+| Miss_school_no_permission                   | 0.08803480691919753  |
+| Missed_classes_or_school_without_permission | 0.08438424530657992  |
+| Close_friends                               | 0.07364435597446765  |
+| Were_obese                                  | 0.022156982271592063 |
+| Were_overweight                             | 0.021917650571953416 |
+| Were_underweight                            | 0.02189826267397687  |
+| Custom_Age                                  | 0.020020473152699978 |
 
 Se probó agregar una feature Has_close_friends a partir de Close_friends pero empeoraba su valor de correlación de Cramer's V y también se probó cambiar algunos de los datos a valores numéricos (como Physically_attacked) y realizar una matriz de correlación pero tampoco representó una mejora de lo obtenido en los resultados previos.
+
+Después de analizar los datos mediante Cramers'V y experimentar con diversas combinaciones de features con el objetivo de maximizar los resultados a través de la implementación de Random Forest, se ha determinado la utilización de las siguientes variables:
+
+- Bullied_in_past_12_months
+- Physically_attacked
+- Physical_fighting
+- Felt_lonely

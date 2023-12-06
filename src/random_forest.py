@@ -1,4 +1,5 @@
 import json
+import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
@@ -43,16 +44,22 @@ results_f1 = []
 
 target_names = ['Not bullied', 'Bullied']
 test_results = [] 
+has_calc_importance = False
 
 for random_state in random_states:
 
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=random_state)
 
     # Create the model
-    rf_model = RandomForestClassifier(n_estimators=250, random_state=random_state)
+    rf_model = RandomForestClassifier(n_estimators=250, random_state=random_state, class_weight={0: 1, 1: 1.5})
 
+    
     # Train the model
     rf_model.fit(x_train, y_train)
+
+    if not has_calc_importance:
+        importance = rf_model.feature_importances_
+        has_calc_importance = True
 
     # Make predictions
     y_pred = rf_model.predict(x_train)
@@ -100,7 +107,6 @@ for random_state in random_states:
 """ with open("./results/rf_test_results.json", "w") as json_file:
     json.dump([result.__dict__ for result in test_results], json_file, indent=2) """
     
-    
 
 #Create boxplot with the results
 
@@ -109,5 +115,5 @@ plt.title("Métricas de Random Forest con 15 combinaciones distintas de datos")
 plt.ylabel("Score")
 plt.xlabel("Metric")
 
-plt.savefig("./results/boxplot_rf_metrics.png")
+plt.savefig("./results/plots/boxplot_rf_metrics2.png") 
 
