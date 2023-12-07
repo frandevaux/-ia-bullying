@@ -57,34 +57,25 @@ Y prediciendo la columna 'Bullied_in_past_12_months', generando 250 arboles, se 
 
 ### Gráficos
 
-Cambiando el parámetro random_state al dividir el conjunto de datos, se generaron así distintos subconjuntos del dataset, obteniendo diferentes resultados:
+Generamos gráficos con el propósito de identificar la combinación óptima de la cantidad de árboles a utilizar en el modelo Random Forest, junto con los mejores pesos para las clases respectivas. Al analizar los resultados, observamos que no hubo una mejora significativa al aumentar el número de árboles, por lo que decidimos mantener n=100. En cuanto a los pesos de las clases, optamos por una opción equilibrada entre el accuracy y el recall, seleccionando Not_bullied: 1 y Bullied: 1.5 (representados por la curva verde).
 
-![recall](./results/plots/recall_rf.png)
+![rf_grid_search_accuracy.png](./results/plots/rf_grid_search_accuracy.png)
 
+![rf_grid_search_recall.png](./results/plots/rf_grid_search_recall.png)
 
 # Support Vector Machine
 
-A partir de una implementación de SVM con las siguientes features:
-
-- 'Bullied_in_past_12_months'
-- 'Sex'
-- 'Felt_lonely'
-- 'Close_friends'
-- 'Other_students_kind_and_helpful'
-- 'Parents_understand_problems'
-- 'Physically_attacked'
-- 'Physical_fighting'
-- 'Miss_school_no_permission'
-
-Prediciendo la columna 'Bullied_in_past_12_months', utilizando los siguientes parámetros:
+Para la implementación de este algoritmo se utilizaron los siguientes parámetros:
 
 - kernel='rbf': Se utiliza un kernel radial, que es comúnmente utilizado en problemas no lineales.
 
-- C=1: El parámetro C controla la penalización por error en la clasificación. Un valor más alto de C hará que el modelo sea más estricto, tratando de clasificar correctamente todos los puntos de entrenamiento, pero puede llevar a overfitting.
+- C=10: El parámetro C controla la penalización por error en la clasificación. Un valor más alto de C hará que el modelo sea más estricto, tratando de clasificar correctamente todos los puntos de entrenamiento, pero puede llevar a overfitting.
 
-- gamma='auto': El parámetro gamma controla la amplitud de la función kernel. En este caso, se establece en 'auto', lo que significa que se utilizará 1/n_features. Un valor bajo de gamma produce una función kernel más suave, mientras que un valor alto puede llevar a overfitting.
+- gamma= 0.001: El parámetro gamma controla la amplitud de la función kernel. Un valor bajo de gamma produce una función kernel más suave, mientras que un valor alto puede llevar a overfitting.
 
 - probability=True: Este parámetro habilita el cálculo de probabilidades de pertenencia a cada clase.
+  
+- class_weight= {0: 1, 1: 1.5}
 
 ## Train
 
@@ -124,9 +115,21 @@ Prediciendo la columna 'Bullied_in_past_12_months', utilizando los siguientes pa
 | **Macro Avg**    | 0.64      | 0.63   | 0.63     | 10222   |
 | **Weighted Avg** | 0.65      | 0.66   | 0.65     | 10222   |
 
+### Gráficos
+
+Se generaron gráficos que representan el accuracy y el recall en función del factor de penalización de SVM, utilizando 15 divisiones diferentes. A partir de estos resultados, se seleccionó el valor de c=10, ya que demostró ser la elección que logra el mejor equilibrio entre ambas métricas.
+
+![svm_boxplot_c_accuracy.png](./results/plots/svm_boxplot_c_accuracy.png)
+
+![svm_boxplot_c_recall.png](./results/plots/svm_boxplot_c_recall.png)
+
 
 # Comparación de métricas de los modelos
 
-![Model_Metrics_Comparison](./results/plots/Model_Metrics_Comparison.png)
+![boxplot_rf_metrics](./results/plots/rf_boxplot_30.png)
 
-![boxplot_rf_metrics](./results/plots/boxplot_rf_metrics.png)
+![boxplot_svm_metrics](./results/plots/svm_boxplot_30.png)
+
+
+
+
