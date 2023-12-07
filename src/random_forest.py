@@ -35,7 +35,7 @@ for random_state in small_random_states:
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=random_state)
 
     # Create the model
-    rf_model = RandomForestClassifier(n_estimators=250, random_state=random_state, class_weight={0: 1, 1: 1.5})
+    rf_model = RandomForestClassifier(n_estimators=100, random_state=random_state, class_weight={0: 1, 1: 1.5})
     
     # Train the model
     rf_model.fit(x_train, y_train)

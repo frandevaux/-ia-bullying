@@ -1,0 +1,1118 @@
+[
+  {
+    "Train": {
+      "accuracy": 0.6527832126785365,
+      "precision": 0.5567530624047106,
+      "recall": 0.6474688187820983,
+      "f1": 0.5986940667665432,
+      "confusion_matrix": [
+        [
+          16101,
+          8431
+        ],
+        [
+          5766,
+          10590
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.66      0.69     24532\n     Bullied       0.56      0.65      0.60     16356\n\n    accuracy                           0.65     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.66      0.65      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6487967129720211,
+      "precision": 0.5437608318890814,
+      "recall": 0.628442663995994,
+      "f1": 0.5830429732868757,
+      "confusion_matrix": [
+        [
+          4122,
+          2106
+        ],
+        [
+          1484,
+          2510
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.66      0.70      6228\n     Bullied       0.54      0.63      0.58      3994\n\n    accuracy                           0.65     10222\n   macro avg       0.64      0.65      0.64     10222\nweighted avg       0.66      0.65      0.65     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.651878301702211,
+      "precision": 0.5532860620171447,
+      "recall": 0.6435253569670113,
+      "f1": 0.5950036988561999,
+      "confusion_matrix": [
+        [
+          16198,
+          8442
+        ],
+        [
+          5792,
+          10456
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.66      0.69     24640\n     Bullied       0.55      0.64      0.60     16248\n\n    accuracy                           0.65     40888\n   macro avg       0.64      0.65      0.64     40888\nweighted avg       0.66      0.65      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6496771668949325,
+      "precision": 0.554577833647601,
+      "recall": 0.6452949780594832,
+      "f1": 0.5965070422535211,
+      "confusion_matrix": [
+        [
+          3994,
+          2126
+        ],
+        [
+          1455,
+          2647
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.65      0.69      6120\n     Bullied       0.55      0.65      0.60      4102\n\n    accuracy                           0.65     10222\n   macro avg       0.64      0.65      0.64     10222\nweighted avg       0.66      0.65      0.65     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6547153198982587,
+      "precision": 0.5566542832167832,
+      "recall": 0.6292613636363636,
+      "f1": 0.5907351576994434,
+      "confusion_matrix": [
+        [
+          16581,
+          8115
+        ],
+        [
+          6003,
+          10189
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.67      0.70     24696\n     Bullied       0.56      0.63      0.59     16192\n\n    accuracy                           0.65     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.66      0.65      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.655840344355312,
+      "precision": 0.56941431670282,
+      "recall": 0.6313131313131313,
+      "f1": 0.5987682481751825,
+      "confusion_matrix": [
+        [
+          4079,
+          1985
+        ],
+        [
+          1533,
+          2625
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.67      0.70      6064\n     Bullied       0.57      0.63      0.60      4158\n\n    accuracy                           0.66     10222\n   macro avg       0.65      0.65      0.65     10222\nweighted avg       0.66      0.66      0.66     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6538837800821757,
+      "precision": 0.5561589332759825,
+      "recall": 0.6369065944215258,
+      "f1": 0.5938002296211251,
+      "confusion_matrix": [
+        [
+          16392,
+          8255
+        ],
+        [
+          5897,
+          10344
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.67      0.70     24647\n     Bullied       0.56      0.64      0.59     16241\n\n    accuracy                           0.65     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.66      0.65      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6502641361768734,
+      "precision": 0.5562816188870152,
+      "recall": 0.6422487223168655,
+      "f1": 0.5961820851688694,
+      "confusion_matrix": [
+        [
+          4008,
+          2105
+        ],
+        [
+          1470,
+          2639
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.66      0.69      6113\n     Bullied       0.56      0.64      0.60      4109\n\n    accuracy                           0.65     10222\n   macro avg       0.64      0.65      0.64     10222\nweighted avg       0.66      0.65      0.65     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6550821756994717,
+      "precision": 0.5564714698640403,
+      "recall": 0.6412138407450811,
+      "f1": 0.5958446768878063,
+      "confusion_matrix": [
+        [
+          16389,
+          8286
+        ],
+        [
+          5817,
+          10396
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.66      0.70     24675\n     Bullied       0.56      0.64      0.60     16213\n\n    accuracy                           0.66     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.67      0.66      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6469379769125416,
+      "precision": 0.5571676050238198,
+      "recall": 0.6219482716944645,
+      "f1": 0.5877784123358081,
+      "confusion_matrix": [
+        [
+          4040,
+          2045
+        ],
+        [
+          1564,
+          2573
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.72      0.66      0.69      6085\n     Bullied       0.56      0.62      0.59      4137\n\n    accuracy                           0.65     10222\n   macro avg       0.64      0.64      0.64     10222\nweighted avg       0.65      0.65      0.65     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6567207982782235,
+      "precision": 0.5620497707924034,
+      "recall": 0.6314530962599633,
+      "f1": 0.5947334988739389,
+      "confusion_matrix": [
+        [
+          16553,
+          8025
+        ],
+        [
+          6011,
+          10299
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.67      0.70     24578\n     Bullied       0.56      0.63      0.59     16310\n\n    accuracy                           0.66     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.67      0.66      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6468401486988847,
+      "precision": 0.5460977701543739,
+      "recall": 0.6304455445544555,
+      "f1": 0.5852481617647058,
+      "confusion_matrix": [
+        [
+          4065,
+          2117
+        ],
+        [
+          1493,
+          2547
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.66      0.69      6182\n     Bullied       0.55      0.63      0.59      4040\n\n    accuracy                           0.65     10222\n   macro avg       0.64      0.64      0.64     10222\nweighted avg       0.66      0.65      0.65     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6554490315006848,
+      "precision": 0.5585753951302862,
+      "recall": 0.6424886377594891,
+      "f1": 0.5976006855184234,
+      "confusion_matrix": [
+        [
+          16339,
+          8267
+        ],
+        [
+          5821,
+          10461
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.66      0.70     24606\n     Bullied       0.56      0.64      0.60     16282\n\n    accuracy                           0.66     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.67      0.66      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6442966151438074,
+      "precision": 0.5465316673847479,
+      "recall": 0.6236479842674533,
+      "f1": 0.582548794489093,
+      "confusion_matrix": [
+        [
+          4049,
+          2105
+        ],
+        [
+          1531,
+          2537
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.66      0.69      6154\n     Bullied       0.55      0.62      0.58      4068\n\n    accuracy                           0.64     10222\n   macro avg       0.64      0.64      0.64     10222\nweighted avg       0.65      0.64      0.65     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6560849148894541,
+      "precision": 0.5593147751605996,
+      "recall": 0.6418478928615309,
+      "f1": 0.5977458664683334,
+      "confusion_matrix": [
+        [
+          16378,
+          8232
+        ],
+        [
+          5830,
+          10448
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.67      0.70     24610\n     Bullied       0.56      0.64      0.60     16278\n\n    accuracy                           0.66     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.67      0.66      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6422422226570143,
+      "precision": 0.5446332544633254,
+      "recall": 0.6218074656188605,
+      "f1": 0.5806673546611626,
+      "confusion_matrix": [
+        [
+          4033,
+          2117
+        ],
+        [
+          1540,
+          2532
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.72      0.66      0.69      6150\n     Bullied       0.54      0.62      0.58      4072\n\n    accuracy                           0.64     10222\n   macro avg       0.63      0.64      0.63     10222\nweighted avg       0.65      0.64      0.65     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6558892584621405,
+      "precision": 0.5593716143011918,
+      "recall": 0.6349772475710245,
+      "f1": 0.5947814066010022,
+      "confusion_matrix": [
+        [
+          16492,
+          8134
+        ],
+        [
+          5936,
+          10326
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.67      0.70     24626\n     Bullied       0.56      0.63      0.59     16262\n\n    accuracy                           0.66     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.67      0.66      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6479162590491098,
+      "precision": 0.553163731245923,
+      "recall": 0.6223091976516634,
+      "f1": 0.585702774260389,
+      "confusion_matrix": [
+        [
+          4079,
+          2055
+        ],
+        [
+          1544,
+          2544
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.66      0.69      6134\n     Bullied       0.55      0.62      0.59      4088\n\n    accuracy                           0.65     10222\n   macro avg       0.64      0.64      0.64     10222\nweighted avg       0.66      0.65      0.65     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.656794169438466,
+      "precision": 0.5600241744959068,
+      "recall": 0.6284991984215069,
+      "f1": 0.592289142624713,
+      "confusion_matrix": [
+        [
+          16662,
+          8008
+        ],
+        [
+          6025,
+          10193
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.68      0.70     24670\n     Bullied       0.56      0.63      0.59     16218\n\n    accuracy                           0.66     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.67      0.66      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6486988847583643,
+      "precision": 0.5579353180552581,
+      "recall": 0.6304453049370765,
+      "f1": 0.5919781842972389,
+      "confusion_matrix": [
+        [
+          4026,
+          2064
+        ],
+        [
+          1527,
+          2605
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.66      0.69      6090\n     Bullied       0.56      0.63      0.59      4132\n\n    accuracy                           0.65     10222\n   macro avg       0.64      0.65      0.64     10222\nweighted avg       0.66      0.65      0.65     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6586529054979456,
+      "precision": 0.5640030607783122,
+      "recall": 0.6331063255414443,
+      "f1": 0.5965601965601967,
+      "confusion_matrix": [
+        [
+          16612,
+          7977
+        ],
+        [
+          5980,
+          10319
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.68      0.70     24589\n     Bullied       0.56      0.63      0.60     16299\n\n    accuracy                           0.66     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.67      0.66      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6388182351790256,
+      "precision": 0.5388108108108108,
+      "recall": 0.6151567514194026,
+      "f1": 0.574458275703089,
+      "confusion_matrix": [
+        [
+          4038,
+          2133
+        ],
+        [
+          1559,
+          2492
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.72      0.65      0.69      6171\n     Bullied       0.54      0.62      0.57      4051\n\n    accuracy                           0.64     10222\n   macro avg       0.63      0.63      0.63     10222\nweighted avg       0.65      0.64      0.64     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6554001173938564,
+      "precision": 0.5591690697426038,
+      "recall": 0.6421562614988348,
+      "f1": 0.5977963005252341,
+      "confusion_matrix": [
+        [
+          16327,
+          8255
+        ],
+        [
+          5835,
+          10471
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.66      0.70     24582\n     Bullied       0.56      0.64      0.60     16306\n\n    accuracy                           0.66     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.67      0.66      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6451770690667188,
+      "precision": 0.5453359425962165,
+      "recall": 0.6201780415430267,
+      "f1": 0.5803540437348143,
+      "confusion_matrix": [
+        [
+          4087,
+          2091
+        ],
+        [
+          1536,
+          2508
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.66      0.69      6178\n     Bullied       0.55      0.62      0.58      4044\n\n    accuracy                           0.65     10222\n   macro avg       0.64      0.64      0.64     10222\nweighted avg       0.66      0.65      0.65     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6555713167677558,
+      "precision": 0.5598299912816042,
+      "recall": 0.63111984765649,
+      "f1": 0.5933412260691288,
+      "confusion_matrix": [
+        [
+          16531,
+          8078
+        ],
+        [
+          6005,
+          10274
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.67      0.70     24609\n     Bullied       0.56      0.63      0.59     16279\n\n    accuracy                           0.66     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.66      0.66      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.652612013304637,
+      "precision": 0.5572183098591549,
+      "recall": 0.6219602063375093,
+      "f1": 0.587811955890888,
+      "confusion_matrix": [
+        [
+          4139,
+          2012
+        ],
+        [
+          1539,
+          2532
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.67      0.70      6151\n     Bullied       0.56      0.62      0.59      4071\n\n    accuracy                           0.65     10222\n   macro avg       0.64      0.65      0.64     10222\nweighted avg       0.66      0.65      0.66     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6540549794560752,
+      "precision": 0.5577908419179116,
+      "recall": 0.6349459724950884,
+      "f1": 0.5938729219902954,
+      "confusion_matrix": [
+        [
+          16401,
+          8199
+        ],
+        [
+          5946,
+          10342
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.67      0.70     24600\n     Bullied       0.56      0.63      0.59     16288\n\n    accuracy                           0.65     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.66      0.65      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6504597926041871,
+      "precision": 0.5515062144512324,
+      "recall": 0.6445100935499753,
+      "f1": 0.5943920989896696,
+      "confusion_matrix": [
+        [
+          4031,
+          2129
+        ],
+        [
+          1444,
+          2618
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.65      0.69      6160\n     Bullied       0.55      0.64      0.59      4062\n\n    accuracy                           0.65     10222\n   macro avg       0.64      0.65      0.64     10222\nweighted avg       0.66      0.65      0.65     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6548865192721581,
+      "precision": 0.5573709617526922,
+      "recall": 0.6456310679611651,
+      "f1": 0.5982633451957295,
+      "confusion_matrix": [
+        [
+          16270,
+          8344
+        ],
+        [
+          5767,
+          10507
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.66      0.70     24614\n     Bullied       0.56      0.65      0.60     16274\n\n    accuracy                           0.65     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.67      0.65      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6401878301702211,
+      "precision": 0.5419831223628692,
+      "recall": 0.6302747791952895,
+      "f1": 0.5828039927404719,
+      "confusion_matrix": [
+        [
+          3975,
+          2171
+        ],
+        [
+          1507,
+          2569
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.65      0.68      6146\n     Bullied       0.54      0.63      0.58      4076\n\n    accuracy                           0.64     10222\n   macro avg       0.63      0.64      0.63     10222\nweighted avg       0.65      0.64      0.64     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6548620622187439,
+      "precision": 0.5584353379457158,
+      "recall": 0.6434265391219034,
+      "f1": 0.5979258077383327,
+      "confusion_matrix": [
+        [
+          16283,
+          8297
+        ],
+        [
+          5815,
+          10493
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.66      0.70     24580\n     Bullied       0.56      0.64      0.60     16308\n\n    accuracy                           0.65     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.67      0.65      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6426335355116416,
+      "precision": 0.5408699306577012,
+      "recall": 0.6368134586838199,
+      "f1": 0.5849335302806499,
+      "confusion_matrix": [
+        [
+          3995,
+          2185
+        ],
+        [
+          1468,
+          2574
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.65      0.69      6180\n     Bullied       0.54      0.64      0.58      4042\n\n    accuracy                           0.64     10222\n   macro avg       0.64      0.64      0.64     10222\nweighted avg       0.66      0.64      0.65     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6535169242809626,
+      "precision": 0.558768406961178,
+      "recall": 0.6377582202664711,
+      "f1": 0.5956560207780347,
+      "confusion_matrix": [
+        [
+          16286,
+          8240
+        ],
+        [
+          5927,
+          10435
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.66      0.70     24526\n     Bullied       0.56      0.64      0.60     16362\n\n    accuracy                           0.65     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.66      0.65      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6531011543729212,
+      "precision": 0.5476704055220017,
+      "recall": 0.6366599799398195,
+      "f1": 0.588821892393321,
+      "confusion_matrix": [
+        [
+          4137,
+          2097
+        ],
+        [
+          1449,
+          2539
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.66      0.70      6234\n     Bullied       0.55      0.64      0.59      3988\n\n    accuracy                           0.65     10222\n   macro avg       0.64      0.65      0.64     10222\nweighted avg       0.67      0.65      0.66     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6551800039131286,
+      "precision": 0.5585271733304749,
+      "recall": 0.6399926303506724,
+      "f1": 0.5964912280701754,
+      "confusion_matrix": [
+        [
+          16368,
+          8237
+        ],
+        [
+          5862,
+          10421
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.67      0.70     24605\n     Bullied       0.56      0.64      0.60     16283\n\n    accuracy                           0.66     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.67      0.66      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6468401486988847,
+      "precision": 0.5495339258616952,
+      "recall": 0.6233095647897713,
+      "f1": 0.5841013824884793,
+      "confusion_matrix": [
+        [
+          4077,
+          2078
+        ],
+        [
+          1532,
+          2535
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.66      0.69      6155\n     Bullied       0.55      0.62      0.58      4067\n\n    accuracy                           0.65     10222\n   macro avg       0.64      0.64      0.64     10222\nweighted avg       0.66      0.65      0.65     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6537614948151047,
+      "precision": 0.5567353067353067,
+      "recall": 0.6379893074417747,
+      "f1": 0.5945992382806906,
+      "confusion_matrix": [
+        [
+          16349,
+          8266
+        ],
+        [
+          5891,
+          10382
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.66      0.70     24615\n     Bullied       0.56      0.64      0.59     16273\n\n    accuracy                           0.65     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.66      0.65      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6528076697319507,
+      "precision": 0.5574162679425837,
+      "recall": 0.6286485160657346,
+      "f1": 0.5908933717579251,
+      "confusion_matrix": [
+        [
+          4110,
+          2035
+        ],
+        [
+          1514,
+          2563
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.67      0.70      6145\n     Bullied       0.56      0.63      0.59      4077\n\n    accuracy                           0.65     10222\n   macro avg       0.64      0.65      0.64     10222\nweighted avg       0.66      0.65      0.66     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6549843474858149,
+      "precision": 0.5568789370599756,
+      "recall": 0.6471456692913385,
+      "f1": 0.5986286169516603,
+      "confusion_matrix": [
+        [
+          16261,
+          8371
+        ],
+        [
+          5736,
+          10520
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.66      0.70     24632\n     Bullied       0.56      0.65      0.60     16256\n\n    accuracy                           0.65     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.67      0.65      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6403834865975347,
+      "precision": 0.5446581196581196,
+      "recall": 0.622618466047875,
+      "f1": 0.5810348757693184,
+      "confusion_matrix": [
+        [
+          3997,
+          2131
+        ],
+        [
+          1545,
+          2549
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.72      0.65      0.69      6128\n     Bullied       0.54      0.62      0.58      4094\n\n    accuracy                           0.64     10222\n   macro avg       0.63      0.64      0.63     10222\nweighted avg       0.65      0.64      0.64     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6540794365094893,
+      "precision": 0.5559394100451768,
+      "recall": 0.6437319219644286,
+      "f1": 0.596623317362537,
+      "confusion_matrix": [
+        [
+          16284,
+          8355
+        ],
+        [
+          5789,
+          10460
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.66      0.70     24639\n     Bullied       0.56      0.64      0.60     16249\n\n    accuracy                           0.65     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.67      0.65      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6439053022891802,
+      "precision": 0.5483127226996437,
+      "recall": 0.6378931967812729,
+      "f1": 0.5897204688908928,
+      "confusion_matrix": [
+        [
+          3966,
+          2155
+        ],
+        [
+          1485,
+          2616
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.65      0.69      6121\n     Bullied       0.55      0.64      0.59      4101\n\n    accuracy                           0.64     10222\n   macro avg       0.64      0.64      0.64     10222\nweighted avg       0.66      0.64      0.65     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6536392095480337,
+      "precision": 0.5563504351075756,
+      "recall": 0.640385915319855,
+      "f1": 0.595417666552394,
+      "confusion_matrix": [
+        [
+          16305,
+          8310
+        ],
+        [
+          5852,
+          10421
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.66      0.70     24615\n     Bullied       0.56      0.64      0.60     16273\n\n    accuracy                           0.65     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.66      0.65      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6503619643905302,
+      "precision": 0.5536133020677894,
+      "recall": 0.6369879813588423,
+      "f1": 0.5923813868613139,
+      "confusion_matrix": [
+        [
+          4051,
+          2094
+        ],
+        [
+          1480,
+          2597
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.66      0.69      6145\n     Bullied       0.55      0.64      0.59      4077\n\n    accuracy                           0.65     10222\n   macro avg       0.64      0.65      0.64     10222\nweighted avg       0.66      0.65      0.65     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6573811387204069,
+      "precision": 0.5610381113352598,
+      "recall": 0.6333087149187593,
+      "f1": 0.5949868455289254,
+      "confusion_matrix": [
+        [
+          16589,
+          8051
+        ],
+        [
+          5958,
+          10290
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.67      0.70     24640\n     Bullied       0.56      0.63      0.59     16248\n\n    accuracy                           0.66     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.67      0.66      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6451770690667188,
+      "precision": 0.551440329218107,
+      "recall": 0.620672842515846,
+      "f1": 0.5840119279733915,
+      "confusion_matrix": [
+        [
+          4049,
+          2071
+        ],
+        [
+          1556,
+          2546
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.72      0.66      0.69      6120\n     Bullied       0.55      0.62      0.58      4102\n\n    accuracy                           0.65     10222\n   macro avg       0.64      0.64      0.64     10222\nweighted avg       0.65      0.65      0.65     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6549598904324007,
+      "precision": 0.5582019272886553,
+      "recall": 0.6280029567574227,
+      "f1": 0.5910487564496493,
+      "confusion_matrix": [
+        [
+          16585,
+          8069
+        ],
+        [
+          6039,
+          10195
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.67      0.70     24654\n     Bullied       0.56      0.63      0.59     16234\n\n    accuracy                           0.65     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.66      0.65      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6555468597143416,
+      "precision": 0.5648006970159006,
+      "recall": 0.629980563654033,
+      "f1": 0.5956127253933617,
+      "confusion_matrix": [
+        [
+          4108,
+          1998
+        ],
+        [
+          1523,
+          2593
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.67      0.70      6106\n     Bullied       0.56      0.63      0.60      4116\n\n    accuracy                           0.66     10222\n   macro avg       0.65      0.65      0.65     10222\nweighted avg       0.66      0.66      0.66     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6560115437292116,
+      "precision": 0.5582969432314411,
+      "recall": 0.6313190543793593,
+      "f1": 0.5925668433707019,
+      "confusion_matrix": [
+        [
+          16595,
+          8092
+        ],
+        [
+          5973,
+          10228
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.67      0.70     24687\n     Bullied       0.56      0.63      0.59     16201\n\n    accuracy                           0.66     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.67      0.66      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.649383682253962,
+      "precision": 0.5609492988133765,
+      "recall": 0.6266570257893468,
+      "f1": 0.5919854280510018,
+      "confusion_matrix": [
+        [
+          4038,
+          2035
+        ],
+        [
+          1549,
+          2600
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.72      0.66      0.69      6073\n     Bullied       0.56      0.63      0.59      4149\n\n    accuracy                           0.65     10222\n   macro avg       0.64      0.65      0.64     10222\nweighted avg       0.66      0.65      0.65     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6554979456075132,
+      "precision": 0.5585043515633394,
+      "recall": 0.6392031480570586,
+      "f1": 0.5961350994896497,
+      "confusion_matrix": [
+        [
+          16406,
+          8218
+        ],
+        [
+          5868,
+          10396
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.67      0.70     24624\n     Bullied       0.56      0.64      0.60     16264\n\n    accuracy                           0.66     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.67      0.66      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6470358051261984,
+      "precision": 0.5519791213571118,
+      "recall": 0.6211453744493393,
+      "f1": 0.5845232611699678,
+      "confusion_matrix": [
+        [
+          4076,
+          2060
+        ],
+        [
+          1548,
+          2538
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.72      0.66      0.69      6136\n     Bullied       0.55      0.62      0.58      4086\n\n    accuracy                           0.65     10222\n   macro avg       0.64      0.64      0.64     10222\nweighted avg       0.66      0.65      0.65     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.656182743103111,
+      "precision": 0.5580273385151434,
+      "recall": 0.6416815632127226,
+      "f1": 0.5969378978152418,
+      "confusion_matrix": [
+        [
+          16420,
+          8245
+        ],
+        [
+          5813,
+          10410
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.67      0.70     24665\n     Bullied       0.56      0.64      0.60     16223\n\n    accuracy                           0.66     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.67      0.66      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6436118176482097,
+      "precision": 0.5527003484320557,
+      "recall": 0.6149745577901623,
+      "f1": 0.5821768551439385,
+      "confusion_matrix": [
+        [
+          4041,
+          2054
+        ],
+        [
+          1589,
+          2538
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.72      0.66      0.69      6095\n     Bullied       0.55      0.61      0.58      4127\n\n    accuracy                           0.64     10222\n   macro avg       0.64      0.64      0.64     10222\nweighted avg       0.65      0.64      0.65     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6534924672275484,
+      "precision": 0.5575145589570978,
+      "recall": 0.6393603333129098,
+      "f1": 0.5956390204920372,
+      "confusion_matrix": [
+        [
+          16285,
+          8282
+        ],
+        [
+          5886,
+          10435
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.66      0.70     24567\n     Bullied       0.56      0.64      0.60     16321\n\n    accuracy                           0.65     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.66      0.65      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.652612013304637,
+      "precision": 0.5523434077967586,
+      "recall": 0.6259617771159096,
+      "f1": 0.5868528214077953,
+      "confusion_matrix": [
+        [
+          4149,
+          2044
+        ],
+        [
+          1507,
+          2522
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.67      0.70      6193\n     Bullied       0.55      0.63      0.59      4029\n\n    accuracy                           0.65     10222\n   macro avg       0.64      0.65      0.64     10222\nweighted avg       0.66      0.65      0.66     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6545441205243592,
+      "precision": 0.5565717272014633,
+      "recall": 0.6537753222836096,
+      "f1": 0.6012702893436839,
+      "confusion_matrix": [
+        [
+          16113,
+          8485
+        ],
+        [
+          5640,
+          10650
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.66      0.70     24598\n     Bullied       0.56      0.65      0.60     16290\n\n    accuracy                           0.65     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.67      0.65      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.6336333398552142,
+      "precision": 0.5327102803738317,
+      "recall": 0.6317733990147784,
+      "f1": 0.5780281690140845,
+      "confusion_matrix": [
+        [
+          3912,
+          2250
+        ],
+        [
+          1495,
+          2565
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.72      0.63      0.68      6162\n     Bullied       0.53      0.63      0.58      4060\n\n    accuracy                           0.63     10222\n   macro avg       0.63      0.63      0.63     10222\nweighted avg       0.65      0.63      0.64     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.6545441205243592,
+      "precision": 0.5601481561007032,
+      "recall": 0.6376023463277527,
+      "f1": 0.5963709101300186,
+      "confusion_matrix": [
+        [
+          16328,
+          8194
+        ],
+        [
+          5931,
+          10435
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.67      0.70     24522\n     Bullied       0.56      0.64      0.60     16366\n\n    accuracy                           0.65     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.66      0.65      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.651046761886128,
+      "precision": 0.5457136592852445,
+      "recall": 0.6247489959839357,
+      "f1": 0.5825629022820362,
+      "confusion_matrix": [
+        [
+          4166,
+          2072
+        ],
+        [
+          1495,
+          2489
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.67      0.70      6238\n     Bullied       0.55      0.62      0.58      3984\n\n    accuracy                           0.65     10222\n   macro avg       0.64      0.65      0.64     10222\nweighted avg       0.66      0.65      0.65     10222\n"
+    }
+  },
+  {
+    "Train": {
+      "accuracy": 0.655228918019957,
+      "precision": 0.5586637258593792,
+      "recall": 0.637977638530532,
+      "f1": 0.595692201795394,
+      "confusion_matrix": [
+        [
+          16406,
+          8204
+        ],
+        [
+          5893,
+          10385
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.74      0.67      0.70     24610\n     Bullied       0.56      0.64      0.60     16278\n\n    accuracy                           0.66     40888\n   macro avg       0.65      0.65      0.65     40888\nweighted avg       0.67      0.66      0.66     40888\n"
+    },
+    "Test": {
+      "accuracy": 0.646742320485228,
+      "precision": 0.548990435706695,
+      "recall": 0.6343320235756386,
+      "f1": 0.5885837985644299,
+      "confusion_matrix": [
+        [
+          4028,
+          2122
+        ],
+        [
+          1489,
+          2583
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n Not bullied       0.73      0.65      0.69      6150\n     Bullied       0.55      0.63      0.59      4072\n\n    accuracy                           0.65     10222\n   macro avg       0.64      0.64      0.64     10222\nweighted avg       0.66      0.65      0.65     10222\n"
+    }
+  }
+]

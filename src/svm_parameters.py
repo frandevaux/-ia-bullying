@@ -9,7 +9,7 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score, classification_report
 from result import Result
 
-df = pd.read_csv("./results/fixed-Bullying_2018.csv",sep=';')
+"""df = pd.read_csv("./results/fixed-Bullying_2018.csv",sep=';')
 
 df= df[['Bullied_in_past_12_months',  'Physically_attacked', 'Physical_fighting', 'Felt_lonely', 'Sex']]
 
@@ -78,9 +78,9 @@ for n in random_states:
         execution_time = end_time - start_time
         print(f"Execution time: {execution_time} s")
         print("----------------------------------------")
-        print()
+        print()"""
 
-with open("./results/json/svm_results.json", "w") as json_file:
+"""with open("./results/json/svm_results.json", "w") as json_file:
     json.dump(results, json_file, indent=2)
 
 plt.boxplot([accuracy_results['0.1'], accuracy_results['1'], accuracy_results['10'], accuracy_results['100']], labels=['0.1', '1', '10', '100'])
@@ -88,4 +88,18 @@ plt.title("Accuracy según el factor de penalización (C) para SVM con 15 splits
 plt.ylabel("Accuracy")
 plt.xlabel("C")
 
-plt.savefig("./results/plots/svm_boxplot_c.png") 
+plt.savefig("./results/plots/svm_boxplot_c.png")"""
+
+
+
+# Load
+with open("./results/json/svm_results.json", "r") as json_file:
+    data = json.load(json_file)
+
+recall_results = [[result['recall'] for result in data[c]['Test_results']] for c in ['0.1', '1', '10', '100']]
+
+plt.boxplot(recall_results, labels=['0.1', '1', '10', '100'])
+plt.title("Recall según el factor de penalización (C) para SVM con 15 splits distintos")
+plt.ylabel("Recall")
+plt.xlabel("C")
+plt.savefig("./results/plots/svm_boxplot_c_recall.png")

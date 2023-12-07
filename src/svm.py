@@ -13,7 +13,7 @@ start_time = time.time()
 
 df = pd.read_csv("./results/fixed-Bullying_2018.csv",sep=';')
 
-df= df[['Bullied_in_past_12_months', 'Sex', 'Felt_lonely', 'Close_friends', 'Other_students_kind_and_helpful', 'Parents_understand_problems', 'Physically_attacked', 'Physical_fighting', 'Miss_school_no_permission']]
+df= df[['Bullied_in_past_12_months',  'Physically_attacked', 'Physical_fighting', 'Felt_lonely', 'Sex']]
 
 # Split the dataset
 x = df.drop('Bullied_in_past_12_months', axis=1)
@@ -24,7 +24,7 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_
 #x_train, y_train = sampler.fit_resample(x_train, y_train)
 
 # Definimos la configuración del clasificador
-clf = svm.SVC(kernel='rbf', C=0.1, gamma=0.001, class_weight={0: 1, 1: 1.75}, random_state=0, probability=True, verbose=True)
+clf = svm.SVC(kernel='rbf', C=0.1, gamma=0.001, class_weight={0: 1, 1: 1.5}, random_state=0, probability=True, verbose=True)
 
 # Entrenamos el clasificador con los datos de entrenamiento
 clf.fit(x_train, y_train)
