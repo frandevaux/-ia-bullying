@@ -18,7 +18,7 @@ x = df.drop('Bullied_in_past_12_months', axis=1)
 y = df['Bullied_in_past_12_months']
 
 # Calculate with different random_states
-small_random_states = [0]
+small_random_states = [0, 1]
 random_states = [43, 18 ,76,92,5,61,29,80,12,50,8,37,64,3,97]
 
 results_accuracy = []
@@ -69,7 +69,7 @@ for random_state in small_random_states:
     
 
     # Evaluate the performance
-    test_result = Result( accuracy=accuracy_score(y_test, y_pred), precision=precision_score(y_test, y_pred), recall=recall_score(y_test, y_pred), f1=f1_score(y_test, y_pred), confusion_matrix=confusion_matrix(y_test, y_pred), classification_report=classification_report(y_test, y_pred, target_names=target_names, zero_division=0))
+    test_result = Result( accuracy=accuracy_score(y_test, y_pred), precision=precision_score(y_test, y_pred), recall=recall_score(y_test, y_pred), f1=f1_score(y_test, y_pred), confusion_matrix=confusion_matrix(y_test, y_pred).tolist(), classification_report=classification_report(y_test, y_pred, target_names=target_names, zero_division=0))
     
     test_results.append(test_result.__dict__())
     
@@ -87,16 +87,15 @@ for random_state in small_random_states:
     print(test_result.confusion_matrix, ": is the confusion matrix")
     print(test_result.classification_report)
     
-""" with open("./results/rf_test_results.json", "w") as json_file:
-    json.dump([result.__dict__ for result in test_results], json_file, indent=2) """
-    
+with open("./results/json/rf_test_results.json", "w") as json_file:
+    json.dump(test_results, json_file, indent=2)
 
-#Create boxplot with the results
+"""#Create boxplot with the results
 
 plt.boxplot([results_accuracy, results_precision, results_recall, results_f1], labels=['Accuracy', 'Precision', 'Recall', 'F1'])
 plt.title("Métricas de Random Forest con 15 combinaciones distintas de datos")
 plt.ylabel("Score")
 plt.xlabel("Metric")
 
-plt.savefig("./results/plots/boxplot_rf_metrics2.png") 
+plt.savefig("./results/plots/boxplot_rf_metrics2.png") """
 

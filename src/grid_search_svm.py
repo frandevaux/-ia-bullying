@@ -1,86 +1,29 @@
 import seaborn as sns; sns.set()
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split, GridSearchCV
-from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score
 
 df = pd.read_csv("./results/fixed-Bullying_2018.csv",sep=';')
 
-df= df[['Bullied_in_past_12_months', 'Sex', 'Felt_lonely', 'Close_friends', 'Other_students_kind_and_helpful', 'Parents_understand_problems', 'Physically_attacked', 'Physical_fighting', 'Miss_school_no_permission']]
-
-physically_attacked_mapping = {
-    '0 times': 0.0,
-    '1 time': 1.0,
-    '2 or 3 times': 2.5,
-    '4 or 5 times': 4.5,
-    '6 or 7 times': 6.5,
-    '8 or 9 times': 8.5,
-    '10 or 11 times': 10.5,
-    '12 or more times': 12.0,
-    'Prefers not to answer': 5.0
-}
-df['Physically_attacked'] = df['Physically_attacked'].map(physically_attacked_mapping)
-
-physical_fighting_mapping = {
-    '0 times': 0.0,
-    '1 time': 1.0,
-    '2 or 3 times': 2.5,
-    '4 or 5 times': 4.5,
-    '6 or 7 times': 6.5,
-    '8 or 9 times': 8.5,
-    '10 or 11 times': 10.5,
-    '12 or more times': 12.0,
-    'Prefers not to answer': 5.0
-}
-df['Physical_fighting'] = df['Physical_fighting'].map(physical_fighting_mapping)
-
-close_friends_mapping = {
-    '0': 0,
-    '1': 1,
-    '2': 2,
-    '3 or more': 3,
-    'Prefers not to answer': 0
-}
-df['Close_friends'] = df['Close_friends'].map(close_friends_mapping)
-
-miss_school_mapping = {
-    '0 days': 0.0,
-    '1 or 2 days': 1.5,
-    '3 to 5 days': 4.0,
-    '6 to 9 days': 7.5,
-    '10 or more days': 10.0,
-    'Prefers not to answer': 5.0
-}
-df['Miss_school_no_permission'] = df['Miss_school_no_permission'].map(miss_school_mapping)
-
-# Identify categorical columns
-categorical_columns = df.select_dtypes(include=['object']).columns.tolist()
-
-# Use LabelEncoder for ordinal categorical columns
-label_encoder = LabelEncoder()
-df[categorical_columns] = df[categorical_columns].apply(label_encoder.fit_transform)
-
-# Use OneHotEncoder for nominal categorical columns
-onehot_encoder = OneHotEncoder(sparse=False, drop='first')
-onehot_encoded = onehot_encoder.fit_transform(df[categorical_columns])
-df_onehot = pd.DataFrame(onehot_encoded, columns=onehot_encoder.get_feature_names_out(categorical_columns))
-df = pd.concat([df, df_onehot], axis=1)
-df = df.drop(categorical_columns, axis=1)
+df= df[['Bullied_in_past_12_months',  'Physically_attacked', 'Physical_fighting', 'Felt_lonely', 'Sex']]
 
 # Split the dataset
 x = df.drop('Bullied_in_past_12_months', axis=1)
 y = df['Bullied_in_past_12_months']
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
 
+c = [0.1, 1, 10, 100, 1000]
+kernel = ['linear', 'rbf']
+
 param_grid_svm = {
-    'C': [0.1, 1, 100],                   
-    'gamma': [1, 0.1, 0.001],                
-    'kernel': ['linear', 'rbf'],
-    'class_weight': ['balanced']                    
+    'C': c,
+    'kernel': kernel
 }
 
-svmModel_grid = GridSearchCV(estimator=SVC(random_state=0, probability=True), param_grid=param_grid_svm, verbose=1, cv=10, n_jobs=-1)
+svmModel_grid = GridSearchCV(estimator=SVC(random_state=0, probability=True, class_weight={0: 1, 1: 1.5}, gamma=0.001), param_grid=param_grid_svm, verbose=1, n_jobs=-1)
 svmModel_grid.fit(x_train, y_train)
 
 print(svmModel_grid.best_estimator_)
@@ -92,3 +35,51 @@ print(accuracy_score(y_test, y_pred), ": is the accuracy score")
 print(precision_score(y_test, y_pred), ": is the precision score")
 print(recall_score(y_test, y_pred), ": is the recall score")
 print(f1_score(y_test, y_pred), ": is the f1 score")
+
+
+def plot_grid_search(cv_results, grid_param_1, grid_param_2, name_param_1, name_param_2):
+    # Get Test Scores Mean and std for each grid search
+    scores_mean = cv_results['mean_test_accuracy']
+    scores_mean = np.array(scores_mean).reshape(len(grid_param_2),len(grid_param_1))
+
+    scores_sd = cv_results['std_test_accuracy']
+    scores_sd = np.array(scores_sd).reshape(len(grid_param_2),len(grid_param_1))
+
+    # Plot Grid search scores
+    _, ax = plt.subplots(1,1)
+
+    # Param1 is the X-axis, Param 2 is represented as a different curve (color line)
+    for idx, val in enumerate(grid_param_2):
+        ax.plot(grid_param_1, scores_mean[idx,:], '-o', label= name_param_2 + ': ' + str(val))
+
+    ax.set_title("Grid Search Accuracy Scores", fontsize=20, fontweight='bold')
+    ax.set_xlabel(name_param_1, fontsize=16)
+    ax.set_ylabel('CV Average Accuracy', fontsize=16)
+    ax.legend(fontsize=8, loc='center right', bbox_to_anchor=(1, 0.65))
+    ax.grid('on')
+    plt.savefig('./results/plots/svm_grid_search_accuracy.png')
+
+
+    # Get Test Scores Mean and std for each grid search
+    scores_mean = cv_results['mean_test_recall']
+    scores_mean = np.array(scores_mean).reshape(len(grid_param_2),len(grid_param_1))
+
+    scores_sd = cv_results['std_test_recall']
+    scores_sd = np.array(scores_sd).reshape(len(grid_param_2),len(grid_param_1))
+
+    # Plot Grid search scores
+    _, ax = plt.subplots(1,1)
+
+    # Param1 is the X-axis, Param 2 is represented as a different curve (color line)
+    for idx, val in enumerate(grid_param_2):
+        ax.plot(grid_param_1, scores_mean[idx,:], '-o', label= name_param_2 + ': ' + str(val))
+
+    ax.set_title("Grid Search Recall Scores", fontsize=20, fontweight='bold')
+    ax.set_xlabel(name_param_1, fontsize=16)
+    ax.set_ylabel('CV Average Recall', fontsize=16)
+    ax.legend(loc='center right', fontsize=8)
+    ax.grid('on')
+    plt.savefig('./results/plots/svm_grid_search_recall.png')
+
+# Calling Method 
+plot_grid_search(svmModel_grid.cv_results_, c, kernel, 'C Value', 'Kernel')
