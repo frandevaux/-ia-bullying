@@ -7,7 +7,6 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 from result import Result
 import random
 import matplotlib.pyplot as plt
-from result import Result
 
 df = pd.read_csv("./results/fixed-Bullying_2018.csv",sep=';')
 

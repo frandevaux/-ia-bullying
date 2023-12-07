@@ -24,7 +24,7 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_
 #x_train, y_train = sampler.fit_resample(x_train, y_train)
 
 # Definimos la configuración del clasificador
-clf = svm.SVC(kernel='rbf', C=0.1, gamma=0.001, class_weight={0: 1, 1: 1.5}, random_state=0, probability=True, verbose=True)
+clf = svm.SVC(kernel='rbf', C=10, gamma=0.001, class_weight={0: 1, 1: 1.5}, random_state=0, probability=True, verbose=True)
 
 # Entrenamos el clasificador con los datos de entrenamiento
 clf.fit(x_train, y_train)

@@ -1,27 +1,32 @@
 # Random Forest vs Support Vector Machine
 
-Se utilizaron los algoritmos de Random Forest y Support Vector Machine para predecir la columna 'Bullied_in_past_12_months' del dataset, clasificando a los estudiantes en dos clases: 'Bullied' si sufrieron bullying en los últimos 12 meses y 'Not bullied', en caso contrario.
+Se utilizaron los algoritmos de Random Forest y Support Vector Machine para predecir la columna 'Bullied_in_past_12_months' del dataset, clasificando a los estudiantes en dos clases: 'Bullied' si sufrieron bullying en los últimos 12 meses y 'Not_bullied', en caso contrario.
 
 'Bullied_in_past_12_months' se crea a partir de combinar otras 3 features referidas al bullying: Bullied_on_school_property_in_last_12_months, Bullied_not_on_school_property_in_last_12_months y Cyber_Bullied_in_last_12_months; si alguno de los 3 es true Bullied_in_last_12_months es true.
 
-En cada enfoque se optó por utilizar distintas features debido a que mejoraban el rendimiento general de cada uno, de acuerdo a las métricas elegidas.
-
 # Random Forest
 
-A partir de una implementación de random forest con las siguientes features:
+Para la implementación del Random Forest, se emplearon los siguientes parámetros:
 
-- Bullied_in_past_12_months
-- Physically_attacked
-- Physical_fighting
-- Felt_lonely
+- `n_estimators=100`: El número de árboles en el bosque.
 
-Y prediciendo la columna 'Bullied_in_past_12_months', generando 250 arboles, se obtuvieron los siguientes resultados:
+- `criterion='gini'`: La función para medir la calidad de un split.
+
+- `max_depth=None`: La profundidad máxima del árbol. Si es `None`, los nodos se expanden hasta que todas las hojas sean puras o hasta que todas las hojas contengan menos de `min_samples_split` ejemplos.
+
+- `min_samples_split=2`: El número mínimo de muestras necesario para dividir un nodo interno.
+
+- `max_features='sqrt'`: El número de características a considerar al buscar la mejor división (sqrt(n_features)).
+
+- `bootstrap=False`: Si se utilizan o no muestras de arranque al construir los árboles. Si es `False`, se utiliza todo el conjunto de datos para construir cada árbol.
+
+- `class_weight={0: 1, 1: 1.5}`: Pesos asociados con las clases {Not bullied: 1, Bullied: 1.5}.
 
 ## Train
 
 ### Matriz de confusión
 
-|              | Predicted 0 | Predicted 1 |
+|              | Predicted Not bullied | Predicted Bullied |
 | ------------ | ----------- | ----------- |
 | **Actual Not bullied** | 19979       | 4683        |
 | **Actual Bullied** | 8822        | 7404        |
@@ -40,7 +45,7 @@ Y prediciendo la columna 'Bullied_in_past_12_months', generando 250 arboles, se 
 
 ### Matriz de confusión
 
-|              | Predicted 0 | Predicted 1 |
+|              | Predicted Not bullied | Predicted Bullied |
 | ------------ | ----------- | ----------- |
 | **Actual Not bullied** | 4927        | 1171        |
 | **Actual Bullied** | 2204        | 1920        |
@@ -57,7 +62,7 @@ Y prediciendo la columna 'Bullied_in_past_12_months', generando 250 arboles, se 
 
 ### Gráficos
 
-Generamos gráficos con el propósito de identificar la combinación óptima de la cantidad de árboles a utilizar en el modelo Random Forest, junto con los mejores pesos para las clases respectivas. Al analizar los resultados, observamos que no hubo una mejora significativa al aumentar el número de árboles, por lo que decidimos mantener n=100. En cuanto a los pesos de las clases, optamos por una opción equilibrada entre el accuracy y el recall, seleccionando Not_bullied: 1 y Bullied: 1.5 (representados por la curva verde).
+Generamos gráficos con el propósito de identificar la combinación óptima de la cantidad de árboles a utilizar en el modelo Random Forest, junto con los mejores pesos para las clases respectivas. Al analizar los resultados, observamos que no hubo una mejora significativa al aumentar el número de árboles, por lo que decidimos mantener n=100. En cuanto a los pesos de las clases, optamos por una opción equilibrada entre el accuracy y el recall, seleccionando Not bullied: 1 y Bullied: 1.5 (representados por la curva verde).
 
 ![rf_grid_search_accuracy.png](./results/plots/rf_grid_search_accuracy.png)
 
@@ -65,23 +70,23 @@ Generamos gráficos con el propósito de identificar la combinación óptima de 
 
 # Support Vector Machine
 
-Para la implementación de este algoritmo se utilizaron los siguientes parámetros:
+Para la implementación de SVM se emplearon los siguientes parámetros:
 
-- kernel='rbf': Se utiliza un kernel radial, que es comúnmente utilizado en problemas no lineales.
+- `C=10`: El parámetro C controla la penalización por error en la clasificación. Un valor más alto de C hará que el modelo sea más estricto, tratando de clasificar correctamente todos los puntos de entrenamiento, pero puede llevar a overfitting.
 
-- C=10: El parámetro C controla la penalización por error en la clasificación. Un valor más alto de C hará que el modelo sea más estricto, tratando de clasificar correctamente todos los puntos de entrenamiento, pero puede llevar a overfitting.
+- `kernel='rbf'`: Especifica el tipo de kernel a utilizar en el algoritmo. Se utiliza un kernel radial, que es comúnmente utilizado en problemas no lineales.
 
-- gamma= 0.001: El parámetro gamma controla la amplitud de la función kernel. Un valor bajo de gamma produce una función kernel más suave, mientras que un valor alto puede llevar a overfitting.
+- `gamma= 0.001`: El parámetro gamma controla la amplitud de la función del kernel. Un valor bajo de gamma produce una función del kernel más suave, mientras que un valor alto puede llevar a overfitting.
 
-- probability=True: Este parámetro habilita el cálculo de probabilidades de pertenencia a cada clase.
-  
-- class_weight= {0: 1, 1: 1.5}
+- `probability=True`: Este parámetro habilita el cálculo de probabilidades de pertenencia a cada clase.
+
+- `class_weight={0: 1, 1: 1.5}`: Pesos asociados con las clases {Not bullied: 1, Bullied: 1.5}.
 
 ## Train
 
 ### Matriz de confusión
 
-|              | Predicted 0 | Predicted 1 |
+|              | Predicted Not bullied | Predicted Bullied |
 | ------------ | ----------- | ----------- |
 | **Actual Not bullied** | 18978       | 5684        |
 | **Actual Bullied** | 8661        | 7565        |
@@ -100,7 +105,7 @@ Para la implementación de este algoritmo se utilizaron los siguientes parámetr
 
 ### Matriz de confusión
 
-|              | Predicted 0 | Predicted 1 |
+|              | Predicted Not bullied | Predicted Bullied |
 | ------------ | ----------- | ----------- |
 | **Actual Not bullied** | 4767        | 1331        |
 | **Actual Bullied** | 2192        | 1932        |
@@ -129,7 +134,3 @@ Se generaron gráficos que representan el accuracy y el recall en función del f
 ![boxplot_rf_metrics](./results/plots/rf_boxplot_30.png)
 
 ![boxplot_svm_metrics](./results/plots/svm_boxplot_30.png)
-
-
-
-
