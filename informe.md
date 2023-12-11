@@ -1,8 +1,8 @@
 # Detección de casos de bullying
 
-##### Código del proyecto: BULL
+**Código del proyecto: BULL**
 
-##### Integrantes: Francisco Devaux (13848) y Bautista Frigolé (13675)
+**Integrantes: Francisco Devaux (13848) y Bautista Frigolé (13675)**
 
 ## Introducción
 
@@ -66,7 +66,10 @@ Se decide crear una única feature referida al bullying: 'Bullied_in_past_12_mon
 - Cyber_Bullied_in_last_12_months; 
 si alguno de estos es true, Bullied_in_last_12_months es true.
 
-Obteniendo así la siguiente distribución:
+
+Obteniendo así la siguiente distribución de las dos clases: 
+- (0) 'Not_bullied', si no han sufrido bullying en los últimos 12 meses y
+- (1) 'Bullied', en caso contrario.
 
 ![Bullied_Distribution](./results/plots/Bullied_Distribution.png)
 
@@ -244,6 +247,10 @@ Se generaron gráficos que representan el accuracy y el recall en función del f
 ![boxplot_rf_metrics](./results/plots/rf_boxplot_30.png)
 
 ![boxplot_svm_metrics](./results/plots/svm_boxplot_30.png)
+
+### Learning Curves
+
+![rf_learning_curve_error](./results/plots/rf_learning_curve_error.png)
 
 ## Conclusión
 
