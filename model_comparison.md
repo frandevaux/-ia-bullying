@@ -28,18 +28,18 @@ Para la implementación del Random Forest, se emplearon los siguientes parámetr
 
 |              | Predicted Not bullied | Predicted Bullied |
 | ------------ | ----------- | ----------- |
-| **Actual Not bullied** | 19979       | 4683        |
-| **Actual Bullied** | 8822        | 7404        |
+| **Actual Not bullied** | 16543       | 8119        |
+| **Actual Bullied** | 6009        | 10217        |
 
 ### Reporte de la clasificación
 
 |                  | Precision | Recall | F1-Score | Support |
 | ---------------- | --------- | ------ | -------- | ------- |
-| **Not bullied**      | 0.69      | 0.81   | 0.75     | 24662   |
-| **Bullied**      | 0.61      | 0.46   | 0.52     | 16226   |
-| **Accuracy**     |           |        | 0.67     | 40888   |
-| **Macro Avg**    | 0.65      | 0.63   | 0.64     | 40888   |
-| **Weighted Avg** | 0.66      | 0.67   | 0.66     | 40888   |
+| **Not bullied**      | 0.73      | 0.67   | 0.70     | 24662   |
+| **Bullied**      | 0.56      | 0.63   | 0.59     | 16226   |
+| **Accuracy**     |           |        | 0.65     | 40888   |
+| **Macro Avg**    | 0.65      | 0.65   | 0.65     | 40888   |
+| **Weighted Avg** | 0.66      | 0.65   | 0.66     | 40888   |
 
 ## Test
 
@@ -47,18 +47,18 @@ Para la implementación del Random Forest, se emplearon los siguientes parámetr
 
 |              | Predicted Not bullied | Predicted Bullied |
 | ------------ | ----------- | ----------- |
-| **Actual Not bullied** | 4927        | 1171        |
-| **Actual Bullied** | 2204        | 1920        |
+| **Actual Not bullied** | 4043        | 2055        |
+| **Actual Bullied** | 1475        | 2649        |
 
 ### Reporte de la clasificación
 
 |                  | Precision | Recall | F1-Score | Support |
 | ---------------- | --------- | ------ | -------- | ------- |
-| **Not bullied**      | 0.69      | 0.81   | 0.74     | 6098    |
-| **Bullied**      | 0.62      | 0.47   | 0.53     | 4124    |
-| **Accuracy**     |           |        | 0.6710   | 10222   |
-| **Macro Avg**    | 0.66      | 0.64   | 0.64     | 10222   |
-| **Weighted Avg** | 0.66      | 0.67   | 0.66     | 10222   |
+| **Not bullied**      | 0.73      | 0.66   | 0.70     | 6098    |
+| **Bullied**      | 0.56      | 0.64   | 0.60     | 4124    |
+| **Accuracy**     |           |        | 0.65     | 10222   |
+| **Macro Avg**    | 0.65      | 0.65   | 0.65     | 10222   |
+| **Weighted Avg** | 0.66      | 0.65   | 0.66     | 10222   |
 
 ### Gráficos
 
@@ -88,18 +88,18 @@ Para la implementación de SVM se emplearon los siguientes parámetros:
 
 |              | Predicted Not bullied | Predicted Bullied |
 | ------------ | ----------- | ----------- |
-| **Actual Not bullied** | 18978       | 5684        |
-| **Actual Bullied** | 8661        | 7565        |
+| **Actual Not bullied** | 16664       | 7998        |
+| **Actual Bullied** | 7543        | 8683        |
 
 ### Reporte de la clasificación
 
 |                  | Precision | Recall | F1-Score | Support |
 | ---------------- | --------- | ------ | -------- | ------- |
-| **Not bullied**      | 0.69      | 0.77   | 0.73     | 24662   |
-| **Bullied**      | 0.57      | 0.47   | 0.51     | 16226   |
-| **Accuracy**     |           |        | 0.65     | 40888   |
-| **Macro Avg**    | 0.63      | 0.62   | 0.62     | 40888   |
-| **Weighted Avg** | 0.64      | 0.65   | 0.64     | 40888   |
+| **Not bullied**      | 0.69      | 0.68   | 0.68     | 24662   |
+| **Bullied**      | 0.52      | 0.54   | 0.53     | 16226   |
+| **Accuracy**     |           |        | 0.62     | 40888   |
+| **Macro Avg**    | 0.60      | 0.61   | 0.60     | 40888   |
+| **Weighted Avg** | 0.62      | 0.62   | 0.62     | 40888   |
 
 ## Test
 
@@ -107,18 +107,20 @@ Para la implementación de SVM se emplearon los siguientes parámetros:
 
 |              | Predicted Not bullied | Predicted Bullied |
 | ------------ | ----------- | ----------- |
-| **Actual Not bullied** | 4767        | 1331        |
-| **Actual Bullied** | 2192        | 1932        |
+| **Actual Not bullied** | 4161        | 1937        |
+| **Actual Bullied** | 1882        | 2242        |
+
 
 ### Reporte de la clasificación
 
 |                  | Precision | Recall | F1-Score | Support |
 | ---------------- | --------- | ------ | -------- | ------- |
-| **Not bullied**      | 0.69      | 0.78   | 0.73     | 6098    |
-| **Bullied**      | 0.59      | 0.47   | 0.52     | 4124    |
-| **Accuracy**     |           |        | 0.66     | 10222   |
-| **Macro Avg**    | 0.64      | 0.63   | 0.63     | 10222   |
-| **Weighted Avg** | 0.65      | 0.66   | 0.65     | 10222   |
+| **Not bullied**      | 0.69      | 0.68   | 0.69     | 6098    |
+| **Bullied**      | 0.54      | 0.54   | 0.54     | 4124    |
+| **Accuracy**     |           |        | 0.63     | 10222   |
+| **Macro Avg**    | 0.61      | 0.61   | 0.61     | 10222   |
+| **Weighted Avg** | 0.63      | 0.63   | 0.63     | 10222   |
+
 
 ### Gráficos
 

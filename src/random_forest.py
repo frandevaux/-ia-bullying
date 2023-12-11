@@ -17,7 +17,7 @@ x = df.drop('Bullied_in_past_12_months', axis=1)
 y = df['Bullied_in_past_12_months']
 
 # Calculate with different random_states
-small_random_states = [0, 1]
+small_random_states = [0]
 random_states = [43, 18 ,76,92,5,61,29,80,12,50,8,37,64,3,97]
 
 results_accuracy = []
