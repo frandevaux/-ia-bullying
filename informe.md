@@ -18,6 +18,67 @@ A lo largo de este informe iremos explicando un marco teórico de cada uno de lo
 
 ### Random Forest
 
+
+**Árboles de decisión**
+
+El algoritmo de Random Forest se compone de la construcción de múltiples arboles de decisión, concepto el cual se explicará brevemente a continuación.
+Los árboles de decisión buscan contestar una pregunta de sí o no, como por ejemplo  "¿Debería navegar?" A partir de ahí, puede hacer una serie de preguntas para determinar una respuesta, como, "¿Es un oleaje prolongado?" o "¿El viento sopla en alta mar?". 
+Estas son las preguntas que construirán los nodos de decisión del árbol, cuyas respuestas van a dirigir a una nueva pregunta hasta llegar a un nodo hoja que de una respuesta de sí o no.  
+Este árbol de decisiones es un ejemplo de un problema de clasificación, donde las etiquetas de clase son "navegar" y "no navegar".
+Si bien los árboles de decisión son algoritmos comunes de aprendizaje supervisado, pueden ser propensos a problemas, como sesgos y sobreajuste. Sin embargo, cuando varios árboles de decisión forman un conjunto en el algoritmo de random forest, predicen resultados más precisos, especialmente cuando los árboles individuales no están correlacionados entre sí.
+
+**Métodos de conjunto**
+
+Otro concepto importante para entender el funcionamiento de Random Forest es el de los métodos de aprendizaje por conjuntos, los cuales se componen de un conjunto de clasificadores, por ejemplo, árboles de decisión, y sus predicciones se agregan para identificar el resultado más popular.
+Los métodos de conjunto más conocidos son el ensacado, también conocido como agregación de arranque, y el impulso. En el primer método, se selecciona una muestra aleatoria de datos en un conjunto de entrenamiento con reemplazo, lo que significa que los puntos de datos individuales se pueden elegir más de una vez. Después de generar varias muestras de datos, estos modelos se entrenan de forma independiente y, según el tipo de tarea, es decir, regresión o clasificación, el promedio o la mayoría de esas predicciones arrojan una estimación más precisa. Este enfoque se usa comúnmente para reducir la variación dentro de un conjunto de datos ruidoso.
+
+**Algoritmo de Random Forest**
+
+El algoritmo de Random Forest es una extensión del método de ensacado, ya que utiliza tanto el ensacado como la aleatoriedad de características para crear un bosque no correlacionado de árboles de decisión.
+
+La aleatoriedad de features, también conocida como agrupación de características o "el método del subespacio aleatorio ", genera un subconjunto aleatorio de características, lo que garantiza una baja correlación entre los árboles de decisión. Ésta es una diferencia clave entre los árboles de decisión y los bosques aleatorios.
+
+Mientras que los árboles de decisión consideran todas las posibles divisiones de características, los bosques aleatorios solo seleccionan un subconjunto de esas características.
+
+Si volvemos a la pregunta "¿debería navegar?" Por ejemplo, las preguntas que puedo hacer para determinar la predicción pueden no ser tan completas como el conjunto de preguntas de otra persona. Al tener en cuenta toda la variabilidad potencial en los datos, podemos reducir el riesgo de sobreajuste, sesgo y varianza general, lo que da como resultado predicciones más precisas.
+
+**¿Cómo funciona los algoritmos de random forest?**
+
+Los algoritmos de random forest tienen tres hiperparámetros principales, que deben configurarse antes del entrenamiento:
+
+- Tamaño del nodo
+- Cantidad de árboles
+- Cantidad de características muestreadas
+
+A partir de ahí, el clasificador de random forest se puede utilizar para solucionar problemas de regresión o clasificación.
+
+El algoritmo de random forest se compone de un conjunto de árboles de decisión, y cada árbol del conjunto se compone de una muestra de datos extraída de un conjunto de entrenamiento con reemplazo, llamada muestra de arranque.
+
+De esa muestra de entrenamiento, un tercio se reserva como datos de prueba, lo que se conoce como muestra fuera de la bolsa (oob), a la que volveremos más adelante. Luego, se inyecta otra instancia de aleatoriedad a través del agrupamiento de características, lo que agrega más diversidad al conjunto de datos y reduce la correlación entre los árboles de decisión.
+
+Dependiendo del tipo de problema, la determinación de la predicción variará. Para una tarea de regresión, se promediarán los árboles de decisión individuales, y para una tarea de clasificación, un voto mayoritario, es decir, la variable categórica más frecuente, arrojará la clase predicha.
+
+Finalmente, la muestra de oob se utiliza para la validación cruzada, finalizando esa predicción.
+
+**Ventajas y desafíos del bosque aleatorio**
+
+Hay una serie de ventajas y desafíos clave que presenta el algoritmo de random forest cuando se usa para problemas de clasificación o regresión:
+Beneficios clave
+ 
+Riesgo reducido de sobreajuste
+
+Los árboles de decisión corren el riesgo de sobreajustarse, ya que tienden a ajustar todas las muestras dentro de los datos de entrenamiento. Sin embargo, cuando hay una gran cantidad de árboles de decisión en un random forest, el clasificador no se ajustará demasiado al modelo, ya que el promedio de árboles no correlacionados reduce la varianza general y el error de predicción.
+Aporta flexibilidad
+
+Dado que el random forest puede manejar tareas de regresión y clasificación con un alto grado de precisión, es un método popular entre los científicos de datos. El agrupamiento de características también convierte al clasificador de random forest en una herramienta eficaz para estimar los valores perdidos, ya que mantiene la precisión cuando falta una parte de los datos.
+
+Importancia de la característica fácil de determinar
+
+El random forest facilita la evaluación de la importancia o contribución de las variables al modelo. Hay algunas formas de evaluar la importancia de las características. La importancia de Gini y la disminución media de impurezas (MDI) se utilizan generalmente para medir cuánto disminuye la precisión del modelo cuando se excluye una variable determinada.
+
+Sin embargo, la importancia de la permutación, también conocida como precisión de disminución media (MDA), es otra medida de importancia. MDA identifica la disminución promedio en la precisión mediante la permutación aleatoria de los valores de las características en las muestras oob.
+
+
 Explicación
 
 Ventajas y Desventajas
@@ -255,3 +316,6 @@ Se generaron gráficos que representan el accuracy y el recall en función del f
 ## Conclusión
 
 ## Bibliografía
+
+[https://www.ibm.com/mx-es/topics/random-forest#:~:text=El%20random%20forest%20es%20un,problemas%20de%20clasificaci%C3%B3n%20y%20regresi%C3%B3n]
+
