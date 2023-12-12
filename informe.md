@@ -152,14 +152,13 @@ Según la naturaleza de la frontera de decisión, las Máquinas de Vectores de S
 
 El kernel de SVM es una función que toma un espacio de entrada de baja dimensión y lo transforma en un espacio de mayor dimensión, es decir, convierte problemas no separables en problemas separables. Es especialmente útil en problemas de separación no lineal. En pocas palabras, el kernel realiza transformaciones de datos extremadamente complejas y luego descubre el proceso para separar los datos en función de las etiquetas o salidas definidas.
 
-$$\[
-\begin{align*}
-\text{Lineal: } & K(w,b) = w^Tx+b \\
-\text{Polinomial: } & K(w,x) = (\gamma w^Tx+b)^N \\
-\text{Gaussiano RBF: } & K(w,x) = \exp(-\gamma|| x_i-x_j||^n \\
-\text{Sigmoide:} & K(x_i, x_j) = \tanh(\alpha x_i^Tx_j + b)
-\end{align*}
-\]
+$$\text{Lineal: } K(w,b) = w^Tx+b$$
+
+$$\text{Polinomial: } K(w,x) = (\gamma w^Tx+b)^N$$
+
+$$\text{Gaussiano RBF: } K(w,x) = \exp(-\gamma|| x_i-x_j||^n)$$
+
+$$\text{Sigmoide:} K(x_i, x_j) = \tanh(\alpha x_i^Tx_j + b)$$
 
 **Ventajas de SVM**
 
