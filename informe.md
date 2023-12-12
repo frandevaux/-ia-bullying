@@ -87,9 +87,98 @@ Justificación
 
 ### Support Vector Machine
 
-Explicación
+Support Vector Machine (SVM) es un algoritmo de aprendizaje automático supervisado utilizado tanto para clasificación como para regresión. Aunque también se puede aplicar a problemas de regresión, se adapta mejor a la clasificación. El objetivo principal del algoritmo SVM es encontrar el hiperplano óptimo en un espacio N-dimensional que pueda separar los puntos de datos en diferentes clases en el espacio de características. El hiperplano intenta que el margen entre los puntos más cercanos de diferentes clases sea lo más amplio posible. La dimensión del hiperplano depende del número de características. Si el número de características de entrada es dos, entonces el hiperplano es simplemente una línea. Si el número de características de entrada es tres, entonces el hiperplano se convierte en un plano 2D. Se vuelve difícil de imaginar cuando el número de características supera tres.
 
-Ventajas y Desventajas
+Consideremos dos variables independientes x1, x2 y una variable dependiente que es ya sea un círculo azul o un círculo rojo.
+
+[Linearly Separable Data points](./resources/Linearly_Separable_Data_points.png)
+
+En la figura anterior, es muy claro que hay múltiples líneas que segregan nuestros puntos de datos o realizan una clasificación entre círculos rojos y azules. Entonces, ¿cómo elegimos la mejor línea o, en general, el mejor hiperplano que segregue nuestros puntos de datos?
+
+**¿Cómo funciona SVM?**
+
+Una elección razonable para el mejor hiperplano es aquel que representa la mayor separación o margen entre las dos clases.
+
+[Multiple hyperplanes separate the data from two classes](./resources/Multiple_hyperplanes_separate_the_data_from_two_classes.png)
+
+Así que elegimos el hiperplano cuya distancia desde él hasta el punto de datos más cercano en cada lado esté maximizada. Si existe tal hiperplano, se conoce como el hiperplano de margen máximo/márgen duro. Entonces, de la figura anterior, elegimos L2. 
+Consideremos un escenario como se muestra a continuación.
+
+[Selecting hyperplane for data with outlier](./resources/Selecting_hyperplane_for_data_with_outlier.png)
+
+Aquí tenemos una bola azul en el límite de la bola roja. ¿Cómo clasifica SVM los datos? La bola azul en el límite de las rojas es un valor atípico de las bolas azules. El algoritmo SVM tiene la característica de ignorar el valor atípico y encuentra el mejor hiperplano que maximiza el margen. SVM es robusto a los valores atípicos.
+
+[Hyperplane which is the most optimized one](./resources/Hyperplane_which_is_the_most_optimized_one.png)
+
+Así que en este tipo de punto de datos, lo que hace SVM es encontrar el margen máximo como se hizo con conjuntos de datos anteriores junto con eso agrega una penalización cada vez que un punto cruza el margen. Así que los márgenes en estos tipos de casos se llaman márgenes suaves. Cuando hay un margen suave en el conjunto de datos, SVM intenta minimizar (1/margen + λ(∑penalty)). La pérdida de bisagra es una penalización comúnmente utilizada. Si no hay violaciones, no hay pérdida de bisagra. Si hay violaciones, la pérdida de bisagra es proporcional a la distancia de violación.
+
+Hasta ahora, estábamos hablando de datos linealmente separables (el grupo de bolas azules y rojas es separable por una línea recta/línea lineal). ¿Qué hacer si los datos no son linealmente separables?
+
+[Original 1D dataset for classification](./resources/Original_1D_dataset_for_classification.png)
+
+Digamos que nuestros datos se muestran en la figura anterior. SVM resuelve esto creando una nueva variable mediante un kernel. Llamamos a un punto xi en la línea y creamos una nueva variable yi como una función de la distancia desde el origen. Entonces, si representamos esto, obtenemos algo así como se muestra a continuación.
+
+[Mapping 1D data to 2D to become able to separate the two classes](./resources/Mapping_1D_data_to_2D_to_become_able_to_separate_the_two_classes.png)
+
+En este caso, la nueva variable y se crea como una función de la distancia desde el origen. Una función no lineal que crea una nueva variable se denomina kernel.
+
+**Terminología**
+
+- **Hiperplano:** El hiperplano es la frontera de decisión que se utiliza para separar los puntos de datos de diferentes clases en un espacio de características. En el caso de clasificaciones lineales, será una ecuación lineal, es decir, wx+b = 0.
+
+- **Vectores de Soporte:** Los vectores de soporte son los puntos de datos más cercanos al hiperplano, que desempeñan un papel crítico en la decisión del hiperplano y el margen.
+
+- **Margen:** El margen es la distancia entre el vector de soporte y el hiperplano. El objetivo principal del algoritmo de la máquina de vectores de soporte es maximizar el margen. Un margen más amplio indica un mejor rendimiento de clasificación.
+
+- **Kernel:** El kernel es la función matemática que se utiliza en SVM para mapear los puntos de datos de entrada originales en espacios de características de alta dimensión, de modo que el hiperplano pueda encontrarse fácilmente incluso si los puntos de datos no son linealmente separables en el espacio de entrada original. Algunas de las funciones de kernel comunes son lineales, polinómicas, de función de base radial (RBF) y sigmoide.
+
+- **Margen Duro:** El hiperplano de margen máximo o el hiperplano de margen duro es un hiperplano que separa adecuadamente los puntos de datos de diferentes categorías sin ninguna clasificación errónea.
+
+- **Margen Suave:** Cuando los datos no son perfectamente separables o contienen valores atípicos, SVM permite una técnica de margen suave. Cada punto de datos tiene una variable de holgura introducida por la formulación SVM de margen suave, que suaviza el estricto requisito de margen y permite ciertas clasificaciones erróneas o violaciones. Descubre un compromiso entre aumentar el margen y reducir las violaciones.
+
+- **C:** La maximización del margen y las multas por clasificación errónea se equilibran mediante el parámetro de regularización C en SVM. Decide la penalización por cruzar el margen o clasificar incorrectamente los puntos de datos. Un valor mayor de C impone una penalización más estricta, lo que resulta en un margen más pequeño y posiblemente menos clasificaciones erróneas.
+
+- **Hinge Loss:** Una función de pérdida típica en SVMs es la pérdida de bisagra. Castiga las clasificaciones incorrectas o las violaciones de margen. La función objetivo en SVM se forma frecuentemente combinándola con el término de regularización.
+
+**Tipos de SVM**
+
+Según la naturaleza de la frontera de decisión, las Máquinas de Vectores de Soporte (SVM) se pueden dividir en dos partes principales:
+
+1. **SVM Lineal:** Las SVM lineales utilizan una frontera de decisión lineal para separar los puntos de datos de diferentes clases. Cuando los datos pueden ser precisamente separados linealmente, las SVM lineales son muy adecuadas. Esto significa que una sola línea recta (en 2D) o un hiperplano (en dimensiones superiores) puede dividir completamente los puntos de datos en sus respectivas clases. Un hiperplano que maximiza el margen entre las clases es la frontera de decisión.
+
+2. **SVM No Lineal:** Las SVM no lineales se pueden utilizar para clasificar datos cuando no se pueden separar en dos clases mediante una línea recta (en el caso de 2D). Mediante el uso de funciones de kernel, las SVM no lineales pueden manejar datos no linealmente separables. Las funciones de kernel transforman los datos de entrada originales en un espacio de características de mayor dimensión, donde los puntos de datos pueden ser separados linealmente. En este espacio modificado, se utiliza una SVM lineal para ubicar una frontera de decisión no lineal.
+
+**Funciones de Kernel Populares en SVM**
+
+El kernel de SVM es una función que toma un espacio de entrada de baja dimensión y lo transforma en un espacio de mayor dimensión, es decir, convierte problemas no separables en problemas separables. Es especialmente útil en problemas de separación no lineal. En pocas palabras, el kernel realiza transformaciones de datos extremadamente complejas y luego descubre el proceso para separar los datos en función de las etiquetas o salidas definidas.
+
+\[
+\begin{align*}
+\text{Lineal: } & K(w,b) = w^Tx+b \\
+\text{Polinomial: } & K(w,x) = (\gamma w^Tx+b)^N \\
+\text{Gaussiano RBF: } & K(w,x) = \exp(-\gamma|| x_i-x_j||^n \\
+\text{Sigmoide:} & K(x_i, x_j) = \tanh(\alpha x_i^Tx_j + b)
+\end{align*}
+\]
+
+**Ventajas de SVM**
+
+- Eficiente en espacios de alta dimensión, con muchas features.
+
+- Buen rendimiento en problemas no lineales, mediante el uso de kernels, SVM puede manejar eficientemente problemas de clasificación no lineales.
+
+- SVM busca maximizar el margen entre las clases, lo que generalmente resulta en modelos más generalizables.
+
+- SVM es robusto ante la presencia de valores atípicos en el conjunto de datos.
+
+**Desventajas de SVM**
+
+- Ineficiente en grandes conjuntos de datos, SVM puede volverse computacionalmente costoso y requerir mucho tiempo de entrenamiento.
+
+- Las decisiones tomadas por un modelo SVM pueden ser difíciles de interpretar y visualizar, especialmente en espacios de alta dimensión.
+
+- SVM puede ser sensible a la escala de las características, por lo que a menudo se requiere el escalamiento de características antes del entrenamiento.
+
 
 Justificación
 
