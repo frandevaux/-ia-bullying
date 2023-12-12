@@ -91,7 +91,7 @@ Support Vector Machine (SVM) es un algoritmo de aprendizaje automático supervis
 
 Consideremos dos variables independientes x1, x2 y una variable dependiente que es ya sea un círculo azul o un círculo rojo.
 
-[Linearly Separable Data points](./resources/Linearly_Separable_Data_points.png)
+![Linearly Separable Data points](./resources/Linearly_Separable_Data_points.png)
 
 En la figura anterior, es muy claro que hay múltiples líneas que segregan nuestros puntos de datos o realizan una clasificación entre círculos rojos y azules. Entonces, ¿cómo elegimos la mejor línea o, en general, el mejor hiperplano que segregue nuestros puntos de datos?
 
@@ -99,26 +99,26 @@ En la figura anterior, es muy claro que hay múltiples líneas que segregan nues
 
 Una elección razonable para el mejor hiperplano es aquel que representa la mayor separación o margen entre las dos clases.
 
-[Multiple hyperplanes separate the data from two classes](./resources/Multiple_hyperplanes_separate_the_data_from_two_classes.png)
+![Multiple hyperplanes separate the data from two classes](./resources/Multiple_hyperplanes_separate_the_data_from_two_classes.png)
 
 Así que elegimos el hiperplano cuya distancia desde él hasta el punto de datos más cercano en cada lado esté maximizada. Si existe tal hiperplano, se conoce como el hiperplano de margen máximo/márgen duro. Entonces, de la figura anterior, elegimos L2. 
 Consideremos un escenario como se muestra a continuación.
 
-[Selecting hyperplane for data with outlier](./resources/Selecting_hyperplane_for_data_with_outlier.png)
+![Selecting hyperplane for data with outlier](./resources/Selecting_hyperplane_for_data_with_outlier.png)
 
 Aquí tenemos una bola azul en el límite de la bola roja. ¿Cómo clasifica SVM los datos? La bola azul en el límite de las rojas es un valor atípico de las bolas azules. El algoritmo SVM tiene la característica de ignorar el valor atípico y encuentra el mejor hiperplano que maximiza el margen. SVM es robusto a los valores atípicos.
 
-[Hyperplane which is the most optimized one](./resources/Hyperplane_which_is_the_most_optimized_one.png)
+![Hyperplane which is the most optimized one](./resources/Hyperplane_which_is_the_most_optimized_one.png)
 
 Así que en este tipo de punto de datos, lo que hace SVM es encontrar el margen máximo como se hizo con conjuntos de datos anteriores junto con eso agrega una penalización cada vez que un punto cruza el margen. Así que los márgenes en estos tipos de casos se llaman márgenes suaves. Cuando hay un margen suave en el conjunto de datos, SVM intenta minimizar (1/margen + λ(∑penalty)). La pérdida de bisagra es una penalización comúnmente utilizada. Si no hay violaciones, no hay pérdida de bisagra. Si hay violaciones, la pérdida de bisagra es proporcional a la distancia de violación.
 
 Hasta ahora, estábamos hablando de datos linealmente separables (el grupo de bolas azules y rojas es separable por una línea recta/línea lineal). ¿Qué hacer si los datos no son linealmente separables?
 
-[Original 1D dataset for classification](./resources/Original_1D_dataset_for_classification.png)
+![Original 1D dataset for classification](./resources/Original_1D_dataset_for_classification.png)
 
 Digamos que nuestros datos se muestran en la figura anterior. SVM resuelve esto creando una nueva variable mediante un kernel. Llamamos a un punto xi en la línea y creamos una nueva variable yi como una función de la distancia desde el origen. Entonces, si representamos esto, obtenemos algo así como se muestra a continuación.
 
-[Mapping 1D data to 2D to become able to separate the two classes](./resources/Mapping_1D_data_to_2D_to_become_able_to_separate_the_two_classes.png)
+![Mapping 1D data to 2D to become able to separate the two classes](./resources/Mapping_1D_data_to_2D_to_become_able_to_separate_the_two_classes.png)
 
 En este caso, la nueva variable y se crea como una función de la distancia desde el origen. Una función no lineal que crea una nueva variable se denomina kernel.
 
@@ -152,7 +152,7 @@ Según la naturaleza de la frontera de decisión, las Máquinas de Vectores de S
 
 El kernel de SVM es una función que toma un espacio de entrada de baja dimensión y lo transforma en un espacio de mayor dimensión, es decir, convierte problemas no separables en problemas separables. Es especialmente útil en problemas de separación no lineal. En pocas palabras, el kernel realiza transformaciones de datos extremadamente complejas y luego descubre el proceso para separar los datos en función de las etiquetas o salidas definidas.
 
-\[
+$$\[
 \begin{align*}
 \text{Lineal: } & K(w,b) = w^Tx+b \\
 \text{Polinomial: } & K(w,x) = (\gamma w^Tx+b)^N \\
