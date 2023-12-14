@@ -399,7 +399,9 @@ Se generaron gráficos que representan el accuracy y el recall en función del f
 
 ### Learning Curves
 
-![rf_learning_curve_error](./results/plots/rf_learning_curve_error.png)
+![rf_learning_curve_error_v1](./results/plots/rf_learning_curve_error_v1.png)
+
+![rf_learning_curve_error_v2](./results/plots/rf_learning_curve_error_v2.png)
 
 ## Conclusión
 
