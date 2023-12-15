@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv("./results/fixed-Bullying_2018.csv",sep=';')
 
-df= df[['Bullied_in_past_12_months',  'Physically_attacked', 'Physical_fighting', 'Felt_lonely', 'Sex']]
+df= df[['Bullied_in_past_12_months',  'Physically_attacked', 'Physical_fighting', 'Felt_lonely', 'Sex', 'Miss_school_no_permission', 'Other_students_kind_and_helpful', 'Parents_understand_problems']]
 
 # Split the dataset
 x = df.drop('Bullied_in_past_12_months', axis=1)
@@ -18,7 +18,7 @@ y = df['Bullied_in_past_12_months']
 
 # Calculate with different random_states
 small_random_states = [0]
-random_states = [43, 18 ,76,92,5,61,29,80,12,50,8,37,64,3,97]
+random_states = [43, 18, 76, 92, 5, 61, 29, 80, 12, 50, 8, 37, 64, 3, 97, 22, 40, 55, 89, 14, 72, 33, 95, 7, 49, 81, 26, 68, 45, 11, 93]
 
 results_accuracy = []
 results_precision = []

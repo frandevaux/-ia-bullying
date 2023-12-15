@@ -11,7 +11,7 @@ from result import Result
 
 df = pd.read_csv("./results/fixed-Bullying_2018.csv",sep=';')
 
-df= df[['Bullied_in_past_12_months',  'Physically_attacked', 'Physical_fighting', 'Felt_lonely', 'Sex']]
+df= df[['Bullied_in_past_12_months',  'Physically_attacked', 'Physical_fighting', 'Felt_lonely', 'Sex', 'Miss_school_no_permission', 'Other_students_kind_and_helpful', 'Parents_understand_problems']]
 
 # Split the dataset
 x = df.drop('Bullied_in_past_12_months', axis=1)

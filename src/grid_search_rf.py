@@ -52,12 +52,12 @@ def plot_grid_search(cv_results, grid_param_1, grid_param_2, name_param_1, name_
     for idx, val in enumerate(grid_param_2):
         ax.plot(grid_param_1, scores_mean[idx,:], '-o', label= name_param_2 + ': ' + str(val))
 
-    ax.set_title("Grid Search Accuracy Scores", fontsize=20, fontweight='bold')
-    ax.set_xlabel(name_param_1, fontsize=16)
-    ax.set_ylabel('CV Average Accuracy', fontsize=16)
+    ax.set_title("Resultados de Accuracy de RF con Grid Search", fontsize=18, fontweight='bold')
+    ax.set_xlabel('Número de árboles', fontsize=16)
+    ax.set_ylabel('CV Accuracy Promedio', fontsize=16)
     ax.legend(fontsize=8, loc='center right', bbox_to_anchor=(1, 0.65))
     ax.grid('on')
-    plt.savefig('./results/plots/rf_grid_search_accuracy.png')
+    plt.savefig('./results/plots/rf_grid_search_accuracy_v1.png')
 
 
     # Get Test Scores Mean and std for each grid search
@@ -74,12 +74,12 @@ def plot_grid_search(cv_results, grid_param_1, grid_param_2, name_param_1, name_
     for idx, val in enumerate(grid_param_2):
         ax.plot(grid_param_1, scores_mean[idx,:], '-o', label= name_param_2 + ': ' + str(val))
 
-    ax.set_title("Grid Search Recall Scores", fontsize=20, fontweight='bold')
-    ax.set_xlabel(name_param_1, fontsize=16)
-    ax.set_ylabel('CV Average Recall', fontsize=16)
+    ax.set_title("Resultados de Recall de RF con Grid Search", fontsize=18, fontweight='bold')
+    ax.set_xlabel('Número de árboles', fontsize=16)
+    ax.set_ylabel('CV Recall Promedio', fontsize=16)
     ax.legend(loc='center right', fontsize=8)
     ax.grid('on')
-    plt.savefig('./results/plots/rf_grid_search_recall.png')
+    plt.savefig('./results/plots/rf_grid_search_recall_v1.png')
 
 # Calling Method 
 plot_grid_search(model_grid.cv_results_, n_estimators, class_weight, 'N Estimators', 'Class Weight')
