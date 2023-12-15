@@ -6,23 +6,22 @@
 
 ## Introducción
 
-En el presente informe se aborda un problema de *inteligencia artificial*, específicamente en el campo del aprendizaje automático y ciencia de datos. Nuestro objetivo es probar dos algoritmos (Random Forest y Support Vector Machine) y crear un *modelo de clasificación*, para que dado un dataset, éste sea capaz de identificar situaciones de bullying entre estudiantes, con el fin de prevenir y abordar este grave problema que afecta a los jóvenes.
+En el presente informe se aborda un problema de _inteligencia artificial_, específicamente en el campo del aprendizaje automático y ciencia de datos. Nuestro objetivo es probar dos algoritmos (Random Forest y Support Vector Machine) y crear un _modelo de clasificación_, para que dado un dataset, éste sea capaz de identificar situaciones de bullying entre estudiantes, con el fin de prevenir y abordar este grave problema que afecta a los jóvenes.
 
 La elección de estos algoritmos responde a la necesidad de modelar relaciones no lineales, gestionar conjuntos de datos extensos y enfrentar posibles desequilibrios en la distribución de clases. Estos métodos destacan por su capacidad para manejar múltiples características y proporcionar resultados robustos, lo cual es esencial en un entorno tan diverso como el estudiantil.
 
 No obstante, los modelos deben ser cuidadosamente ajustados y evaluados para garantizar resultados precisos y relevantes. Además, la interpretación de los resultados puede requerir consideraciones éticas y contextualización adecuada dada la naturaleza sensible de los datos de salud estudiantil.
 
-A lo largo de este informe iremos explicando un marco teórico de cada uno de los algoritmos mencionados, el experimento práctico con la configuración y los resultados de los modelos, y las conclusiones resultantes, realizando una comparación de ambos modelos, teniendo en cuenta sus ventajas y desventajas.
+A lo largo de este informe iremos explicando un marco teórico de cada uno de los algoritmos mencionados, el experimento práctico con la configuración y los resultados de los modelos. Además, concluiremos realizando una comparación de ambos modelos, teniendo en cuenta sus ventajas y desventajas, analizando cuál es el de uso más conveniente.
 
 ## Marco teórico
 
 ### Random Forest
 
-
 **Árboles de decisión**
 
 El algoritmo de Random Forest se compone de la construcción de múltiples arboles de decisión, concepto el cual se explicará brevemente a continuación.
-Los árboles de decisión buscan contestar una pregunta de sí o no, como por ejemplo  "¿Debería navegar?" A partir de ahí, puede hacer una serie de preguntas para determinar una respuesta, como, "¿Es un oleaje prolongado?" o "¿El viento sopla en alta mar?". 
+Los árboles de decisión buscan contestar una pregunta de sí o no, como por ejemplo "¿Debería navegar?" A partir de ahí, puede hacer una serie de preguntas para determinar una respuesta, como, "¿Es un oleaje prolongado?" o "¿El viento sopla en alta mar?".
 Estas son las preguntas que construirán los nodos de decisión del árbol, cuyas respuestas van a dirigir a una nueva pregunta hasta llegar a un nodo hoja que de una respuesta de sí o no.  
 Este árbol de decisiones es un ejemplo de un problema de clasificación, donde las etiquetas de clase son "navegar" y "no navegar".
 Si bien los árboles de decisión son algoritmos comunes de aprendizaje supervisado, pueden ser propensos a problemas, como sesgos y sobreajuste. Sin embargo, cuando varios árboles de decisión forman un conjunto en el algoritmo de random forest, predicen resultados más precisos, especialmente cuando los árboles individuales no están correlacionados entre sí.
@@ -64,7 +63,7 @@ Finalmente, la muestra de oob se utiliza para la validación cruzada, finalizand
 
 Hay una serie de ventajas y desafíos clave que presenta el algoritmo de random forest cuando se usa para problemas de clasificación o regresión:
 Beneficios clave
- 
+
 Riesgo reducido de sobreajuste
 
 Los árboles de decisión corren el riesgo de sobreajustarse, ya que tienden a ajustar todas las muestras dentro de los datos de entrenamiento. Sin embargo, cuando hay una gran cantidad de árboles de decisión en un random forest, el clasificador no se ajustará demasiado al modelo, ya que el promedio de árboles no correlacionados reduce la varianza general y el error de predicción.
@@ -77,7 +76,6 @@ Importancia de la característica fácil de determinar
 El random forest facilita la evaluación de la importancia o contribución de las variables al modelo. Hay algunas formas de evaluar la importancia de las características. La importancia de Gini y la disminución media de impurezas (MDI) se utilizan generalmente para medir cuánto disminuye la precisión del modelo cuando se excluye una variable determinada.
 
 Sin embargo, la importancia de la permutación, también conocida como precisión de disminución media (MDA), es otra medida de importancia. MDA identifica la disminución promedio en la precisión mediante la permutación aleatoria de los valores de las características en las muestras oob.
-
 
 Explicación
 
@@ -101,7 +99,7 @@ Una elección razonable para el mejor hiperplano es aquel que representa la mayo
 
 ![Multiple hyperplanes separate the data from two classes](./resources/Multiple_hyperplanes_separate_the_data_from_two_classes.png)
 
-Así que elegimos el hiperplano cuya distancia desde él hasta el punto de datos más cercano en cada lado esté maximizada. Si existe tal hiperplano, se conoce como el hiperplano de margen máximo/márgen duro. Entonces, de la figura anterior, elegimos L2. 
+Así que elegimos el hiperplano cuya distancia desde él hasta el punto de datos más cercano en cada lado esté maximizada. Si existe tal hiperplano, se conoce como el hiperplano de margen máximo/márgen duro. Entonces, de la figura anterior, elegimos L2.
 Consideremos un escenario como se muestra a continuación.
 
 ![Selecting hyperplane for data with outlier](./resources/Selecting_hyperplane_for_data_with_outlier.png)
@@ -178,7 +176,6 @@ $$\text{Sigmoide:} K(x_i, x_j) = \tanh(\alpha x_i^Tx_j + b)$$
 
 - SVM puede ser sensible a la escala de las características, por lo que a menudo se requiere el escalamiento de características antes del entrenamiento.
 
-
 Justificación
 
 ## Diseño Experimental
@@ -209,16 +206,20 @@ Hemos empleado el [dataset](https://www.kaggle.com/datasets/leomartinelli/bullyi
 
 ### Preprocesamiento y análisis exploratorio de datos
 
-Se decide crear una única feature referida al bullying: 'Bullied_in_past_12_months', la cual es la combinación de las otras 3 features referidas al bullying:
-- Bullied_on_school_property_in_last_12_months, 
-- Bullied_not_on_school_property_in_last_12_months y 
-- Cyber_Bullied_in_last_12_months; 
+Hemos decidido crear una única feature referida al bullying: 'Bullied_in_past_12_months', la cual es la combinación de las otras 3 features referidas al bullying:
+
+- Bullied_on_school_property_in_last_12_months,
+- Bullied_not_on_school_property_in_last_12_months y
+- Cyber_Bullied_in_last_12_months;
+
 si alguno de estos es true, Bullied_in_last_12_months es true.
 
+Obteniendo así la siguiente distribución de las dos clases:
 
-Obteniendo así la siguiente distribución de las dos clases: 
 - (0) 'Not_bullied', si no han sufrido bullying en los últimos 12 meses y
 - (1) 'Bullied', en caso contrario.
+
+Esta decisión se tomó para mejorar el balance de las clases, ya que como se puede ver en la imagen, las tres clases por separado presentan un desbalanceo importante.
 
 ![Bullied_Distribution](./results/plots/Bullied_Distribution.png)
 
@@ -232,32 +233,29 @@ Distribución del bullying según si se sienten solos:
 
 **Correlación con Cramer's V**
 
+Posteriormente, se realizó un análisis de correlación entre las variables para determinar cuáles son las más relevantes para el modelo. Para ello, se utilizó el índice de correlación de Cramer's V, el cual es una medida de asociación entre variables categóricas. Este índice se encuentra entre 0 y 1, donde 0 indica que no hay asociación entre las variables y 1 indica una asociación perfecta.
+
 Índice de correlación de Cramer's V entre cada una de las variables y Bullied_in_past_12_months.
 
-| Variable                                    | Cramer's V           |
-| ------------------------------------------- | -------------------- |
-| Felt_lonely                                 | 0.2726072072581656   |
-| Physically_attacked                         | 0.23154321567889047  |
-| Most_of_the_time_or_always_felt_lonely      | 0.21002465668566908  |
-| Sex                                         | 0.1010648424129439   |
-| Other_students_kind_and_helpful             | 0.13117254343399898  |
-| Physical_fighting                           | 0.12324990208733567  |
-| Parents_understand_problems                 | 0.11609267319217477  |
-| Miss_school_no_permission                   | 0.08803480691919753  |
-| Missed_classes_or_school_without_permission | 0.08438424530657992  |
-| Close_friends                               | 0.07364435597446765  |
-| Were_obese                                  | 0.022156982271592063 |
-| Were_overweight                             | 0.021917650571953416 |
-| Were_underweight                            | 0.02189826267397687  |
-| Custom_Age                                  | 0.020020473152699978 |
+![Cramer's V](./results/plots/cramer.png)
 
-Se probó agregar una feature Has_close_friends a partir de Close_friends pero empeoraba su valor de correlación de Cramer's V.
+**Matriz de correlación**
 
-[Hacer matriz de correlación]
+Se calculó también la matriz de correlación entre las variables. En la matriz de correlación se utiliza el coeficiente de correlación de Pearson, el cual es una medida de la fuerza de una relación lineal entre dos variables cuantitativas. Este coeficiente se encuentra entre -1 y 1, donde 0 indica que no hay asociación entre las variables y 1 indica una asociación perfecta.
 
-[Resultados de importance de RF]
+![Correlation Matrix](./results/plots/correlation_matrix.png)
 
-Después de analizar los datos mediante Cramers'V y experimentar con diversas combinaciones de features con el objetivo de maximizar los resultados a través de la implementación de Random Forest, se ha determinado la utilización de las siguientes variables:
+**Importancia de Features de Random Forest**
+
+Finalmente, se detalla la importancia de las variables según la función provista por Random Forest.
+
+![Feature importance](./results/plots/feature_importance.png)
+
+En base a los resultados obtenidos, se probó agregar nuevas features en base a las existentes, como por ejemplo: Has_close_friends a partir de Close_friends, que sería True si Close_friends es un número mayor a 0, pero éste empeoraba su valor de correlación de Cramer's V con respecto a Close_friends.
+
+Además, 'Most_of_the_time_or_always_felt_lonely' y 'Missed_classes_or_school_without_permission', que venían incluídas en el dataset, también son features que fueron creadas en base a 'Felt_lonely' y 'Miss_school_no_permission', pero como se puede observar no aportan mejor correlación que éstas, así que también se descartan.
+
+Después de analizar la correlación de los datos con los métodos ya mencionados y experimentar con diversas combinaciones de features con el objetivo de maximizar los resultados a través de la implementación de los modelos, se ha determinado la utilización de las siguientes variables:
 
 - Bullied_in_past_12_months
 - Physically_attacked
@@ -287,47 +285,50 @@ Para la implementación del Random Forest, se emplearon los siguientes parámetr
 
 **Matriz de confusión**
 
-|              | Predicted Not bullied | Predicted Bullied |
-| ------------ | ----------- | ----------- |
-| **Actual Not bullied** | 16543       | 8119        |
-| **Actual Bullied** | 6009        | 10217        |
+|                        | Predicted Not bullied | Predicted Bullied |
+| ---------------------- | --------------------- | ----------------- |
+| **Actual Not bullied** | 16543                 | 8119              |
+| **Actual Bullied**     | 6009                  | 10217             |
 
 **Reporte de la clasificación**
 
-|                  | Precision | Recall | F1-Score | Support |
-| ---------------- | --------- | ------ | -------- | ------- |
-| **Not bullied**      | 0.73      | 0.67   | 0.70     | 24662   |
-| **Bullied**      | 0.56      | 0.63   | 0.59     | 16226   |
-| **Accuracy**     |           |        | 0.65     | 40888   |
-| **Macro Avg**    | 0.65      | 0.65   | 0.65     | 40888   |
-| **Weighted Avg** | 0.66      | 0.65   | 0.66     | 40888   |
+|                 | Precision | Recall | F1-Score | Support |
+| --------------- | --------- | ------ | -------- | ------- |
+| **Not bullied** | 0.73      | 0.67   | 0.70     | 24662   |
+| **Bullied**     | 0.56      | 0.63   | 0.59     | 16226   |
+| **Accuracy**    |           |        | 0.65     | 40888   |
 
 #### Test
 
 **Matriz de confusión**
 
-|              | Predicted Not bullied | Predicted Bullied |
-| ------------ | ----------- | ----------- |
-| **Actual Not bullied** | 4043        | 2055        |
-| **Actual Bullied** | 1475        | 2649        |
+|                        | Predicted Not bullied | Predicted Bullied |
+| ---------------------- | --------------------- | ----------------- |
+| **Actual Not bullied** | 4043                  | 2055              |
+| **Actual Bullied**     | 1475                  | 2649              |
 
 **Reporte de la clasificación**
 
-|                  | Precision | Recall | F1-Score | Support |
-| ---------------- | --------- | ------ | -------- | ------- |
-| **Not bullied**      | 0.73      | 0.66   | 0.70     | 6098    |
-| **Bullied**      | 0.56      | 0.64   | 0.60     | 4124    |
-| **Accuracy**     |           |        | 0.65     | 10222   |
-| **Macro Avg**    | 0.65      | 0.65   | 0.65     | 10222   |
-| **Weighted Avg** | 0.66      | 0.65   | 0.66     | 10222   |
+|                 | Precision | Recall | F1-Score | Support |
+| --------------- | --------- | ------ | -------- | ------- |
+| **Not bullied** | 0.73      | 0.66   | 0.70     | 6098    |
+| **Bullied**     | 0.56      | 0.64   | 0.60     | 4124    |
+| **Accuracy**    |           |        | 0.65     | 10222   |
 
-#### Gráficos
+#### Configuración de parámetros de Random Forest
 
-Generamos gráficos con el propósito de identificar la combinación óptima de la cantidad de árboles a utilizar en el modelo Random Forest, junto con los mejores pesos para las clases respectivas. Al analizar los resultados, observamos que no hubo una mejora significativa al aumentar el número de árboles, por lo que decidimos mantener n=100. En cuanto a los pesos de las clases, optamos por una opción equilibrada entre el accuracy y el recall, seleccionando Not bullied: 1 y Bullied: 1.5 (representados por la curva verde).
+Generamos gráficos con el propósito de identificar la combinación óptima de la cantidad de árboles a utilizar en el modelo Random Forest, junto con los mejores pesos para las clases respectivas.
 
-![rf_grid_search_accuracy.png](./results/plots/rf_grid_search_accuracy.png)
+![rf_grid_search_accuracy.png](./results/plots/rf_grid_search_accuracy_v1.png)
 
-![rf_grid_search_recall.png](./results/plots/rf_grid_search_recall.png)
+![rf_grid_search_recall.png](./results/plots/rf_grid_search_recall_v1.png)
+
+Al analizar los resultados, observamos que no hubo una mejora significativa al aumentar el número de árboles, por lo que decidimos mantener n=100. En cuanto a los pesos de las clases, optamos por una opción equilibrada entre el accuracy y el recall, seleccionando los siguientes pesos:
+
+- Not bullied: 1
+- Bullied: 1.5
+
+(representados por la curva verde).
 
 ### Support Vector Machine
 
@@ -347,61 +348,127 @@ Para la implementación de SVM se emplearon los siguientes parámetros:
 
 **Matriz de confusión**
 
-|              | Predicted Not bullied | Predicted Bullied |
-| ------------ | ----------- | ----------- |
-| **Actual Not bullied** | 16664       | 7998        |
-| **Actual Bullied** | 7543        | 8683        |
+|                        | Predicted Not bullied | Predicted Bullied |
+| ---------------------- | --------------------- | ----------------- |
+| **Actual Not bullied** | 16664                 | 7998              |
+| **Actual Bullied**     | 7543                  | 8683              |
 
 **Reporte de la clasificación**
 
-|                  | Precision | Recall | F1-Score | Support |
-| ---------------- | --------- | ------ | -------- | ------- |
-| **Not bullied**      | 0.69      | 0.68   | 0.68     | 24662   |
-| **Bullied**      | 0.52      | 0.54   | 0.53     | 16226   |
-| **Accuracy**     |           |        | 0.62     | 40888   |
-| **Macro Avg**    | 0.60      | 0.61   | 0.60     | 40888   |
-| **Weighted Avg** | 0.62      | 0.62   | 0.62     | 40888   |
+|                 | Precision | Recall | F1-Score | Support |
+| --------------- | --------- | ------ | -------- | ------- |
+| **Not bullied** | 0.69      | 0.68   | 0.68     | 24662   |
+| **Bullied**     | 0.52      | 0.54   | 0.53     | 16226   |
+| **Accuracy**    |           |        | 0.62     | 40888   |
 
 #### Test
 
 **Matriz de confusión**
 
-|              | Predicted Not bullied | Predicted Bullied |
-| ------------ | ----------- | ----------- |
-| **Actual Not bullied** | 4161        | 1937        |
-| **Actual Bullied** | 1882        | 2242        |
+|                        | Predicted Not bullied | Predicted Bullied |
+| ---------------------- | --------------------- | ----------------- |
+| **Actual Not bullied** | 4161                  | 1937              |
+| **Actual Bullied**     | 1882                  | 2242              |
 
 **Reporte de la clasificación**
 
-|                  | Precision | Recall | F1-Score | Support |
-| ---------------- | --------- | ------ | -------- | ------- |
-| **Not bullied**      | 0.69      | 0.68   | 0.69     | 6098    |
-| **Bullied**      | 0.54      | 0.54   | 0.54     | 4124    |
-| **Accuracy**     |           |        | 0.63     | 10222   |
-| **Macro Avg**    | 0.61      | 0.61   | 0.61     | 10222   |
-| **Weighted Avg** | 0.63      | 0.63   | 0.63     | 10222   |
+|                 | Precision | Recall | F1-Score | Support |
+| --------------- | --------- | ------ | -------- | ------- |
+| **Not bullied** | 0.69      | 0.68   | 0.69     | 6098    |
+| **Bullied**     | 0.54      | 0.54   | 0.54     | 4124    |
+| **Accuracy**    |           |        | 0.63     | 10222   |
 
-#### Gráficos
+#### Configuración de parámetros de SVM
 
-Se generaron gráficos que representan el accuracy y el recall en función del factor de penalización de SVM, utilizando 15 divisiones diferentes. A partir de estos resultados, se seleccionó el valor de c=10, ya que demostró ser la elección que logra el mejor equilibrio entre ambas métricas.
+Se generaron gráficos que representan el accuracy y el recall en función del factor de penalización (C) de SVM, utilizando 15 splits diferentes.
 
-![svm_boxplot_c_accuracy.png](./results/plots/svm_boxplot_c_accuracy.png)
+![svm_boxplot_c_accuracy.png](./results/plots/svm_boxplot_c_accuracy_v1.png)
 
-![svm_boxplot_c_recall.png](./results/plots/svm_boxplot_c_recall.png)
+![svm_boxplot_c_recall.png](./results/plots/svm_boxplot_c_recall_v1.png)
+
+A partir de estos resultados, se seleccionó el valor de c=10, ya que demostró ser la elección que logra el mejor equilibrio entre ambas métricas.
 
 ## Análisis y discusión de resultados
 
 ### Comparacion de ambos algoritmos
 
-![boxplot_rf_metrics](./results/plots/rf_boxplot_30.png)
+Aquí se muestran gráficos de cajas comparativos para cada algoritmo, abarcando 30 divisiones diferentes. Estos gráficos proporcionan una visión completa de las métricas clave, como precision, recall, F1-score y accuracy, permitiendo evaluar el rendimiento de los algoritmos en diversos escenarios de división de datos.
 
-![boxplot_svm_metrics](./results/plots/svm_boxplot_30.png)
+**Random Forest**
+
+![boxplot_rf_metrics](./results/plots/rf_boxplot_30_v1.png)
+
+**Support Vector Machine**
+
+![boxplot_svm_metrics](./results/plots/svm_boxplot_30_v1.png)
+
+Como se puede observar, el algortimo de Random Forest obtiene resultados levemente mejores que SVM en accuracy y precision, y una mejoría considerable en recall y F1-Score
 
 ### Learning Curves
 
+Las curvas de aprendizaje son una herramienta muy útil para determinar si un modelo está sufriendo de overfitting o underfitting. Estas curvas representan la precisión del modelo en el conjunto de entrenamiento y en el conjunto de validación en función del tamaño del conjunto de entrenamiento.
+
+Dos conceptos importantes relacionados a las curvas de aprendizaje son el sesgo (bias) y la varianza (variance).
+
+**Sesgo**
+
+El sesgo es el error debido a suposiciones incorrectas en el algoritmo de aprendizaje. Un alto sesgo puede causar que el algoritmo ignore los detalles relevantes y haga suposiciones demasiado simples. El sesgo alto puede conducir a un underfitting.
+
+![Bias](./resources/bias.png)
+
+**Varianza**
+
+La varianza es el error debido a la sensibilidad excesiva a pequeñas fluctuaciones en el conjunto de entrenamiento. Un modelo con una alta varianza se ajusta demasiado a los datos de entrenamiento y no generaliza bien para predecir nuevos datos. La alta varianza puede conducir a un overfitting.
+
+![Variance](./resources/variance.png)
+
+**Curvas de aprendizaje para Random Forest**
+
 ![rf_learning_curve_error_v1](./results/plots/rf_learning_curve_error_v1.png)
 
-![rf_learning_curve_error_v2](./results/plots/rf_learning_curve_error_v2.png)
+Como se puede obsevar, el modelo presenta un sesgo alto.
+Hemos investigado y las posibles causas de dicho incoveniente pueden ser las siguientes en nuestro caso:
+
+- **Features no informativas:** Si las features utilizadas por el modelo no son informativas o no capturan la verdadera estructura de los datos, el modelo puede tener un sesgo alto.
+
+- **Sobre simplificación:** Un sesgo alto también puede ocurrir cuando se simplifican en exceso ciertos aspectos del modelo para facilitar el aprendizaje, pero esto puede llevar a una representación inexacta de los datos.
+
+- **Underfitting:** Ocurre cuando el modelo no es lo suficientemente complejo como para adaptarse a los patrones subyacentes en los datos de entrenamiento.
+
+En base a esto, se optó por implementar las siguientes estrategias para solucionar esta situación. Las cuales fueron Boosting y agregar más features a RF.
+
+**Boosting**
+
+El boosting es una técnica de modelado de conjuntos que intenta construir un clasificador fuerte a partir de una cantidad de clasificadores débiles. En primer lugar, se construye un modelo a partir de los datos de entrenamiento. Luego se construye el segundo modelo que intenta corregir los errores presentes en el primer modelo. Este procedimiento continúa y se agregan modelos hasta que se predice correctamente el conjunto de datos de entrenamiento completo o se agrega el número máximo de modelos.
+
+**ADA Boosting**
+
+El algoritmo AdaBoost (Adaptive Boosting). A dicho algoritmo se le llama adaptativo porque se vuelven a asignar los pesos de las clases a cada instancia, asignando pesos más altos a las instancias clasificadas incorrectamente.
+Inicialmente este algoritmo constuye un modelo y da pesos iguales a todas las clases. Luego, se le asigna peso más alto a la clase que fue peor clasificada. Por lo tanto, el siguiente modelo hará mayor foco en esta clase. Y así continuará entrenando modelos hasta que llegue un error más bajo.
+
+Al implementar este algoritmo obtuvimos los siguientes resultados.
+
+![Learning Curves ADA Boost](./results/plots/boost_learning_curve_error.png)
+
+Podemos observar en el gráfico que no muestra una mejora significativa comparado con el modelo sin boost. Por lo cual esta solución queda descartada.
+
+**Agregar features**
+
+La otra causa podía ser que se simplificaban en exceso ciertos aspectos del modelo. Por lo que se optó por agregar más features al modelo de Random Forest con el objetivo de reducir el sesgo.
+
+Se agregaron las siguientes features:
+
+- Miss_school_no_permission
+- Other_students_kind_and_helpful
+- Parents_understand_problems
+
+Obteniendo los siguientes resultados:
+
+![Learning Curves RF](./results/plots/rf_learning_curve_error_v2.png)
+
+Como se puede observar, el modelo presenta un sesgo menor que el modelo anterior. Por lo que se puede concluir que la causa del sesgo alto era la falta de features informativas. Sin embargo, esta elección de features empeora considerablemente el puntaje obtenido en las metricas comparado con el modelo anterior. Esto se puede observar en el siguiente gráfico de cajas.
+
+![boxplot_rf_metrics](./results/plots/rf_boxplot_30_v2.png)
 
 ## Conclusión
 
@@ -409,3 +476,6 @@ Se generaron gráficos que representan el accuracy y el recall en función del f
 
 [https://www.ibm.com/mx-es/topics/random-forest#:~:text=El%20random%20forest%20es%20un,problemas%20de%20clasificaci%C3%B3n%20y%20regresi%C3%B3n]
 
+https://www.geeksforgeeks.org/boosting-in-machine-learning-boosting-and-adaboost/?ref=header_search
+
+https://www.analyticsvidhya.com/blog/2021/09/adaboost-algorithm-a-complete-guide-for-beginners/
