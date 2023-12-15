@@ -36,7 +36,7 @@ accuracy_results = {
 }
 
 i = 1
-""" for n in random_states:
+for n in random_states:
     for c in c_values:
         start_time = time.time()
         print(i,"/", len(random_states) * len(c_values))
@@ -78,7 +78,7 @@ i = 1
         execution_time = end_time - start_time
         print(f"Execution time: {execution_time} s")
         print("----------------------------------------")
-        print() """
+        print()
 
 with open("./results/json/svm_c_results_v2.json", "w") as json_file:
     json.dump(results, json_file, indent=2)
@@ -92,7 +92,7 @@ plt.savefig("./results/plots/svm_boxplot_c_accuracy_v2.1.png")
 
 
 
-# Load
+"""# Load
 with open("./results/json/svm_c_results_v2.json", "r") as json_file:
     data = json.load(json_file)
 
@@ -102,4 +102,4 @@ plt.boxplot(recall_results, labels=['0.1', '1', '10', '100'])
 plt.title("Recall según el factor de penalización (C) para SVM con 15 splits distintos")
 plt.ylabel("Recall")
 plt.xlabel("C")
-plt.savefig("./results/plots/svm_boxplot_c_recall_v2.1.png")
+plt.savefig("./results/plots/svm_boxplot_c_recall_v2.png")"""

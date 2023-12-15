@@ -182,7 +182,7 @@ Justificación
 
 ### Dataset
 
-Hemos empleado el [dataset](https://www.kaggle.com/datasets/leomartinelli/bullying-in-schools) del Global School-Based Student Health Survey (GSHS) realizado en Argentina en 2018. El Global School-Based Student Health Survey (GSHS) es una encuesta basada en escuelas que utiliza un cuestionario autoadministrado para recopilar datos sobre el comportamiento de salud de los jóvenes y los factores protectores relacionados con las principales causas de morbilidad y mortalidad. En la edición realizada en Argentina en 2018, participaron un total de 56,981 estudiantes.
+Hemos empleado el [dataset](https://www.kaggle.com/datasets/leomartinelli/bullying-in-schools) del Global School-Based Student Health Survey (GSHS) realizado en Argentina en 2018. El GSHS es una encuesta basada en escuelas que utiliza un cuestionario autoadministrado para recopilar datos sobre el comportamiento de salud de los jóvenes y los factores protectores relacionados con las principales causas de morbilidad y mortalidad. En la edición realizada en Argentina en 2018, participaron un total de 56,981 estudiantes.
 
 **Features:**
 
@@ -214,7 +214,7 @@ Hemos decidido crear una única feature referida al bullying: 'Bullied_in_past_1
 
 si alguno de estos es true, Bullied_in_last_12_months es true.
 
-Obteniendo así la siguiente distribución de las dos clases:
+Obteniendo así la siguiente distribución de las clases 'Not_bullied' y 'Bullied':
 
 - (0) 'Not_bullied', si no han sufrido bullying en los últimos 12 meses y
 - (1) 'Bullied', en caso contrario.
@@ -402,7 +402,15 @@ Aquí se muestran gráficos de cajas comparativos para cada algoritmo, abarcando
 
 ![boxplot_svm_metrics](./results/plots/svm_boxplot_30_v1.png)
 
-Como se puede observar, el algortimo de Random Forest obtiene resultados levemente mejores que SVM en accuracy y precision, y una mejoría considerable en recall y F1-Score
+Como se puede observar, el algortimo de Random Forest obtiene resultados levemente mejores que SVM en accuracy y precision, y una mejoría considerable en recall y F1-Score.
+
+#### Tiempo de ejecución
+
+En el siguiente gráfico, se puede observar una comparación del tiempo de ejecución de los algoritmos Random Forest y Support Vector Machine.
+
+![time_comparison](./results/plots/time_comparison.png)
+
+Como podemos apreciar, el tiempo de ejecución de SVM es considerablemente mayor que el de Random Forest. Esto se debe a que SVM es un algoritmo más complejo que Random Forest, ya que utiliza un kernel para transformar los datos de entrada en un espacio de características de mayor dimensión, lo que requiere un mayor tiempo de ejecución.
 
 ### Learning Curves
 
@@ -426,8 +434,8 @@ La varianza es el error debido a la sensibilidad excesiva a pequeñas fluctuacio
 
 ![rf_learning_curve_error_v1](./results/plots/rf_learning_curve_error_v1.png)
 
-Como se puede obsevar, el modelo presenta un sesgo alto.
-Hemos investigado y las posibles causas de dicho incoveniente pueden ser las siguientes en nuestro caso:
+Como se puede obsevar, el modelo presenta un sesgo alto, por lo que agregar más datos de entrenamiento no va a mejorar los resultados.
+Luego de investigar, hemos identificado que las posibles causas de dicho incoveniente pueden ser las siguientes:
 
 - **Features no informativas:** Si las features utilizadas por el modelo no son informativas o no capturan la verdadera estructura de los datos, el modelo puede tener un sesgo alto.
 
@@ -435,7 +443,7 @@ Hemos investigado y las posibles causas de dicho incoveniente pueden ser las sig
 
 - **Underfitting:** Ocurre cuando el modelo no es lo suficientemente complejo como para adaptarse a los patrones subyacentes en los datos de entrenamiento.
 
-En base a esto, se optó por implementar las siguientes estrategias para solucionar esta situación. Las cuales fueron Boosting y agregar más features a RF.
+En base a esto, se optó por implementar las siguientes estrategias para solucionar esta situación. Las cuales fueron Boosting y la adición de features a RF.
 
 **Boosting**
 
@@ -452,7 +460,7 @@ Al implementar este algoritmo obtuvimos los siguientes resultados.
 
 Podemos observar en el gráfico que no muestra una mejora significativa comparado con el modelo sin boost. Por lo cual esta solución queda descartada.
 
-**Agregar features**
+**Adición de features**
 
 La otra causa podía ser que se simplificaban en exceso ciertos aspectos del modelo. Por lo que se optó por agregar más features al modelo de Random Forest con el objetivo de reducir el sesgo.
 
@@ -471,6 +479,20 @@ Como se puede observar, el modelo presenta un sesgo menor que el modelo anterior
 ![boxplot_rf_metrics](./results/plots/rf_boxplot_30_v2.png)
 
 ## Conclusión
+
+En este proyecto, abordamos la problemática de la detección de casos de bullying en estudiantes mediante el uso de algoritmos de aprendizaje automático aplicados al dataset generado a partir de la GSHS. Los algoritmos elegidos fueron Random Forest y Support Vector Machine (SVM).
+
+Durante el EDA, tomamos decisiones fundamentales, como la creación de una única característica para representar el bullying y la selección de variables relevantes. También exploramos la correlación entre las variables y la importancia de las características según Random Forest.
+
+En la implementación de los modelos, ajustamos cuidadosamente los parámetros, considerando aspectos como la cantidad de árboles en Random Forest y el parámetro C en SVM. Realizamos una comparación exhaustiva de ambos algoritmos, evaluando métricas clave como precisión, recall, F1-Score y accuracy.
+
+Random Forest demostró un rendimiento generalmente superior a SVM en todas las métricas evaluadas. La capacidad de Random Forest para manejar relaciones no lineales y su rendimiento robusto lo posicionan como una elección efectiva para este problema.
+
+SVM, a pesar de tener una mayor complejidad computacional, presentó resultados inferiores a los de Random Forest, teniendo en cuenta la puntuación en las métricas y la enorme diferencia en los tiempos de ejecución.
+
+En la evaluación de sesgo y varianza, identificamos que Random Forest inicialmente mostró un sesgo alto, que abordamos mediante la adición de features al modelo. Sin embargo, esta mejora en el sesgo vino acompañada de una disminución en las métricas de rendimiento. La implementación de boosting mediante el algoritmo AdaBoost no proporcionó mejoras significativas.
+
+Para finalizar, cabe mencionar que este proyecto destaca la complejidad de abordar problemas de salud estudiantil utilizando aprendizaje automático y subraya la importancia de considerar cuidadosamente las decisiones de modelado. Aunque Random Forest presentó resultados decentes, queda abierta la posibilidad de investigar otros algoritmos adecuados para esta problemática.
 
 ## Bibliografía
 
