@@ -26,6 +26,10 @@ Estas preguntas forman los nodos de decisión del árbol, cuyas respuestas condu
 
 Este árbol de decisiones ejemplifica un problema de clasificación, donde las etiquetas de clase son "Despegar" y "No despegar". Aunque los árboles de decisión son algoritmos comunes de aprendizaje supervisado, pueden enfrentar problemas como sesgos y sobreajuste. No obstante, cuando varios árboles de decisión se combinan en el algoritmo de Random Forest, predicen resultados más precisos, especialmente cuando los árboles individuales no están correlacionados entre sí.
 
+En la siguiente imagen podemos ver un ejemplo de árbol de decisión.
+
+![Decision Tree](./resources/decision_tree.jpg)
+
 **Algoritmo de Random Forest**
 
 Como mencionamos anteriormente, Random Forest genera múltiples árboles de decisión que se fusionan para mejorar la precisión de las predicciones.
@@ -50,7 +54,7 @@ La clave reside en la baja (o nula) correlación entre los modelos individuales,
   
 **Justificación de uso**
 
-
+Las ventajas de Random Forest, tales como su robustez ante datos ruidosos, su capacidad para manejar variables categóricas y continuas, así como su velocidad de procesamiento, son elementos críticos en la resolución de un problema delicado como el bullying. Además, la capacidad de interpretar la importancia de las features en el modelo contribuye a la comprensión y contextualización adecuada de los resultados, considerando la naturaleza sensible de los datos de salud estudiantil.
 
 ### Support Vector Machine
 
@@ -359,6 +363,19 @@ Se generaron gráficos que representan el accuracy y el recall en función del f
 ![svm_boxplot_c_recall.png](./results/plots/svm_boxplot_c_recall_v1.png)
 
 A partir de estos resultados, se seleccionó el valor de c=10, ya que demostró ser la elección que logra el mejor equilibrio entre ambas métricas.
+
+De la misma manera, generamos gráficos con el propósito de identificar la combinación óptima del valor de gamma junto con los mejores pesos para las clases respectivas.
+
+![svm_grid_search_accuracy.png](./results/plots/svm_grid_search_accuracy_v1.png)
+
+![svm_grid_search_recall.png](./results/plots/svm_grid_search_recall_v1.png)
+
+Al analizar los resultados, hemos elegido nuevamente una opción equilibrada entre el accuracy y el recall, seleccionando gamma= 0.001 y los siguientes pesos:
+
+- Not bullied: 1
+- Bullied: 1.5
+
+(representados por la curva verde).
 
 ## Análisis y discusión de resultados
 
