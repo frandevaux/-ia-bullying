@@ -85,13 +85,13 @@ Justificación
 
 ### Support Vector Machine
 
-Support Vector Machine (SVM) es un algoritmo de aprendizaje automático supervisado utilizado tanto para clasificación como para regresión. Aunque también se puede aplicar a problemas de regresión, se adapta mejor a la clasificación. El objetivo principal del algoritmo SVM es encontrar el hiperplano óptimo en un espacio N-dimensional que pueda separar los puntos de datos en diferentes clases en el espacio de características. El hiperplano intenta que el margen entre los puntos más cercanos de diferentes clases sea lo más amplio posible. La dimensión del hiperplano depende del número de características. Si el número de características de entrada es dos, entonces el hiperplano es simplemente una línea. Si el número de características de entrada es tres, entonces el hiperplano se convierte en un plano 2D. Se vuelve difícil de imaginar cuando el número de características supera tres.
+Support Vector Machine (SVM) es un algoritmo de aprendizaje automático supervisado utilizado tanto para clasificación como para regresión, aunque se adapta mejor a la clasificación. El objetivo principal del algoritmo SVM es encontrar el hiperplano óptimo en un espacio N-dimensional que pueda separar los puntos de datos en diferentes clases en el espacio de características. El hiperplano intenta que el margen entre los puntos más cercanos de diferentes clases sea lo más amplio posible. La dimensión del hiperplano depende del número de características. Si el número de características de entrada es dos, entonces el hiperplano es simplemente una línea. Si el número de características de entrada es tres, entonces el hiperplano se convierte en un plano 2D. Y así sucesivamente.
 
-Consideremos dos variables independientes x1, x2 y una variable dependiente que es ya sea un círculo azul o un círculo rojo.
+Consideremos dos variables independientes x1, x2 y una variable dependiente que es un círculo azul o un círculo rojo.
 
 ![Linearly Separable Data points](./resources/Linearly_Separable_Data_points.png)
 
-En la figura anterior, es muy claro que hay múltiples líneas que segregan nuestros puntos de datos o realizan una clasificación entre círculos rojos y azules. Entonces, ¿cómo elegimos la mejor línea o, en general, el mejor hiperplano que segregue nuestros puntos de datos?
+En la figura anterior, hay múltiples líneas que dividen o realizan una clasificación entre círculos rojos y azules. Entonces, ¿cómo se elige la mejor línea o, en general, el mejor hiperplano que divida nuestros puntos de datos?
 
 **¿Cómo funciona SVM?**
 
@@ -99,18 +99,17 @@ Una elección razonable para el mejor hiperplano es aquel que representa la mayo
 
 ![Multiple hyperplanes separate the data from two classes](./resources/Multiple_hyperplanes_separate_the_data_from_two_classes.png)
 
-Así que elegimos el hiperplano cuya distancia desde él hasta el punto de datos más cercano en cada lado esté maximizada. Si existe tal hiperplano, se conoce como el hiperplano de margen máximo/márgen duro. Entonces, de la figura anterior, elegimos L2.
+Así que elegimos el hiperplano cuya distancia desde él hasta el punto de datos más cercano en cada lado esté maximizada. Si existe tal hiperplano, se conoce como el hiperplano de margen máximo (Margen Duro). Entonces, de la figura anterior, elegimos L2.
+
 Consideremos un escenario como se muestra a continuación.
 
 ![Selecting hyperplane for data with outlier](./resources/Selecting_hyperplane_for_data_with_outlier.png)
 
-Aquí tenemos una bola azul en el límite de la bola roja. ¿Cómo clasifica SVM los datos? La bola azul en el límite de las rojas es un valor atípico de las bolas azules. El algoritmo SVM tiene la característica de ignorar el valor atípico y encuentra el mejor hiperplano que maximiza el margen. SVM es robusto a los valores atípicos.
+Aquí tenemos un círculo azul en la zona de los círculos rojos. ¿Cómo clasifica SVM los datos? El círculo azul en esa zona es un valor atípico de las bolas azules. El algoritmo SVM tiene la característica de ignorar el valor atípico y encuentra el mejor hiperplano que maximiza el margen (Margen Suave).
 
-![Hyperplane which is the most optimized one](./resources/Hyperplane_which_is_the_most_optimized_one.png)
+**Datos linealmente no separables**
 
-Así que en este tipo de punto de datos, lo que hace SVM es encontrar el margen máximo como se hizo con conjuntos de datos anteriores junto con eso agrega una penalización cada vez que un punto cruza el margen. Así que los márgenes en estos tipos de casos se llaman márgenes suaves. Cuando hay un margen suave en el conjunto de datos, SVM intenta minimizar (1/margen + λ(∑penalty)). La pérdida de bisagra es una penalización comúnmente utilizada. Si no hay violaciones, no hay pérdida de bisagra. Si hay violaciones, la pérdida de bisagra es proporcional a la distancia de violación.
-
-Hasta ahora, estábamos hablando de datos linealmente separables (el grupo de bolas azules y rojas es separable por una línea recta/línea lineal). ¿Qué hacer si los datos no son linealmente separables?
+Hasta ahora, estábamos hablando de datos linealmente separables (el grupo de círculos azules y rojos es separable por una recta). ¿Qué hacer si los datos no son linealmente separables?
 
 ![Original 1D dataset for classification](./resources/Original_1D_dataset_for_classification.png)
 
@@ -134,17 +133,7 @@ En este caso, la nueva variable y se crea como una función de la distancia desd
 
 - **Margen Suave:** Cuando los datos no son perfectamente separables o contienen valores atípicos, SVM permite una técnica de margen suave. Cada punto de datos tiene una variable de holgura introducida por la formulación SVM de margen suave, que suaviza el estricto requisito de margen y permite ciertas clasificaciones erróneas o violaciones. Descubre un compromiso entre aumentar el margen y reducir las violaciones.
 
-- **C:** La maximización del margen y las multas por clasificación errónea se equilibran mediante el parámetro de regularización C en SVM. Decide la penalización por cruzar el margen o clasificar incorrectamente los puntos de datos. Un valor mayor de C impone una penalización más estricta, lo que resulta en un margen más pequeño y posiblemente menos clasificaciones erróneas.
-
-- **Hinge Loss:** Una función de pérdida típica en SVMs es la pérdida de bisagra. Castiga las clasificaciones incorrectas o las violaciones de margen. La función objetivo en SVM se forma frecuentemente combinándola con el término de regularización.
-
-**Tipos de SVM**
-
-Según la naturaleza de la frontera de decisión, las Máquinas de Vectores de Soporte (SVM) se pueden dividir en dos partes principales:
-
-1. **SVM Lineal:** Las SVM lineales utilizan una frontera de decisión lineal para separar los puntos de datos de diferentes clases. Cuando los datos pueden ser precisamente separados linealmente, las SVM lineales son muy adecuadas. Esto significa que una sola línea recta (en 2D) o un hiperplano (en dimensiones superiores) puede dividir completamente los puntos de datos en sus respectivas clases. Un hiperplano que maximiza el margen entre las clases es la frontera de decisión.
-
-2. **SVM No Lineal:** Las SVM no lineales se pueden utilizar para clasificar datos cuando no se pueden separar en dos clases mediante una línea recta (en el caso de 2D). Mediante el uso de funciones de kernel, las SVM no lineales pueden manejar datos no linealmente separables. Las funciones de kernel transforman los datos de entrada originales en un espacio de características de mayor dimensión, donde los puntos de datos pueden ser separados linealmente. En este espacio modificado, se utiliza una SVM lineal para ubicar una frontera de decisión no lineal.
+- **C:** La maximización del margen y las penalizaciones por clasificación errónea se equilibran mediante el parámetro de regularización C en SVM. Decide la penalización por cruzar el margen o clasificar incorrectamente los puntos de datos. Un valor mayor de C impone una penalización más estricta, lo que resulta en un margen más pequeño y posiblemente menos clasificaciones erróneas.
 
 **Funciones de Kernel Populares en SVM**
 
@@ -157,6 +146,12 @@ $$\text{Polinomial: } K(w,x) = (\gamma w^Tx+b)^N$$
 $$\text{Gaussiano RBF: } K(w,x) = \exp(-\gamma|| x_i-x_j||^n)$$
 
 $$\text{Sigmoide:} K(x_i, x_j) = \tanh(\alpha x_i^Tx_j + b)$$
+
+**Demostración Visual**
+
+En el siguiente video se puede observar un conjunto de puntos azules y rojos que no son linealmente separables. Pero, al utilizar un kernel polinomial, se puede transformar el conjunto de datos en un espacio de características de mayor dimensión, donde los puntos de datos se pueden separar fácilmente utilizando un hiperplano.
+
+![svm polinomial kernel](./resources/svm_polynomial_kernel.gif)
 
 **Ventajas de SVM**
 
@@ -176,7 +171,15 @@ $$\text{Sigmoide:} K(x_i, x_j) = \tanh(\alpha x_i^Tx_j + b)$$
 
 - SVM puede ser sensible a la escala de las características, por lo que a menudo se requiere el escalamiento de características antes del entrenamiento.
 
-Justificación
+**Justificación de uso**
+
+En primer lugar, SVM destaca por su capacidad para manejar eficazmente relaciones no lineales en los datos, gracias al uso de funciones kernel. En este contexto donde las relaciones entre las características pueden ser complejas y no lineales, esta propiedad permite capturar patrones más sutiles y, en consecuencia, mejorar la precisión del modelo.
+
+Además, SVM busca el hiperplano que maximiza el margen entre las clases. Este enfoque de "margen máximo" contribuye a una buena generalización del modelo y, por ende, a un rendimiento sólido en datos de prueba no vistos.
+
+La robustez de SVM ante outliers en los datos es otra ventaja significativa. Dado que los conjuntos de datos del mundo real a menudo contienen datos atípicos o anomalías, la capacidad de SVM para manejar estos casos sin comprometer significativamente el rendimiento general del modelo es otro aspecto beneficioso.
+
+Finalmente, la regularización incorporada en SVM a través del parámetro C proporciona un mecanismo para equilibrar la complejidad del modelo y la clasificación errónea en el conjunto de entrenamiento. Este control sobre la flexibilidad del modelo es esencial para adaptar SVM a las características específicas del conjunto de datos.
 
 ## Diseño Experimental
 
@@ -505,6 +508,8 @@ Para finalizar, cabe mencionar que este proyecto destaca la complejidad de abord
 - GeeksForGeeks. (2023). [Support Vector Machine (SVM) Algorithm](https://www.geeksforgeeks.org/support-vector-machine-algorithm/)
 
 - GeeksForGeeks. (2023). [Classifying data using Support Vector Machines(SVMs) in Python](https://www.geeksforgeeks.org/classifying-data-using-support-vector-machinessvms-in-python/?ref=lbp)
+
+- Udiprod. (2021). [SVM with polynomial kernel visualization (HD)](https://www.youtube.com/watch?v=OdlNM96sHio&ab_channel=udiprod)
 
 - GeeksForGeeks. (2023). [Boosting in Machine Learning | Boosting and AdaBoost.](https://www.geeksforgeeks.org/boosting-in-machine-learning-boosting-and-adaboost/?ref=header_search)
 
