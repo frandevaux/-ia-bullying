@@ -11,7 +11,7 @@ from result import Result
 
 df = pd.read_csv("./results/fixed-Bullying_2018.csv",sep=';')
 
-df= df[['Bullied_in_past_12_months',  'Physically_attacked', 'Physical_fighting', 'Felt_lonely', 'Sex']]
+df= df[['Bullied_in_past_12_months',  'Physically_attacked', 'Physical_fighting', 'Felt_lonely', 'Sex', 'Miss_school_no_permission', 'Other_students_kind_and_helpful', 'Parents_understand_problems']]
 
 # Split the dataset
 x = df.drop('Bullied_in_past_12_months', axis=1)
@@ -62,7 +62,7 @@ for n in random_states:
     print("----------------------------------------")
     print()
 
-with open("./results/json/svm_30_results.json", "w") as json_file:
+with open("./results/json/svm_30_results_v2.json", "w") as json_file:
     json.dump(results, json_file, indent=2)
 
 accuracy_results = [result['Test']['accuracy'] for result in results]
@@ -75,4 +75,4 @@ plt.xlabel('Métrica')
 plt.ylabel('Valor')
 plt.title('Métricas en los resultados de test de SVM con 30 splits distintos')
 
-plt.savefig("./results/plots/svm_boxplot_30.png") 
+plt.savefig("./results/plots/svm_boxplot_30_v2.png") 
