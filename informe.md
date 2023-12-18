@@ -8,6 +8,8 @@
 
 En el presente informe se aborda un problema de _inteligencia artificial_, específicamente en el campo del aprendizaje automático y ciencia de datos. Nuestro objetivo es probar dos algoritmos (Random Forest y Support Vector Machine) y crear un _modelo de clasificación_, para que dado un dataset, éste sea capaz de identificar situaciones de bullying entre estudiantes, con el fin de prevenir y abordar este grave problema que afecta a los jóvenes.
 
+Es importante primero explicar qué es el bullying. Este concepto define al acoso escolar, es decir a la conducta de persecución física y/o psicológica que realiza un estudiante contra otro de forma negativa, continua e intencionada [[1]](#bibliografía). Como hemos dicho, esta problemática no se debe tomar a la ligera, pues puede tener efectos negativos en la salud física, el bienestar emocional y el rendimiento académico de los niños, en especial si dicha violencia se repite en el tiempo o es severa [[2]](#bibliografía).
+
 La elección de estos algoritmos responde a la necesidad de modelar relaciones no lineales, gestionar conjuntos de datos extensos y enfrentar posibles desequilibrios en la distribución de clases. Estos métodos destacan por su capacidad para manejar múltiples características y proporcionar resultados robustos, lo cual es esencial en un entorno tan diverso como el estudiantil.
 
 No obstante, los modelos deben ser cuidadosamente ajustados y evaluados para garantizar resultados precisos y relevantes. Además, la interpretación de los resultados puede requerir consideraciones éticas y contextualización adecuada dada la naturaleza sensible de los datos de salud estudiantil.
@@ -41,17 +43,14 @@ La clave reside en la baja (o nula) correlación entre los modelos individuales,
 **Ventajas de Random Forest**
 
 - **Robustez**: Random Forest es un algoritmo robusto que puede manejar datos ruidosos y valores atípicos. Tiene menos probabilidad de sobreajustar los datos, lo que significa que puede generalizar bien a nuevos datos.
-  
 - **Precisión**: Random Forest es uno de los algoritmos de aprendizaje automático más precisos. Puede manejar problemas de clasificación y regresión, así como trabajar bien con variables categóricas y continuas.
-  
 - **Velocidad**: A pesar de ser un algoritmo complejo, Random Forest es rápido y puede manejar conjuntos de datos grandes. También se puede paralelizar fácilmente para acelerar el entrenamiento.
 
 **Desventajas de Random Forest**
 
 - **Sobreajuste**: Aunque Random Forest es menos propenso al sobreajuste que un solo árbol de decisión, aún puede sobreajustar los datos si el número de árboles en el bosque es demasiado alto o si los árboles son demasiado profundos.
-  
 - **Interpretabilidad**: Random Forest puede ser menos interpretable que un solo árbol de decisión porque involucra múltiples árboles. Puede ser difícil entender cómo el algoritmo llegó a una predicción particular.
-  
+
 **Justificación de uso**
 
 Las ventajas de Random Forest, tales como su robustez ante datos ruidosos, su capacidad para manejar variables categóricas y continuas, así como su velocidad de procesamiento, son elementos críticos en la resolución de un problema delicado como el bullying. Además, la capacidad de interpretar la importancia de las features en el modelo contribuye a la comprensión y contextualización adecuada de los resultados, considerando la naturaleza sensible de los datos de salud estudiantil.
@@ -190,10 +189,10 @@ Hemos decidido crear una única feature referida al bullying: 'Bullied_in_past_1
 
 si alguno de estos es true, Bullied_in_last_12_months es true.
 
-Obteniendo así la siguiente distribución de las clases 'Not_bullied' y 'Bullied':
+Obteniendo así la siguiente distribución de las clases 'No sufrió bullying' y 'Sufrió bullying':
 
-- (0) 'Not_bullied', si no han sufrido bullying en los últimos 12 meses y
-- (1) 'Bullied', en caso contrario.
+- (0) 'No sufrió bullying', si no han sufrido bullying en los últimos 12 meses y
+- (1) 'Sufrió bullying', en caso contrario.
 
 Esta decisión se tomó para mejorar el balance de las clases, ya que como se puede ver en la imagen, las tres clases por separado presentan un desbalanceo importante.
 
@@ -255,16 +254,16 @@ Para la implementación del Random Forest, se emplearon los siguientes parámetr
 
 - `bootstrap=False`: Si se utilizan o no muestras de arranque al construir los árboles. Si es `False`, se utiliza todo el conjunto de datos para construir cada árbol.
 
-- `class_weight={0: 1, 1: 1.5}`: Pesos asociados con las clases {Not bullied: 1, Bullied: 1.5}.
+- `class_weight={0: 1, 1: 1.5}`: Pesos asociados con las clases {No sufrió bullying: 1, Sufrió bullying: 1.5}.
 
 #### Train
 
 **Matriz de confusión**
 
-|                        | Predicted Not bullied | Predicted Bullied |
+|                        | No sufrió bullying **(Predecido)** | Sufrió bullying **(Predecido)**|
 | ---------------------- | --------------------- | ----------------- |
-| **Actual Not bullied** | 16543                 | 8119              |
-| **Actual Bullied**     | 6009                  | 10217             |
+| **No sufrió bullying (Real)** | 16543                 | 8119              |
+| **Sufrió bullying (Real)**    | 6009                  | 10217             |
 
 **Reporte de la clasificación**
 
@@ -278,10 +277,10 @@ Para la implementación del Random Forest, se emplearon los siguientes parámetr
 
 **Matriz de confusión**
 
-|                        | Predicted Not bullied | Predicted Bullied |
+|                        | No sufrió bullying **(Predecido)** | Sufrió bullying **(Predecido)**|
 | ---------------------- | --------------------- | ----------------- |
-| **Actual Not bullied** | 4043                  | 2055              |
-| **Actual Bullied**     | 1475                  | 2649              |
+| **No sufrió bullying (Real)** | 4043                  | 2055              |
+| **Sufrió bullying (Real)**     | 1475                  | 2649              |
 
 **Reporte de la clasificación**
 
@@ -301,8 +300,8 @@ Generamos gráficos con el propósito de identificar la combinación óptima de 
 
 Al analizar los resultados, observamos que no hubo una mejora significativa al aumentar el número de árboles, por lo que decidimos mantener n=100. En cuanto a los pesos de las clases, optamos por una opción equilibrada entre el accuracy y el recall, seleccionando los siguientes pesos:
 
-- Not bullied: 1
-- Bullied: 1.5
+- No sufrió bullying: 1
+- Sufrió bullying: 1.5
 
 (representados por la curva verde).
 
@@ -318,41 +317,42 @@ Para la implementación de SVM se emplearon los siguientes parámetros:
 
 - `probability=True`: Este parámetro habilita el cálculo de probabilidades de pertenencia a cada clase.
 
-- `class_weight={0: 1, 1: 1.5}`: Pesos asociados con las clases {Not bullied: 1, Bullied: 1.5}.
+- `class_weight={0: 1, 1: 1.5}`: Pesos asociados con las clases {No sufrió bullying: 1, Sufrió bullying: 1.5}.
 
 #### Train
 
 **Matriz de confusión**
 
-|                        | Predicted Not bullied | Predicted Bullied |
+|                        | No sufrió bullying **(Predecido)** | Sufrió bullying **(Predecido)**|
 | ---------------------- | --------------------- | ----------------- |
-| **Actual Not bullied** | 16664                 | 7998              |
-| **Actual Bullied**     | 7543                  | 8683              |
+| **No sufrió bullying (Real)** | 16664                 | 7998              |
+| **Sufrió bullying (Real)**     | 7543                  | 8683              |
 
 **Reporte de la clasificación**
 
 |                 | Precision | Recall | F1-Score | Support |
 | --------------- | --------- | ------ | -------- | ------- |
-| **Not bullied** | 0.69      | 0.68   | 0.68     | 24662   |
-| **Bullied**     | 0.52      | 0.54   | 0.53     | 16226   |
+| **No sufrió bullying (Real)** | 0.69      | 0.68   | 0.68     | 24662   |
+| **Sufrió bullying (Real)**     | 0.52      | 0.54   | 0.53     | 16226   |
 | **Accuracy**    |           |        | 0.62     | 40888   |
 
 #### Test
 
 **Matriz de confusión**
 
-|                        | Predicted Not bullied | Predicted Bullied |
+|                        | No sufrió bullying **(Predecido)**| Sufrió bullying **(Predecido)**|
 | ---------------------- | --------------------- | ----------------- |
-| **Actual Not bullied** | 4161                  | 1937              |
-| **Actual Bullied**     | 1882                  | 2242              |
+| **No sufrió bullying (Real)** | 4161                  | 1937              |
+| **Sufrió bullying (Real)**     | 1882                  | 2242              |
 
 **Reporte de la clasificación**
 
 |                 | Precision | Recall | F1-Score | Support |
 | --------------- | --------- | ------ | -------- | ------- |
-| **Not bullied** | 0.69      | 0.68   | 0.69     | 6098    |
-| **Bullied**     | 0.54      | 0.54   | 0.54     | 4124    |
+| **No sufrió bullying** | 0.69      | 0.68   | 0.69     | 6098    |
+| **Sufrió bullying**     | 0.54      | 0.54   | 0.54     | 4124    |
 | **Accuracy**    |           |        | 0.63     | 10222   |
+
 
 #### Configuración de parámetros de SVM
 
@@ -372,8 +372,8 @@ De la misma manera, generamos gráficos con el propósito de identificar la comb
 
 Al analizar los resultados, hemos elegido nuevamente una opción equilibrada entre el accuracy y el recall, seleccionando gamma= 0.001 y los siguientes pesos:
 
-- Not bullied: 1
-- Bullied: 1.5
+- No sufrió bullying: 1
+- Sufrió bullying: 1.5
 
 (representados por la curva verde).
 
@@ -483,26 +483,20 @@ En la evaluación de sesgo y varianza, identificamos que Random Forest inicialme
 
 Para finalizar, cabe mencionar que este proyecto destaca la complejidad de abordar problemas de salud estudiantil utilizando aprendizaje automático y subraya la importancia de considerar cuidadosamente las decisiones de modelado. Aunque Random Forest presentó resultados decentes, queda abierta la posibilidad de investigar otros algoritmos adecuados para esta problemática.
 
+<a name="bibliografia"></a>
+
 ## Bibliografía
 
-- GeeksForGeeks. (2023). [What is Feature Engineering?](https://www.geeksforgeeks.org/what-is-feature-engineering/)
-
-- Scikit-Learn. [Feature importances with a forest of trees](https://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_importances.html)
-
-- IBM. [¿Qué es el random forest?](https://www.ibm.com/mx-es/topics/random-forest#:~:text=El%20random%20forest%20es%20un,problemas%20de%20clasificaci%C3%B3n%20y%20regresi%C3%B3n)
-
-- CareerFoundry. [What is random forest?](https://careerfoundry.com/en/blog/data-analytics/what-is-random-forest/)
-  
-- Rebellion Research. [What Are The Advantages And Disadvantages Of Random Forest?](https://www.rebellionresearch.com/what-are-the-advantages-and-disadvantages-of-random-forest)
-
-- GeeksForGeeks. (2023). [Support Vector Machine (SVM) Algorithm](https://www.geeksforgeeks.org/support-vector-machine-algorithm/)
-
-- GeeksForGeeks. (2023). [Classifying data using Support Vector Machines(SVMs) in Python](https://www.geeksforgeeks.org/classifying-data-using-support-vector-machinessvms-in-python/?ref=lbp)
-
-- Udiprod. (2021). [SVM with polynomial kernel visualization (HD)](https://www.youtube.com/watch?v=OdlNM96sHio&ab_channel=udiprod)
-
-- GeeksForGeeks. (2023). [Boosting in Machine Learning | Boosting and AdaBoost.](https://www.geeksforgeeks.org/boosting-in-machine-learning-boosting-and-adaboost/?ref=header_search)
-
-- Olteanu, Alex. (2018). [Tutorial: Learning Curves for Machine Learning in Python](https://www.dataquest.io/blog/learning-curves-machine-learning/)
-
-- Saini, Anshul. (2023). [AdaBoost Algorithm: Understand, Implement and Master AdaBoost](https://www.analyticsvidhya.com/blog/2021/09/adaboost-algorithm-a-complete-guide-for-beginners/)
+- [1] UNICEF. [¿Cómo prevenir el acoso escolar?](https://www.unicef.es/acoso-escolar-bullying)
+- [2] Save the Children. [Bullying o acoso escolar](https://www.savethechildren.es/donde/espana/violencia-contra-la-infancia/acoso-escolar-bullying)
+- [3] GeeksForGeeks. (2023). [What is Feature Engineering?](https://www.geeksforgeeks.org/what-is-feature-engineering/)
+- [4] Scikit-Learn. [Feature importances with a forest of trees](https://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_importances.html)
+- [5] IBM. [¿Qué es el random forest?](https://www.ibm.com/mx-es/topics/random-forest#:~:text=El%20random%20forest%20es%20un,problemas%20de%20clasificaci%C3%B3n%20y%20regresi%C3%B3n)
+- [6] CareerFoundry. [What is random forest?](https://careerfoundry.com/en/blog/data-analytics/what-is-random-forest/)
+- [7] Rebellion Research. [What Are The Advantages And Disadvantages Of Random Forest?](https://www.rebellionresearch.com/what-are-the-advantages-and-disadvantages-of-random-forest)
+- [8] GeeksForGeeks. (2023). [Support Vector Machine (SVM) Algorithm](https://www.geeksforgeeks.org/support-vector-machine-algorithm/)
+- [9] GeeksForGeeks. (2023). [Classifying data using Support Vector Machines(SVMs) in Python](https://www.geeksforgeeks.org/classifying-data-using-support-vector-machinessvms-in-python/?ref=lbp)
+- [10] Udiprod. (2021). [SVM with polynomial kernel visualization (HD)](https://www.youtube.com/watch?v=OdlNM96sHio&ab_channel=udiprod)
+- [11] GeeksForGeeks. (2023). [Boosting in Machine Learning | Boosting and AdaBoost.](https://www.geeksforgeeks.org/boosting-in-machine-learning-boosting-and-adaboost/?ref=header_search)
+- [12] Olteanu, Alex. (2018). [Tutorial: Learning Curves for Machine Learning in Python](https://www.dataquest.io/blog/learning-curves-machine-learning/)
+- [13] Saini, Anshul. (2023). [AdaBoost Algorithm: Understand, Implement and Master AdaBoost](https://www.analyticsvidhya.com/blog/2021/09/adaboost-algorithm-a-complete-guide-for-beginners/)
