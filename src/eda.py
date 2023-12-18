@@ -184,17 +184,18 @@ ax = counts.T.plot(kind='bar', stacked=True, color=['#87CEEB', '#FFA500'])
 
 # Configurar el gráfico
 ax.set_ylabel('Cantidad')
-ax.set_title('Distribución de las features relacionadas al Bullying')
-ax.legend(title='Bullied', labels=['0', '1'])
+ax.set_xlabel('Tipo de Bullying')
+ax.set_title('Distribución de los tipos de Bullying')
+ax.legend(labels=['No', 'Sí'], loc='lower center')
 
 # Abreviar y mostrar los nombres horizontalmente
-abbreviated_labels = ['Bullied', 'On_school', 'Not_on_school', 'Cyber_bullied']
+abbreviated_labels = ['De cualquier tipo', 'En la escuela', 'Fuera de la escuela', 'Ciberbullying']
 ax.set_xticklabels(abbreviated_labels, rotation=0)
 
 plt.savefig('./results/plots/Bullied_Distribution.png')"""
 
 
-"""fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(10, 6))
 
 distribution = pd.crosstab(df['Sex'], df['Bullied_in_past_12_months'], margins=True, margins_name='Total')
 
@@ -203,8 +204,9 @@ ax = distribution[[0, 1]].plot(kind='bar', stacked=True, color=['#87CEEB', '#FFA
 
 # Configurar el gráfico
 ax.set_ylabel('Cantidad')
-ax.set_title('Distribución de Sex basado en Bullied_in_past_12_months')
-plt.legend(title='Bullied', labels=['0', '1'], loc='lower center')
+ax.set_xlabel('Sexo')
+ax.set_title('Cantidad de estudiantes que sufrieron bullying, de acuerdo a su sexo')
+plt.legend(title='Sufre bullying', labels=['No', 'Sí'], loc='lower center')
 
 abbreviated_labels = ['Femenino', 'Masculino', 'No responde', 'Total']
 ax.set_xticklabels(abbreviated_labels, rotation=0)
@@ -222,11 +224,12 @@ ax = distribution[[0, 1]].plot(kind='bar', stacked=True, color=['#87CEEB', '#FFA
 
 # Configurar el gráfico
 ax.set_ylabel('Cantidad')
-ax.set_title('Distribución de Felt_lonely basado en Bullied_in_past_12_months')
-plt.legend(title='Bullied', labels=['0', '1'], loc='lower center')
+ax.set_xlabel('Se siente solo/a')
+ax.set_title('Cantidad de estudiantes que sufrieron bullying, de acuerdo a si se sentían solos')
+plt.legend(title='Sufre bullying', labels=['No', 'Sí'], loc='lower center')
 
 abbreviated_labels = ['Siempre', 'Casi siempre', 'Nunca', 'Rara vez', 'A veces', 'Total']
 ax.set_xticklabels(abbreviated_labels, rotation=0)
 
 plt.tight_layout()
-plt.savefig('./results/plots/Bullied_Felt_lonely_Distribution.png')"""
+plt.savefig('./results/plots/Bullied_Felt_lonely_Distribution.png')
