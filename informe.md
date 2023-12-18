@@ -20,68 +20,41 @@ A lo largo de este informe iremos explicando un marco teórico de cada uno de lo
 
 **Árboles de decisión**
 
-El algoritmo de Random Forest se compone de la construcción de múltiples arboles de decisión, concepto el cual se explicará brevemente a continuación.
-Los árboles de decisión buscan contestar una pregunta de sí o no, como por ejemplo "¿Debería navegar?" A partir de ahí, puede hacer una serie de preguntas para determinar una respuesta, como, "¿Es un oleaje prolongado?" o "¿El viento sopla en alta mar?".
-Estas son las preguntas que construirán los nodos de decisión del árbol, cuyas respuestas van a dirigir a una nueva pregunta hasta llegar a un nodo hoja que de una respuesta de sí o no.  
-Este árbol de decisiones es un ejemplo de un problema de clasificación, donde las etiquetas de clase son "navegar" y "no navegar".
-Si bien los árboles de decisión son algoritmos comunes de aprendizaje supervisado, pueden ser propensos a problemas, como sesgos y sobreajuste. Sin embargo, cuando varios árboles de decisión forman un conjunto en el algoritmo de random forest, predicen resultados más precisos, especialmente cuando los árboles individuales no están correlacionados entre sí.
+El algoritmo de Random Forest se compone de la construcción de múltiples árboles de decisión, un concepto que se explicará brevemente a continuación. Los árboles de decisión tienen como objetivo responder a preguntas de sí o no, como por ejemplo, "¿Debería un avión despegar?" A partir de ahí, realizan una serie de preguntas adicionales para determinar la respuesta, tales como "¿Hay tormenta eléctrica?" o "¿Hay grandes ráfagas de viento?".
 
-**Métodos de conjunto**
+Estas preguntas forman los nodos de decisión del árbol, cuyas respuestas conducen a nuevas preguntas hasta llegar a un nodo hoja que proporciona una respuesta de sí o no.
 
-Otro concepto importante para entender el funcionamiento de Random Forest es el de los métodos de aprendizaje por conjuntos, los cuales se componen de un conjunto de clasificadores, por ejemplo, árboles de decisión, y sus predicciones se agregan para identificar el resultado más popular.
-Los métodos de conjunto más conocidos son el ensacado, también conocido como agregación de arranque, y el impulso. En el primer método, se selecciona una muestra aleatoria de datos en un conjunto de entrenamiento con reemplazo, lo que significa que los puntos de datos individuales se pueden elegir más de una vez. Después de generar varias muestras de datos, estos modelos se entrenan de forma independiente y, según el tipo de tarea, es decir, regresión o clasificación, el promedio o la mayoría de esas predicciones arrojan una estimación más precisa. Este enfoque se usa comúnmente para reducir la variación dentro de un conjunto de datos ruidoso.
+Este árbol de decisiones ejemplifica un problema de clasificación, donde las etiquetas de clase son "Despegar" y "No despegar". Aunque los árboles de decisión son algoritmos comunes de aprendizaje supervisado, pueden enfrentar problemas como sesgos y sobreajuste. No obstante, cuando varios árboles de decisión se combinan en el algoritmo de Random Forest, predicen resultados más precisos, especialmente cuando los árboles individuales no están correlacionados entre sí.
+
+En la siguiente imagen podemos ver un ejemplo de árbol de decisión.
+
+![Decision Tree](./resources/decision_tree.jpg)
 
 **Algoritmo de Random Forest**
 
-El algoritmo de Random Forest es una extensión del método de ensacado, ya que utiliza tanto el ensacado como la aleatoriedad de características para crear un bosque no correlacionado de árboles de decisión.
+Como mencionamos anteriormente, Random Forest genera múltiples árboles de decisión que se fusionan para mejorar la precisión de las predicciones.
 
-La aleatoriedad de features, también conocida como agrupación de características o "el método del subespacio aleatorio ", genera un subconjunto aleatorio de características, lo que garantiza una baja correlación entre los árboles de decisión. Ésta es una diferencia clave entre los árboles de decisión y los bosques aleatorios.
+La premisa subyacente del modelo de Random Forest es que diversos modelos no correlacionados (los árboles de decisión individuales) funcionan de manera más eficiente como conjunto que de forma individual. En el caso de la clasificación con Random Forest, cada árbol emite una clasificación o un "voto". El conjunto de árboles selecciona la clasificación con la mayoría de los "votos". En la regresión con Random Forest, el conjunto determina el promedio de las salidas de todos los árboles.
 
-Mientras que los árboles de decisión consideran todas las posibles divisiones de características, los bosques aleatorios solo seleccionan un subconjunto de esas características.
+La clave reside en la baja (o nula) correlación entre los modelos individuales, es decir, entre los árboles de decisión que componen el conjunto general de Random Forest. Aunque los árboles individuales pueden cometer errores, la mayoría del conjunto tiende a ser precisa, orientando así el resultado general en la dirección correcta.
 
-Si volvemos a la pregunta "¿debería navegar?" Por ejemplo, las preguntas que puedo hacer para determinar la predicción pueden no ser tan completas como el conjunto de preguntas de otra persona. Al tener en cuenta toda la variabilidad potencial en los datos, podemos reducir el riesgo de sobreajuste, sesgo y varianza general, lo que da como resultado predicciones más precisas.
+**Ventajas de Random Forest**
 
-**¿Cómo funciona los algoritmos de random forest?**
+- **Robustez**: Random Forest es un algoritmo robusto que puede manejar datos ruidosos y valores atípicos. Tiene menos probabilidad de sobreajustar los datos, lo que significa que puede generalizar bien a nuevos datos.
+  
+- **Precisión**: Random Forest es uno de los algoritmos de aprendizaje automático más precisos. Puede manejar problemas de clasificación y regresión, así como trabajar bien con variables categóricas y continuas.
+  
+- **Velocidad**: A pesar de ser un algoritmo complejo, Random Forest es rápido y puede manejar conjuntos de datos grandes. También se puede paralelizar fácilmente para acelerar el entrenamiento.
 
-Los algoritmos de random forest tienen tres hiperparámetros principales, que deben configurarse antes del entrenamiento:
+**Desventajas de Random Forest**
 
-- Tamaño del nodo
-- Cantidad de árboles
-- Cantidad de características muestreadas
+- **Sobreajuste**: Aunque Random Forest es menos propenso al sobreajuste que un solo árbol de decisión, aún puede sobreajustar los datos si el número de árboles en el bosque es demasiado alto o si los árboles son demasiado profundos.
+  
+- **Interpretabilidad**: Random Forest puede ser menos interpretable que un solo árbol de decisión porque involucra múltiples árboles. Puede ser difícil entender cómo el algoritmo llegó a una predicción particular.
+  
+**Justificación de uso**
 
-A partir de ahí, el clasificador de random forest se puede utilizar para solucionar problemas de regresión o clasificación.
-
-El algoritmo de random forest se compone de un conjunto de árboles de decisión, y cada árbol del conjunto se compone de una muestra de datos extraída de un conjunto de entrenamiento con reemplazo, llamada muestra de arranque.
-
-De esa muestra de entrenamiento, un tercio se reserva como datos de prueba, lo que se conoce como muestra fuera de la bolsa (oob), a la que volveremos más adelante. Luego, se inyecta otra instancia de aleatoriedad a través del agrupamiento de características, lo que agrega más diversidad al conjunto de datos y reduce la correlación entre los árboles de decisión.
-
-Dependiendo del tipo de problema, la determinación de la predicción variará. Para una tarea de regresión, se promediarán los árboles de decisión individuales, y para una tarea de clasificación, un voto mayoritario, es decir, la variable categórica más frecuente, arrojará la clase predicha.
-
-Finalmente, la muestra de oob se utiliza para la validación cruzada, finalizando esa predicción.
-
-**Ventajas y desafíos del bosque aleatorio**
-
-Hay una serie de ventajas y desafíos clave que presenta el algoritmo de random forest cuando se usa para problemas de clasificación o regresión:
-Beneficios clave
-
-Riesgo reducido de sobreajuste
-
-Los árboles de decisión corren el riesgo de sobreajustarse, ya que tienden a ajustar todas las muestras dentro de los datos de entrenamiento. Sin embargo, cuando hay una gran cantidad de árboles de decisión en un random forest, el clasificador no se ajustará demasiado al modelo, ya que el promedio de árboles no correlacionados reduce la varianza general y el error de predicción.
-Aporta flexibilidad
-
-Dado que el random forest puede manejar tareas de regresión y clasificación con un alto grado de precisión, es un método popular entre los científicos de datos. El agrupamiento de características también convierte al clasificador de random forest en una herramienta eficaz para estimar los valores perdidos, ya que mantiene la precisión cuando falta una parte de los datos.
-
-Importancia de la característica fácil de determinar
-
-El random forest facilita la evaluación de la importancia o contribución de las variables al modelo. Hay algunas formas de evaluar la importancia de las características. La importancia de Gini y la disminución media de impurezas (MDI) se utilizan generalmente para medir cuánto disminuye la precisión del modelo cuando se excluye una variable determinada.
-
-Sin embargo, la importancia de la permutación, también conocida como precisión de disminución media (MDA), es otra medida de importancia. MDA identifica la disminución promedio en la precisión mediante la permutación aleatoria de los valores de las características en las muestras oob.
-
-Explicación
-
-Ventajas y Desventajas
-
-Justificación
+Las ventajas de Random Forest, tales como su robustez ante datos ruidosos, su capacidad para manejar variables categóricas y continuas, así como su velocidad de procesamiento, son elementos críticos en la resolución de un problema delicado como el bullying. Además, la capacidad de interpretar la importancia de las features en el modelo contribuye a la comprensión y contextualización adecuada de los resultados, considerando la naturaleza sensible de los datos de salud estudiantil.
 
 ### Support Vector Machine
 
@@ -391,6 +364,19 @@ Se generaron gráficos que representan el accuracy y el recall en función del f
 
 A partir de estos resultados, se seleccionó el valor de c=10, ya que demostró ser la elección que logra el mejor equilibrio entre ambas métricas.
 
+De la misma manera, generamos gráficos con el propósito de identificar la combinación óptima del valor de gamma junto con los mejores pesos para las clases respectivas.
+
+![svm_grid_search_accuracy.png](./results/plots/svm_grid_search_accuracy_v1.png)
+
+![svm_grid_search_recall.png](./results/plots/svm_grid_search_recall_v1.png)
+
+Al analizar los resultados, hemos elegido nuevamente una opción equilibrada entre el accuracy y el recall, seleccionando gamma= 0.001 y los siguientes pesos:
+
+- Not bullied: 1
+- Bullied: 1.5
+
+(representados por la curva verde).
+
 ## Análisis y discusión de resultados
 
 ### Comparacion de ambos algoritmos
@@ -504,6 +490,10 @@ Para finalizar, cabe mencionar que este proyecto destaca la complejidad de abord
 - Scikit-Learn. [Feature importances with a forest of trees](https://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_importances.html)
 
 - IBM. [¿Qué es el random forest?](https://www.ibm.com/mx-es/topics/random-forest#:~:text=El%20random%20forest%20es%20un,problemas%20de%20clasificaci%C3%B3n%20y%20regresi%C3%B3n)
+
+- CareerFoundry. [What is random forest?](https://careerfoundry.com/en/blog/data-analytics/what-is-random-forest/)
+  
+- Rebellion Research. [What Are The Advantages And Disadvantages Of Random Forest?](https://www.rebellionresearch.com/what-are-the-advantages-and-disadvantages-of-random-forest)
 
 - GeeksForGeeks. (2023). [Support Vector Machine (SVM) Algorithm](https://www.geeksforgeeks.org/support-vector-machine-algorithm/)
 
