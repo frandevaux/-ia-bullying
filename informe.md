@@ -222,7 +222,7 @@ Hemos empleado el [dataset](https://www.kaggle.com/datasets/leomartinelli/bullyi
 - **Physically attacked**: Cantidad de veces que fue atacado físicamente.
 - **Physical fighting**: Cantidad de veces que peleó físicamente.
 - **Felt lonely**: Se sintió solo/a (Siempre, la mayoría de las veces, algunas veces, nunca).
-- **Close friends**: Cantidad de amigos cercanos
+- **Close friends**: Cantidad de amigos cercanos.
 - **Miss school no permission**: Cantidad de veces que faltó a la escuela sin permiso.
 - **Other students kind and helpful**: Sintió que otros estudiantes fueron amables y serviciales (Siempre, la mayoría de las veces, algunas veces, nunca).
 - **Parents understand problems**: Sintió que sus padres entendieron sus problemas (Siempre, la mayoría de las veces, algunas veces, nunca).
