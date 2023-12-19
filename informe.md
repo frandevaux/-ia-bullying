@@ -32,6 +32,8 @@ En la siguiente imagen podemos ver un ejemplo de árbol de decisión.
 
 ![Decision Tree](./resources/decision_tree.jpg)
 
+**Figura 1.**  Árbol de decisión acerca del hambre.
+
 **Algoritmo de Random Forest**
 
 Como mencionamos anteriormente, Random Forest genera múltiples árboles de decisión que se fusionan para mejorar la precisión de las predicciones.
@@ -57,11 +59,13 @@ Las ventajas de Random Forest, tales como su robustez ante datos ruidosos, su ca
 
 ### Support Vector Machine
 
-Support Vector Machine (SVM) es un algoritmo de aprendizaje automático supervisado utilizado tanto para clasificación como para regresión, aunque se adapta mejor a la clasificación. El objetivo principal del algoritmo SVM es encontrar el hiperplano óptimo en un espacio N-dimensional que pueda separar los puntos de datos en diferentes clases en el espacio de características. El hiperplano intenta que el margen entre los puntos más cercanos de diferentes clases sea lo más amplio posible. La dimensión del hiperplano depende del número de características. Si el número de características de entrada es dos, entonces el hiperplano es simplemente una línea. Si el número de características de entrada es tres, entonces el hiperplano se convierte en un plano 2D. Y así sucesivamente.
+Support Vector Machine (SVM) es un algoritmo de aprendizaje automático supervisado utilizado tanto para clasificación como para regresión, aunque se adapta mejor a la clasificación. El objetivo principal del algoritmo SVM es encontrar el hiperplano óptimo en un espacio N-dimensional que pueda separar los puntos de datos en diferentes clases en el espacio de características. El hiperplano intenta que el margen entre los puntos más cercanos de diferentes clases sea lo más amplio posible. La dimensión del hiperplano depende del número de características. Si el número de características de entrada es dos, entonces el hiperplano es simplemente una línea. Si el número de características de entrada es tres, entonces el hiperplano se convierte en un plano 2D. Y así sucesivamente. [[6]](#bibliografía)
 
 Consideremos dos variables independientes x1, x2 y una variable dependiente que es un círculo azul o un círculo rojo.
 
 ![Linearly Separable Data points](./resources/Linearly_Separable_Data_points.png)
+
+**Figura 2.** Puntos linealmente separables. [[6]](#bibliografía)
 
 En la figura anterior, hay múltiples líneas que dividen o realizan una clasificación entre círculos rojos y azules. Entonces, ¿cómo se elige la mejor línea o, en general, el mejor hiperplano que divida nuestros puntos de datos?
 
@@ -71,11 +75,15 @@ Una elección razonable para el mejor hiperplano es aquel que representa la mayo
 
 ![Multiple hyperplanes separate the data from two classes](./resources/Multiple_hyperplanes_separate_the_data_from_two_classes.png)
 
+**Figura 3.** Múltiples hiperplanos separan los datos de dos clases. [[6]](#bibliografía)
+
 Así que elegimos el hiperplano cuya distancia desde él hasta el punto de datos más cercano en cada lado esté maximizada. Si existe tal hiperplano, se conoce como el hiperplano de margen máximo (Margen Duro). Entonces, de la figura anterior, elegimos L2.
 
 Consideremos un escenario como se muestra a continuación.
 
 ![Selecting hyperplane for data with outlier](./resources/Selecting_hyperplane_for_data_with_outlier.png)
+
+**Figura 4.** Selección de hiperplano para datos con valores atípicos. [[6]](#bibliografía)
 
 Aquí tenemos un círculo azul en la zona de los círculos rojos. ¿Cómo clasifica SVM los datos? El círculo azul en esa zona es un valor atípico de las bolas azules. El algoritmo SVM tiene la característica de ignorar el valor atípico y encuentra el mejor hiperplano que maximiza el margen (Margen Suave).
 
@@ -85,9 +93,13 @@ Hasta ahora, estábamos hablando de datos linealmente separables (el grupo de c�
 
 ![Original 1D dataset for classification](./resources/Original_1D_dataset_for_classification.png)
 
+**Figura 5.** Conjunto de datos en una dimensión. [[6]](#bibliografía)
+
 Digamos que nuestros datos se muestran en la figura anterior. SVM resuelve esto creando una nueva variable mediante un kernel. Llamamos a un punto xi en la línea y creamos una nueva variable yi como una función de la distancia desde el origen. Entonces, si representamos esto, obtenemos algo así como se muestra a continuación.
 
 ![Mapping 1D data to 2D to become able to separate the two classes](./resources/Mapping_1D_data_to_2D_to_become_able_to_separate_the_two_classes.png)
+
+**Figura 6.** Mapeo de datos de una a dos dimensiones. [[6]](#bibliografía)
 
 En este caso, la nueva variable y se crea como una función de la distancia desde el origen. Una función no lineal que crea una nueva variable se denomina kernel.
 
@@ -113,17 +125,23 @@ El kernel de SVM es una función que toma un espacio de entrada de baja dimensi�
 
 $$\text{Lineal: } K(w,b) = w^Tx+b$$
 
-$$\text{Polinomial: } K(w,x) = (\gamma w^Tx+b)^N$$
-
 $$\text{Gaussiano RBF: } K(w,x) = \exp(-\gamma|| x_i-x_j||^n)$$
 
+$$\text{Polinomial: } K(w,x) = (\gamma w^Tx+b)^N$$
+
 $$\text{Sigmoide:} K(x_i, x_j) = \tanh(\alpha x_i^Tx_j + b)$$
+
+![SVM Kernel Types](./resources/svm_kernel_types.png)
+
+**Figura 7.** Representación gráfica de los distintos tipos de kernel de SVM. [[7]](#bibliografía)
 
 **Demostración Visual**
 
 En el siguiente video se puede observar un conjunto de puntos azules y rojos que no son linealmente separables. Pero, al utilizar un kernel polinomial, se puede transformar el conjunto de datos en un espacio de características de mayor dimensión, donde los puntos de datos se pueden separar fácilmente utilizando un hiperplano.
 
 ![svm polinomial kernel](./resources/svm_polynomial_kernel.gif)
+
+**Figura 8.** Demostración visual del truco del kernel en SVM. [[8]](#bibliografía)
 
 **Ventajas de SVM**
 
@@ -153,6 +171,41 @@ La robustez de SVM ante outliers en los datos es otra ventaja significativa. Dad
 
 Finalmente, la regularización incorporada en SVM a través del parámetro C proporciona un mecanismo para equilibrar la complejidad del modelo y la clasificación errónea en el conjunto de entrenamiento. Este control sobre la flexibilidad del modelo es esencial para adaptar SVM a las características específicas del conjunto de datos.
 
+### Boosting
+
+El boosting es una técnica de modelado de conjuntos que intenta construir un clasificador fuerte a partir de una cantidad de clasificadores débiles. En primer lugar, se construye un modelo a partir de los datos de entrenamiento. Luego se construye el segundo modelo que intenta corregir los errores presentes en el primer modelo. Este procedimiento continúa y se agregan modelos hasta que se predice correctamente el conjunto de datos de entrenamiento completo o se agrega el número máximo de modelos. [[9]](#bibliografía)
+
+#### ADA Boosting
+
+El algoritmo AdaBoost (Adaptive Boosting). A dicho algoritmo se le llama adaptativo porque se vuelven a asignar los pesos de las clases a cada instancia, asignando pesos más altos a las instancias clasificadas incorrectamente.
+Inicialmente este algoritmo constuye un modelo y da pesos iguales a todas las clases. Luego, se le asigna peso más alto a la clase que fue peor clasificada. Por lo tanto, el siguiente modelo hará mayor foco en esta clase. Y así continuará entrenando modelos hasta que llegue un error más bajo. [[10]](#bibliografía)
+
+![AdaBoost](./resources/adaboost.png)
+
+**Figura 9.** Ejemplo de AdaBoost. [[11]](#bibliografía)
+
+### Curvas de Aprendizaje
+
+Las curvas de aprendizaje son una herramienta muy útil para determinar si un modelo está sufriendo de overfitting o underfitting. Estas curvas representan la precisión del modelo en el conjunto de entrenamiento y en el conjunto de validación en función del tamaño del conjunto de entrenamiento.
+
+Dos conceptos importantes relacionados a las curvas de aprendizaje son el sesgo (bias) y la varianza (variance).
+
+**Sesgo**
+
+El sesgo es el error debido a suposiciones incorrectas en el algoritmo de aprendizaje. Un alto sesgo puede causar que el algoritmo ignore los detalles relevantes y haga suposiciones demasiado simples. El sesgo alto puede conducir a un underfitting.
+
+![Bias](./resources/bias.png)
+
+**Figura 10.** Curvas de aprendizaje con sesgo alto y bajo.  [[12]](#bibliografía)
+
+**Varianza**
+
+La varianza es el error debido a la sensibilidad excesiva a pequeñas fluctuaciones en el conjunto de entrenamiento. Un modelo con una alta varianza se ajusta demasiado a los datos de entrenamiento y no generaliza bien para predecir nuevos datos. La alta varianza puede conducir a un overfitting.
+
+![Variance](./resources/variance.png)
+
+**Figura 11.** Curvas de aprendizaje con varianza baja y alta.  [[12]](#bibliografía)
+
 ## Diseño Experimental
 
 ### Dataset
@@ -161,23 +214,23 @@ Hemos empleado el [dataset](https://www.kaggle.com/datasets/leomartinelli/bullyi
 
 **Features:**
 
-- Bullied on school property in past 12 months
-- Bullied not on school property in past 12_months
-- Cyber bullied in past 12 months
-- Custom Age
-- Sex
-- Physically attacked
-- Physical fighting
-- Felt lonely
-- Close friends
-- Miss school no permission
-- Other students kind and helpful
-- Parents understand problems
-- Most of the time or always felt lonely
-- Missed classes or school without permission
-- Were underweight
-- Were overweight
-- Were obese
+- **Bullied on school property in past 12 months**: Sufrió bullying en la escuela en los últimos 12 meses (Si, No).
+- **Bullied not on school property in past 12_months**: Sufrió bullying fuera de la escuela en los últimos 12 meses (Si, No).
+- **Cyber bullied in past 12 months**: Sufrió ciberbullying en los últimos 12 meses (Si, No).
+- **Custom Age**: Edad del estudiante.
+- **Sex**: Sexo del estudiante.
+- **Physically attacked**: Cantidad de veces que fue atacado físicamente.
+- **Physical fighting**: Cantidad de veces que peleó físicamente.
+- **Felt lonely**: Se sintió solo/a (Siempre, la mayoría de las veces, algunas veces, nunca).
+- **Close friends**: Cantidad de amigos cercanos
+- **Miss school no permission**: Cantidad de veces que faltó a la escuela sin permiso.
+- **Other students kind and helpful**: Sintió que otros estudiantes fueron amables y serviciales (Siempre, la mayoría de las veces, algunas veces, nunca).
+- **Parents understand problems**: Sintió que sus padres entendieron sus problemas (Siempre, la mayoría de las veces, algunas veces, nunca).
+- **Most of the time or always felt lonely**: Se sintió solo/a la mayoría de las veces o siempre (Si, No).
+- **Missed classes or school without permission**: Faltó a clases o a la escuela sin permiso (Si, No).
+- **Were underweight**: Estuvo por debajo del peso.
+- **Were overweight**: Estuvo por encima del peso.
+- **Were obese**: Sufrió obesidad.
 
 ### Preprocesamiento y análisis exploratorio de datos
 
@@ -198,13 +251,19 @@ Esta decisión se tomó para mejorar el balance de las clases, ya que como se pu
 
 ![Bullied_Distribution](./results/plots/Bullied_Distribution.png)
 
+**Figura 12.** Distribución de los tipos de bullying.
+
 Distribución del bullying según sexo:
 
 ![Bullied_Sex_Distribution](./results/plots/Bullied_Sex_Distribution.png)
 
+**Figura 13.** Cantidad de estudiantes que sufrieron bullying según sexo.
+
 Distribución del bullying según si se sienten solos:
 
 ![Bullied_Felt_lonely_Distribution](./results/plots/Bullied_Felt_lonely_Distribution.png)
+
+**Figura 14.** Cantidad de estudiantes que sufrieron bullying según si se sentían solos.
 
 **Correlación con Cramer's V**
 
@@ -214,17 +273,23 @@ Posteriormente, se realizó un análisis de correlación entre las variables par
 
 ![Cramer's V](./results/plots/cramer.png)
 
+**Figura 15.** Índice de correlación de Cramer's V entre cada variable y Bullied_in_past_12_months.
+
 **Matriz de correlación**
 
 Se calculó también la matriz de correlación entre las variables. En la matriz de correlación se utiliza el coeficiente de correlación de Pearson, el cual es una medida de la fuerza de una relación lineal entre dos variables cuantitativas. Este coeficiente se encuentra entre -1 y 1, donde 0 indica que no hay asociación entre las variables y 1 indica una asociación perfecta.
 
 ![Correlation Matrix](./results/plots/correlation_matrix.png)
 
+**Figura 16.** Matriz de correlación entre las variables.
+
 **Importancia de Features de Random Forest**
 
 Finalmente, se detalla la importancia de las variables según la función provista por Random Forest.
 
 ![Feature importance](./results/plots/feature_importance.png)
+
+**Figura 17.** Importancia de las variables según Random Forest.
 
 En base a los resultados obtenidos, se probó agregar nuevas features en base a las existentes, como por ejemplo: Has_close_friends a partir de Close_friends, que sería True si Close_friends es un número mayor a 0, pero éste empeoraba su valor de correlación de Cramer's V con respecto a Close_friends.
 
@@ -296,7 +361,11 @@ Generamos gráficos con el propósito de identificar la combinación óptima de 
 
 ![rf_grid_search_accuracy.png](./results/plots/rf_grid_search_accuracy_v1.png)
 
+**Figura 18.** Accuracy según el número de árboles y los pesos de las clases.
+
 ![rf_grid_search_recall.png](./results/plots/rf_grid_search_recall_v1.png)
+
+**Figura 19.** Recall según el número de árboles y los pesos de las clases.
 
 Al analizar los resultados, observamos que no hubo una mejora significativa al aumentar el número de árboles, por lo que decidimos mantener n=100. En cuanto a los pesos de las clases, optamos por una opción equilibrada entre el accuracy y el recall, seleccionando los siguientes pesos:
 
@@ -360,7 +429,11 @@ Se generaron gráficos que representan el accuracy y el recall en función del f
 
 ![svm_boxplot_c_accuracy.png](./results/plots/svm_boxplot_c_accuracy_v1.png)
 
+**Figura 20.** Accuracy según el factor de penalización (C) para SVM con 15 splits distintos.
+
 ![svm_boxplot_c_recall.png](./results/plots/svm_boxplot_c_recall_v1.png)
+
+**Figura 21.** Recall según el factor de penalización (C) para SVM con 15 splits distintos.
 
 A partir de estos resultados, se seleccionó el valor de c=10, ya que demostró ser la elección que logra el mejor equilibrio entre ambas métricas.
 
@@ -368,7 +441,11 @@ De la misma manera, generamos gráficos con el propósito de identificar la comb
 
 ![svm_grid_search_accuracy.png](./results/plots/svm_grid_search_accuracy_v1.png)
 
+**Figura 22.** Accuracy según el valor de gamma y los pesos de las clases.
+
 ![svm_grid_search_recall.png](./results/plots/svm_grid_search_recall_v1.png)
+
+**Figura 23.** Recall según el valor de gamma y los pesos de las clases.
 
 Al analizar los resultados, hemos elegido nuevamente una opción equilibrada entre el accuracy y el recall, seleccionando gamma= 0.001 y los siguientes pesos:
 
@@ -387,9 +464,13 @@ Aquí se muestran gráficos de cajas comparativos para cada algoritmo, abarcando
 
 ![boxplot_rf_metrics](./results/plots/rf_boxplot_30_v1.png)
 
+**Figura 24.** Métricas en los resultados de test de Random Forest con 30 splits distintos.
+
 **Support Vector Machine**
 
 ![boxplot_svm_metrics](./results/plots/svm_boxplot_30_v1.png)
+
+**Figura 25.** Métricas en los resultados de test de SVM con 30 splits distintos.
 
 Como se puede observar, el algortimo de Random Forest obtiene resultados levemente mejores que SVM en accuracy y precision, y una mejoría considerable en recall y F1-Score.
 
@@ -399,29 +480,15 @@ En el siguiente gráfico, se puede observar una comparación del tiempo de ejecu
 
 ![time_comparison](./results/plots/time_comparison.png)
 
+**Figura 26.** Tiempo de ejecución de 10 ejecuciones de Random Forest y SVM.
+
 Como podemos apreciar, el tiempo de ejecución de SVM es considerablemente mayor que el de Random Forest. Esto se debe a que SVM es un algoritmo más complejo que Random Forest, ya que utiliza un kernel para transformar los datos de entrada en un espacio de características de mayor dimensión, lo que requiere un mayor tiempo de ejecución.
 
-### Learning Curves
-
-Las curvas de aprendizaje son una herramienta muy útil para determinar si un modelo está sufriendo de overfitting o underfitting. Estas curvas representan la precisión del modelo en el conjunto de entrenamiento y en el conjunto de validación en función del tamaño del conjunto de entrenamiento.
-
-Dos conceptos importantes relacionados a las curvas de aprendizaje son el sesgo (bias) y la varianza (variance).
-
-**Sesgo**
-
-El sesgo es el error debido a suposiciones incorrectas en el algoritmo de aprendizaje. Un alto sesgo puede causar que el algoritmo ignore los detalles relevantes y haga suposiciones demasiado simples. El sesgo alto puede conducir a un underfitting.
-
-![Bias](./resources/bias.png)
-
-**Varianza**
-
-La varianza es el error debido a la sensibilidad excesiva a pequeñas fluctuaciones en el conjunto de entrenamiento. Un modelo con una alta varianza se ajusta demasiado a los datos de entrenamiento y no generaliza bien para predecir nuevos datos. La alta varianza puede conducir a un overfitting.
-
-![Variance](./resources/variance.png)
-
-**Curvas de aprendizaje para Random Forest**
+#### Curvas de aprendizaje para Random Forest
 
 ![rf_learning_curve_error_v1](./results/plots/rf_learning_curve_error_v1.png)
+
+**Figura 27.** Curva de aprendizaje de Random Forest.
 
 Como se puede obsevar, el modelo presenta un sesgo alto, por lo que agregar más datos de entrenamiento no va a mejorar los resultados.
 Luego de investigar, hemos identificado que las posibles causas de dicho incoveniente pueden ser las siguientes:
@@ -434,18 +501,13 @@ Luego de investigar, hemos identificado que las posibles causas de dicho incoven
 
 En base a esto, se optó por implementar las siguientes estrategias para solucionar esta situación. Las cuales fueron Boosting y la adición de features a RF.
 
-**Boosting**
+#### Boosting
 
-El boosting es una técnica de modelado de conjuntos que intenta construir un clasificador fuerte a partir de una cantidad de clasificadores débiles. En primer lugar, se construye un modelo a partir de los datos de entrenamiento. Luego se construye el segundo modelo que intenta corregir los errores presentes en el primer modelo. Este procedimiento continúa y se agregan modelos hasta que se predice correctamente el conjunto de datos de entrenamiento completo o se agrega el número máximo de modelos.
-
-**ADA Boosting**
-
-El algoritmo AdaBoost (Adaptive Boosting). A dicho algoritmo se le llama adaptativo porque se vuelven a asignar los pesos de las clases a cada instancia, asignando pesos más altos a las instancias clasificadas incorrectamente.
-Inicialmente este algoritmo constuye un modelo y da pesos iguales a todas las clases. Luego, se le asigna peso más alto a la clase que fue peor clasificada. Por lo tanto, el siguiente modelo hará mayor foco en esta clase. Y así continuará entrenando modelos hasta que llegue un error más bajo.
-
-Al implementar este algoritmo obtuvimos los siguientes resultados.
+Al implementar el algoritmo ADA Boosting obtuvimos los siguientes resultados.
 
 ![Learning Curves ADA Boost](./results/plots/boost_learning_curve_error.png)
+
+**Figura 28.** Curva de aprendizaje de Random Forest con ADA Boost.
 
 Podemos observar en el gráfico que no muestra una mejora significativa comparado con el modelo sin boost. Por lo cual esta solución queda descartada.
 
@@ -463,9 +525,13 @@ Obteniendo los siguientes resultados:
 
 ![Learning Curves RF](./results/plots/rf_learning_curve_error_v2.png)
 
+**Figura 29.** Curva de aprendizaje de Random Forest con nuevas features.
+
 Como se puede observar, el modelo presenta un sesgo menor que el modelo anterior. Por lo que se puede concluir que la causa del sesgo alto era la falta de features informativas. Sin embargo, esta elección de features empeora considerablemente el puntaje obtenido en las metricas comparado con el modelo anterior. Esto se puede observar en el siguiente gráfico de cajas.
 
 ![boxplot_rf_metrics](./results/plots/rf_boxplot_30_v2.png)
+
+**Figura 30.** Métricas en los resultados de test de Random Forest con 30 splits distintos con nuevas features.
 
 ## Conclusión
 
@@ -489,14 +555,13 @@ Para finalizar, cabe mencionar que este proyecto destaca la complejidad de abord
 
 - [1] UNICEF. [¿Cómo prevenir el acoso escolar?](https://www.unicef.es/acoso-escolar-bullying)
 - [2] Save the Children. [Bullying o acoso escolar](https://www.savethechildren.es/donde/espana/violencia-contra-la-infancia/acoso-escolar-bullying)
-- [3] GeeksForGeeks. (2023). [What is Feature Engineering?](https://www.geeksforgeeks.org/what-is-feature-engineering/)
-- [4] Scikit-Learn. [Feature importances with a forest of trees](https://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_importances.html)
-- [5] IBM. [¿Qué es el random forest?](https://www.ibm.com/mx-es/topics/random-forest#:~:text=El%20random%20forest%20es%20un,problemas%20de%20clasificaci%C3%B3n%20y%20regresi%C3%B3n)
-- [6] CareerFoundry. [What is random forest?](https://careerfoundry.com/en/blog/data-analytics/what-is-random-forest/)
-- [7] Rebellion Research. [What Are The Advantages And Disadvantages Of Random Forest?](https://www.rebellionresearch.com/what-are-the-advantages-and-disadvantages-of-random-forest)
-- [8] GeeksForGeeks. (2023). [Support Vector Machine (SVM) Algorithm](https://www.geeksforgeeks.org/support-vector-machine-algorithm/)
-- [9] GeeksForGeeks. (2023). [Classifying data using Support Vector Machines(SVMs) in Python](https://www.geeksforgeeks.org/classifying-data-using-support-vector-machinessvms-in-python/?ref=lbp)
-- [10] Udiprod. (2021). [SVM with polynomial kernel visualization (HD)](https://www.youtube.com/watch?v=OdlNM96sHio&ab_channel=udiprod)
-- [11] GeeksForGeeks. (2023). [Boosting in Machine Learning | Boosting and AdaBoost.](https://www.geeksforgeeks.org/boosting-in-machine-learning-boosting-and-adaboost/?ref=header_search)
+- [3] IBM. [¿Qué es el random forest?](https://www.ibm.com/mx-es/topics/random-forest#:~:text=El%20random%20forest%20es%20un,problemas%20de%20clasificaci%C3%B3n%20y%20regresi%C3%B3n)
+- [4] CareerFoundry. [What is random forest?](https://careerfoundry.com/en/blog/data-analytics/what-is-random-forest/)
+- [5] Rebellion Research. [What Are The Advantages And Disadvantages Of Random Forest?](https://www.rebellionresearch.com/what-are-the-advantages-and-disadvantages-of-random-forest)
+- [6] GeeksForGeeks. (2023). [Support Vector Machine (SVM) Algorithm](https://www.geeksforgeeks.org/support-vector-machine-algorithm/)
+- [7] Premanand S. (2023). [The A-Z guide to Support Vector Machine](https://www.analyticsvidhya.com/blog/2021/06/support-vector-machine-better-understanding/)
+- [8] Udiprod. (2021). [SVM with polynomial kernel visualization (HD)](https://www.youtube.com/watch?v=OdlNM96sHio&ab_channel=udiprod)
+- [9] GeeksForGeeks. (2023). [Boosting in Machine Learning | Boosting and AdaBoost.](https://www.geeksforgeeks.org/boosting-in-machine-learning-boosting-and-adaboost/?ref=header_search)
+- [10] Saini, Anshul. (2023). [AdaBoost Algorithm: Understand, Implement and Master AdaBoost](https://www.analyticsvidhya.com/blog/2021/09/adaboost-algorithm-a-complete-guide-for-beginners/)
+- [11] Alto, Valentina. (2020). [Understanding AdaBoost for Decision Tree](https://towardsdatascience.com/understanding-adaboost-for-decision-tree-ff8f07d2851)
 - [12] Olteanu, Alex. (2018). [Tutorial: Learning Curves for Machine Learning in Python](https://www.dataquest.io/blog/learning-curves-machine-learning/)
-- [13] Saini, Anshul. (2023). [AdaBoost Algorithm: Understand, Implement and Master AdaBoost](https://www.analyticsvidhya.com/blog/2021/09/adaboost-algorithm-a-complete-guide-for-beginners/)
