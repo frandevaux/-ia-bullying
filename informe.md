@@ -8,9 +8,9 @@
 
 En el presente informe se aborda un problema de _inteligencia artificial_, específicamente en el campo del aprendizaje automático y ciencia de datos. Nuestro objetivo es probar dos algoritmos (Random Forest y Support Vector Machine) y crear un _modelo de clasificación_, para que dado un dataset, éste sea capaz de identificar situaciones de bullying entre estudiantes, con el fin de prevenir y abordar este grave problema que afecta a los jóvenes.
 
-Es importante primero explicar qué es el bullying. Este concepto define al acoso escolar, es decir a la conducta de persecución física y/o psicológica que realiza un estudiante contra otro de forma negativa, continua e intencionada [[1]](#bibliografía). Como hemos dicho, esta problemática no se debe tomar a la ligera, pues puede tener efectos negativos en la salud física, el bienestar emocional y el rendimiento académico de los niños, en especial si dicha violencia se repite en el tiempo o es severa [[2]](#bibliografía).
+Es importante primero explicar qué es el bullying. Este concepto define al acoso escolar, es decir a la conducta de persecución física y/o psicológica que realiza un estudiante contra otro de forma negativa, continua e intencionada [[1]](#bibliografía). Como hemos dicho, esta problemática no se debe tomar a la ligera, pues puede tener efectos negativos en la salud física, el bienestar emocional y el rendimiento académico de los jóvenes, en especial si dicha violencia se repite en el tiempo o es severa [[2]](#bibliografía).
 
-La elección de estos algoritmos responde a la necesidad de modelar relaciones no lineales, gestionar conjuntos de datos extensos y enfrentar posibles desequilibrios en la distribución de clases. Estos métodos destacan por su capacidad para manejar múltiples características y proporcionar resultados robustos, lo cual es esencial en un entorno tan diverso como el estudiantil.
+La elección de los algoritmos a utilizar responde a la necesidad de modelar relaciones no lineales, gestionar conjuntos de datos extensos y enfrentar posibles desequilibrios en la distribución de clases. Estos métodos destacan por su capacidad para manejar múltiples características y proporcionar resultados robustos, lo cual es esencial en un entorno tan diverso como el estudiantil.
 
 No obstante, los modelos deben ser cuidadosamente ajustados y evaluados para garantizar resultados precisos y relevantes. Además, la interpretación de los resultados puede requerir consideraciones éticas y contextualización adecuada dada la naturaleza sensible de los datos de salud estudiantil.
 
@@ -22,17 +22,17 @@ A lo largo de este informe iremos explicando un marco teórico de cada uno de lo
 
 **Árboles de decisión**
 
-El algoritmo de Random Forest se compone de la construcción de múltiples árboles de decisión, un concepto que se explicará brevemente a continuación. Los árboles de decisión tienen como objetivo responder a preguntas de sí o no, como por ejemplo, "¿Debería un avión despegar?" A partir de ahí, realizan una serie de preguntas adicionales para determinar la respuesta, tales como "¿Hay tormenta eléctrica?" o "¿Hay grandes ráfagas de viento?".
+El algoritmo de Random Forest se compone de la construcción de múltiples árboles de decisión, un concepto que se explicará brevemente a continuación. Los árboles de decisión tienen como objetivo responder a preguntas de sí o no, como por ejemplo, "¿Debería un avión despegar?" A partir de ahí, realizan una serie de preguntas adicionales para determinar la respuesta, tales como "¿Hay tormenta eléctrica?" o "¿Hay grandes ráfagas de viento?" [[3]](#bibliografía).
 
 Estas preguntas forman los nodos de decisión del árbol, cuyas respuestas conducen a nuevas preguntas hasta llegar a un nodo hoja que proporciona una respuesta de sí o no.
 
 Este árbol de decisiones ejemplifica un problema de clasificación, donde las etiquetas de clase son "Despegar" y "No despegar". Aunque los árboles de decisión son algoritmos comunes de aprendizaje supervisado, pueden enfrentar problemas como sesgos y sobreajuste. No obstante, cuando varios árboles de decisión se combinan en el algoritmo de Random Forest, predicen resultados más precisos, especialmente cuando los árboles individuales no están correlacionados entre sí.
 
-En la siguiente imagen podemos ver un ejemplo de árbol de decisión.
+En la siguiente imagen podemos ver un ejemplo de árbol de decisión sobre los tipos de comida del día, donde se recomienda si comer o no, y dependiendo del horario del día qué comer.
 
 ![Decision Tree](./resources/decision_tree.jpg)
 
-**Figura 1.**  Árbol de decisión acerca del hambre.
+**Figura 1.** Árbol de decisión acerca de las comidas del día. [[4]](#bibliografía)
 
 **Algoritmo de Random Forest**
 
@@ -42,13 +42,13 @@ La premisa subyacente del modelo de Random Forest es que diversos modelos no cor
 
 La clave reside en la baja (o nula) correlación entre los modelos individuales, es decir, entre los árboles de decisión que componen el conjunto general de Random Forest. Aunque los árboles individuales pueden cometer errores, la mayoría del conjunto tiende a ser precisa, orientando así el resultado general en la dirección correcta.
 
-**Ventajas de Random Forest**
+**Ventajas de Random Forest** [[5]](#bibliografía)
 
 - **Robustez**: Random Forest es un algoritmo robusto que puede manejar datos ruidosos y valores atípicos. Tiene menos probabilidad de sobreajustar los datos, lo que significa que puede generalizar bien a nuevos datos.
 - **Precisión**: Random Forest es uno de los algoritmos de aprendizaje automático más precisos. Puede manejar problemas de clasificación y regresión, así como trabajar bien con variables categóricas y continuas.
 - **Velocidad**: A pesar de ser un algoritmo complejo, Random Forest es rápido y puede manejar conjuntos de datos grandes. También se puede paralelizar fácilmente para acelerar el entrenamiento.
 
-**Desventajas de Random Forest**
+**Desventajas de Random Forest** [[5]](#bibliografía)
 
 - **Sobreajuste**: Aunque Random Forest es menos propenso al sobreajuste que un solo árbol de decisión, aún puede sobreajustar los datos si el número de árboles en el bosque es demasiado alto o si los árboles son demasiado profundos.
 - **Interpretabilidad**: Random Forest puede ser menos interpretable que un solo árbol de decisión porque involucra múltiples árboles. Puede ser difícil entender cómo el algoritmo llegó a una predicción particular.
@@ -178,7 +178,10 @@ El boosting es una técnica de modelado de conjuntos que intenta construir un cl
 #### ADA Boosting
 
 El algoritmo AdaBoost (Adaptive Boosting). A dicho algoritmo se le llama adaptativo porque se vuelven a asignar los pesos de las clases a cada instancia, asignando pesos más altos a las instancias clasificadas incorrectamente.
+
 Inicialmente este algoritmo constuye un modelo y da pesos iguales a todas las clases. Luego, se le asigna peso más alto a la clase que fue peor clasificada. Por lo tanto, el siguiente modelo hará mayor foco en esta clase. Y así continuará entrenando modelos hasta que llegue un error más bajo. [[10]](#bibliografía)
+
+En la siguiente imagen se puede apreciar el funcionamiento de AdaBoost. En la primera imagen se puede ver que el modelo no es capaz de clasificar correctamente los datos. En la segunda imagen se puede ver que se le asigna un peso mayor a los datos que fueron clasificados incorrectamente. En la tercera imagen se puede ver que el modelo se enfoca más en los datos que fueron clasificados incorrectamente. En la cuarta imagen se puede ver que el modelo es capaz de clasificar correctamente los datos.
 
 ![AdaBoost](./resources/adaboost.png)
 
@@ -194,17 +197,21 @@ Dos conceptos importantes relacionados a las curvas de aprendizaje son el sesgo 
 
 El sesgo es el error debido a suposiciones incorrectas en el algoritmo de aprendizaje. Un alto sesgo puede causar que el algoritmo ignore los detalles relevantes y haga suposiciones demasiado simples. El sesgo alto puede conducir a un underfitting.
 
+En la figura 10 se puede ver la representación gráfica de curvas de aprendizaje con sesgo alto y bajo. Como se observa, si el error de entrenamiento es muy bajo, significa que el modelo estimado ajusta muy bien los datos de entrenamiento. Si el modelo se ajusta muy bien a los datos de entrenamiento, significa que tiene un sesgo bajo con respecto a ese conjunto de datos (modelo de la derecha). Si el error de entrenamiento es alto, significa que el modelo estimado no ajusta suficientemente bien los datos de entrenamiento. Si el modelo no se ajusta bien a los datos de entrenamiento, significa que tiene un alto sesgo con respecto a ese conjunto de datos (modelo de la izquierda).
+
 ![Bias](./resources/bias.png)
 
-**Figura 10.** Curvas de aprendizaje con sesgo alto y bajo.  [[12]](#bibliografía)
+**Figura 10.** Curvas de aprendizaje con sesgo alto y bajo. [[12]](#bibliografía)
 
 **Varianza**
 
 La varianza es el error debido a la sensibilidad excesiva a pequeñas fluctuaciones en el conjunto de entrenamiento. Un modelo con una alta varianza se ajusta demasiado a los datos de entrenamiento y no generaliza bien para predecir nuevos datos. La alta varianza puede conducir a un overfitting.
 
+En la figura 11 se puede ver la representación gráfica de curvas de aprendizaje con varianza alta y baja. Como se observa, una brecha estrecha indica una variación baja (modelo de la izquierda). Generalmente, cuanto más estrecha es la brecha, menor es la varianza. Lo contrario también es cierto: cuanto mayor es la brecha, mayor es la varianza (modelo de la derecha). Esto es debido a que, si la varianza es alta, entonces el modelo se ajusta demasiado bien a los datos de entrenamiento. Cuando los datos de entrenamiento se ajustan demasiado bien, el modelo tendrá problemas para generalizar datos que no se han visto en el entrenamiento. Cuando un modelo de este tipo se prueba en su conjunto de entrenamiento y luego en un conjunto de validación, el error de entrenamiento será bajo y el error de validación generalmente será alto. A medida que cambiamos el tamaño de los conjuntos de entrenamiento, este patrón continúa y las diferencias entre los errores de entrenamiento y de validación determinarán esa brecha entre las dos curvas de aprendizaje.
+
 ![Variance](./resources/variance.png)
 
-**Figura 11.** Curvas de aprendizaje con varianza baja y alta.  [[12]](#bibliografía)
+**Figura 11.** Curvas de aprendizaje con varianza baja y alta. [[12]](#bibliografía)
 
 ## Diseño Experimental
 
@@ -253,13 +260,17 @@ Esta decisión se tomó para mejorar el balance de las clases, ya que como se pu
 
 **Figura 12.** Distribución de los tipos de bullying.
 
-Distribución del bullying según sexo:
+**Distribución del bullying según sexo**
+
+Como se puede observar en la figura 13, la cantidad de estudiantes que sufrieron bullying es mayor en el caso de las mujeres. Y además, el porcentaje de mujeres que sufrieron bullying es mayor que el de los hombres.
 
 ![Bullied_Sex_Distribution](./results/plots/Bullied_Sex_Distribution.png)
 
 **Figura 13.** Cantidad de estudiantes que sufrieron bullying según sexo.
 
-Distribución del bullying según si se sienten solos:
+**Distribución del bullying según si se sienten solos**
+
+Como se puede observar en la figura 14, la mayor cantidad de estudiantes que sufrieron bullying es el caso de los que se sintieron solos casi siempre. Cabe destacar que es llamativo el bajo porcentaje de los estudiantes que se sintieron solos siempre y sufrieron bullying, así como también el alto porcentaje de los que nunca se sintieron solos y sufrieron bullying.
 
 ![Bullied_Felt_lonely_Distribution](./results/plots/Bullied_Felt_lonely_Distribution.png)
 
@@ -269,7 +280,7 @@ Distribución del bullying según si se sienten solos:
 
 Posteriormente, se realizó un análisis de correlación entre las variables para determinar cuáles son las más relevantes para el modelo. Para ello, se utilizó el índice de correlación de Cramer's V, el cual es una medida de asociación entre variables categóricas. Este índice se encuentra entre 0 y 1, donde 0 indica que no hay asociación entre las variables y 1 indica una asociación perfecta.
 
-Índice de correlación de Cramer's V entre cada una de las variables y Bullied_in_past_12_months.
+En la figura 15 se puede observar el índice de correlación de Cramer's V entre cada una de las variables y Bullied_in_past_12_months.
 
 ![Cramer's V](./results/plots/cramer.png)
 
@@ -277,7 +288,7 @@ Posteriormente, se realizó un análisis de correlación entre las variables par
 
 **Matriz de correlación**
 
-Se calculó también la matriz de correlación entre las variables. En la matriz de correlación se utiliza el coeficiente de correlación de Pearson, el cual es una medida de la fuerza de una relación lineal entre dos variables cuantitativas. Este coeficiente se encuentra entre -1 y 1, donde 0 indica que no hay asociación entre las variables y 1 indica una asociación perfecta.
+Se calculó también la matriz de correlación entre las variables (Figura 16). En la matriz de correlación se utiliza el coeficiente de correlación de Pearson, el cual es una medida de la fuerza de una relación lineal entre dos variables cuantitativas. Este coeficiente se encuentra entre -1 y 1, donde 0 indica que no hay asociación entre las variables y 1 indica una asociación perfecta.
 
 ![Correlation Matrix](./results/plots/correlation_matrix.png)
 
@@ -285,7 +296,7 @@ Se calculó también la matriz de correlación entre las variables. En la matriz
 
 **Importancia de Features de Random Forest**
 
-Finalmente, se detalla la importancia de las variables según la función provista por Random Forest.
+Finalmente, en la figura 17 se detalla la importancia de las variables según la función provista por Random Forest.
 
 ![Feature importance](./results/plots/feature_importance.png)
 
@@ -302,6 +313,8 @@ Después de analizar la correlación de los datos con los métodos ya mencionado
 - Physical_fighting
 - Felt_lonely
 - Sex
+
+A pesar de que éstas características son las que presentan mayor correlación con la variable objetivo, se puede observar que la correlación es bastante baja, por lo que se puede concluir que las variables no están muy relacionadas con la variable a predecir.
 
 ### Random Forest
 
@@ -321,16 +334,22 @@ Para la implementación del Random Forest, se emplearon los siguientes parámetr
 
 - `class_weight={0: 1, 1: 1.5}`: Pesos asociados con las clases {No sufrió bullying: 1, Sufrió bullying: 1.5}.
 
-#### Train
+Luego de ejecutar Random Forest con los parámetros indicados, se obtuvieron los siguientes resultados:
 
-**Matriz de confusión**
+#### **Matrices de confusión y reportes de clasificación**
 
-|                        | No sufrió bullying **(Predecido)** | Sufrió bullying **(Predecido)**|
-| ---------------------- | --------------------- | ----------------- |
-| **No sufrió bullying (Real)** | 16543                 | 8119              |
-| **Sufrió bullying (Real)**    | 6009                  | 10217             |
+Al analizar las tablas 1 y 2 se puede observar que el modelo presenta un buen rendimiento en el conjunto de entrenamiento, con un accuracy de 0.65 y un F1-Score de 0.59 para la clase 'Sufrió bullying'. Sin embargo, al analizar la matriz de confusión, se puede observar que el modelo presenta un alto número de falsos negativos (6009), lo cual es un problema importante, ya que se estaría prediciendo que un estudiante no sufrió bullying cuando en realidad sí lo sufrió.
 
-**Reporte de la clasificación**
+‎
+
+|                               | No sufrió bullying **(Predecido)** | Sufrió bullying **(Predecido)** |
+| ----------------------------- | ---------------------------------- | ------------------------------- |
+| **No sufrió bullying (Real)** | 16543                              | 8119                            |
+| **Sufrió bullying (Real)**    | 6009                               | 10217                           |
+
+**Tabla 1.** Matriz de confusión de Random Forest en el conjunto de entrenamiento.
+
+‎
 
 |                 | Precision | Recall | F1-Score | Support |
 | --------------- | --------- | ------ | -------- | ------- |
@@ -338,16 +357,22 @@ Para la implementación del Random Forest, se emplearon los siguientes parámetr
 | **Bullied**     | 0.56      | 0.63   | 0.59     | 16226   |
 | **Accuracy**    |           |        | 0.65     | 40888   |
 
-#### Test
+**Tabla 2.** Reporte de clasificación de Random Forest en el conjunto de entrenamiento.
 
-**Matriz de confusión**
+‎
 
-|                        | No sufrió bullying **(Predecido)** | Sufrió bullying **(Predecido)**|
-| ---------------------- | --------------------- | ----------------- |
-| **No sufrió bullying (Real)** | 4043                  | 2055              |
-| **Sufrió bullying (Real)**     | 1475                  | 2649              |
+Tras el análisis de las tablas 3 y 4, se puede observar que el modelo presenta resultados similares en el conjunto de validación a los obtenidos en el conjunto de entrenamiento.
 
-**Reporte de la clasificación**
+‎
+
+|                               | No sufrió bullying **(Predecido)** | Sufrió bullying **(Predecido)** |
+| ----------------------------- | ---------------------------------- | ------------------------------- |
+| **No sufrió bullying (Real)** | 4043                               | 2055                            |
+| **Sufrió bullying (Real)**    | 1475                               | 2649                            |
+
+**Tabla 3.** Matriz de confusión de Random Forest en el conjunto de validación.
+
+‎
 
 |                 | Precision | Recall | F1-Score | Support |
 | --------------- | --------- | ------ | -------- | ------- |
@@ -355,7 +380,9 @@ Para la implementación del Random Forest, se emplearon los siguientes parámetr
 | **Bullied**     | 0.56      | 0.64   | 0.60     | 4124    |
 | **Accuracy**    |           |        | 0.65     | 10222   |
 
-#### Configuración de parámetros de Random Forest
+**Tabla 4.** Reporte de clasificación de Random Forest en el conjunto de validación.
+
+#### **Configuración de parámetros de Random Forest**
 
 Generamos gráficos con el propósito de identificar la combinación óptima de la cantidad de árboles a utilizar en el modelo Random Forest, junto con los mejores pesos para las clases respectivas.
 
@@ -367,7 +394,7 @@ Generamos gráficos con el propósito de identificar la combinación óptima de 
 
 **Figura 19.** Recall según el número de árboles y los pesos de las clases.
 
-Al analizar los resultados, observamos que no hubo una mejora significativa al aumentar el número de árboles, por lo que decidimos mantener n=100. En cuanto a los pesos de las clases, optamos por una opción equilibrada entre el accuracy y el recall, seleccionando los siguientes pesos:
+Al analizar los resultados de las figuras 18 y 19, observamos que no hubo una mejora significativa al aumentar el número de árboles, por lo que decidimos mantener n=100. En cuanto a los pesos de las clases, optamos por una opción equilibrada entre el accuracy y el recall, seleccionando los siguientes pesos:
 
 - No sufrió bullying: 1
 - Sufrió bullying: 1.5
@@ -388,42 +415,53 @@ Para la implementación de SVM se emplearon los siguientes parámetros:
 
 - `class_weight={0: 1, 1: 1.5}`: Pesos asociados con las clases {No sufrió bullying: 1, Sufrió bullying: 1.5}.
 
-#### Train
+Luego de ejecutar SVM con los parámetros indicados, se obtuvieron los siguientes resultados:
 
-**Matriz de confusión**
+#### **Matrices de confusión y reportes de clasificación**
 
-|                        | No sufrió bullying **(Predecido)** | Sufrió bullying **(Predecido)**|
-| ---------------------- | --------------------- | ----------------- |
-| **No sufrió bullying (Real)** | 16664                 | 7998              |
-| **Sufrió bullying (Real)**     | 7543                  | 8683              |
+Al analizar las tablas 5 y 6 se puede observar que el modelo presenta un buen rendimiento en el conjunto de entrenamiento, con un accuracy de 0.62 y un F1-Score de 0.53 para la clase 'Sufrió bullying'. Sin embargo, al analizar la matriz de confusión, se puede observar que el modelo presenta un alto número de falsos negativos (7543), de la misma forma que Random Forest.
 
-**Reporte de la clasificación**
+‎
 
-|                 | Precision | Recall | F1-Score | Support |
-| --------------- | --------- | ------ | -------- | ------- |
+|                               | No sufrió bullying **(Predecido)** | Sufrió bullying **(Predecido)** |
+| ----------------------------- | ---------------------------------- | ------------------------------- |
+| **No sufrió bullying (Real)** | 16664                              | 7998                            |
+| **Sufrió bullying (Real)**    | 7543                               | 8683                            |
+
+**Tabla 5.** Matriz de confusión de SVM en el conjunto de entrenamiento.
+
+‎
+
+|                               | Precision | Recall | F1-Score | Support |
+| ----------------------------- | --------- | ------ | -------- | ------- |
 | **No sufrió bullying (Real)** | 0.69      | 0.68   | 0.68     | 24662   |
-| **Sufrió bullying (Real)**     | 0.52      | 0.54   | 0.53     | 16226   |
-| **Accuracy**    |           |        | 0.62     | 40888   |
+| **Sufrió bullying (Real)**    | 0.52      | 0.54   | 0.53     | 16226   |
+| **Accuracy**                  |           |        | 0.62     | 40888   |
 
-#### Test
+**Tabla 6.** Reporte de clasificación de SVM en el conjunto de entrenamiento.
 
-**Matriz de confusión**
+En las tablas 7 y 8 se puede observar que el modelo presenta resultados similares en el conjunto de validación a los obtenidos en el conjunto de entrenamiento.
 
-|                        | No sufrió bullying **(Predecido)**| Sufrió bullying **(Predecido)**|
-| ---------------------- | --------------------- | ----------------- |
-| **No sufrió bullying (Real)** | 4161                  | 1937              |
-| **Sufrió bullying (Real)**     | 1882                  | 2242              |
+‎
 
-**Reporte de la clasificación**
+|                               | No sufrió bullying **(Predecido)** | Sufrió bullying **(Predecido)** |
+| ----------------------------- | ---------------------------------- | ------------------------------- |
+| **No sufrió bullying (Real)** | 4161                               | 1937                            |
+| **Sufrió bullying (Real)**    | 1882                               | 2242                            |
 
-|                 | Precision | Recall | F1-Score | Support |
-| --------------- | --------- | ------ | -------- | ------- |
+**Tabla 7.** Matriz de confusión de SVM en el conjunto de validación.
+
+‎
+
+|                        | Precision | Recall | F1-Score | Support |
+| ---------------------- | --------- | ------ | -------- | ------- |
 | **No sufrió bullying** | 0.69      | 0.68   | 0.69     | 6098    |
-| **Sufrió bullying**     | 0.54      | 0.54   | 0.54     | 4124    |
-| **Accuracy**    |           |        | 0.63     | 10222   |
+| **Sufrió bullying**    | 0.54      | 0.54   | 0.54     | 4124    |
+| **Accuracy**           |           |        | 0.63     | 10222   |
 
+**Tabla 8.** Reporte de clasificación de SVM en el conjunto de validación.
 
-#### Configuración de parámetros de SVM
+#### **Configuración de parámetros de SVM**
 
 Se generaron gráficos que representan el accuracy y el recall en función del factor de penalización (C) de SVM, utilizando 15 splits diferentes.
 
@@ -435,7 +473,7 @@ Se generaron gráficos que representan el accuracy y el recall en función del f
 
 **Figura 21.** Recall según el factor de penalización (C) para SVM con 15 splits distintos.
 
-A partir de estos resultados, se seleccionó el valor de c=10, ya que demostró ser la elección que logra el mejor equilibrio entre ambas métricas.
+A partir de los resultados de las figuras 20 y 21, se seleccionó el valor de c=10, ya que demostró ser la elección que logra el mejor equilibrio entre ambas métricas.
 
 De la misma manera, generamos gráficos con el propósito de identificar la combinación óptima del valor de gamma junto con los mejores pesos para las clases respectivas.
 
@@ -447,7 +485,7 @@ De la misma manera, generamos gráficos con el propósito de identificar la comb
 
 **Figura 23.** Recall según el valor de gamma y los pesos de las clases.
 
-Al analizar los resultados, hemos elegido nuevamente una opción equilibrada entre el accuracy y el recall, seleccionando gamma= 0.001 y los siguientes pesos:
+Al analizar los resultados de las figuras 22 y 23, hemos elegido, al igual que en Random Forest, una opción equilibrada entre el accuracy y el recall, seleccionando gamma = 0.001 y los siguientes pesos:
 
 - No sufrió bullying: 1
 - Sufrió bullying: 1.5
@@ -474,9 +512,9 @@ Aquí se muestran gráficos de cajas comparativos para cada algoritmo, abarcando
 
 Como se puede observar, el algortimo de Random Forest obtiene resultados levemente mejores que SVM en accuracy y precision, y una mejoría considerable en recall y F1-Score.
 
-#### Tiempo de ejecución
+#### **Tiempo de ejecución**
 
-En el siguiente gráfico, se puede observar una comparación del tiempo de ejecución de los algoritmos Random Forest y Support Vector Machine.
+En la figura 26, se puede observar una comparación del tiempo de ejecución de los algoritmos Random Forest y Support Vector Machine.
 
 ![time_comparison](./results/plots/time_comparison.png)
 
@@ -484,13 +522,14 @@ En el siguiente gráfico, se puede observar una comparación del tiempo de ejecu
 
 Como podemos apreciar, el tiempo de ejecución de SVM es considerablemente mayor que el de Random Forest. Esto se debe a que SVM es un algoritmo más complejo que Random Forest, ya que utiliza un kernel para transformar los datos de entrada en un espacio de características de mayor dimensión, lo que requiere un mayor tiempo de ejecución.
 
-#### Curvas de aprendizaje para Random Forest
+#### **Curvas de aprendizaje para Random Forest**
 
 ![rf_learning_curve_error_v1](./results/plots/rf_learning_curve_error_v1.png)
 
 **Figura 27.** Curva de aprendizaje de Random Forest.
 
-Como se puede obsevar, el modelo presenta un sesgo alto, por lo que agregar más datos de entrenamiento no va a mejorar los resultados.
+Como se puede obsevar en la figura 27, el modelo presenta un sesgo alto, por lo que agregar más datos de entrenamiento no va a mejorar los resultados.
+
 Luego de investigar, hemos identificado que las posibles causas de dicho incoveniente pueden ser las siguientes:
 
 - **Features no informativas:** Si las features utilizadas por el modelo no son informativas o no capturan la verdadera estructura de los datos, el modelo puede tener un sesgo alto.
@@ -501,7 +540,7 @@ Luego de investigar, hemos identificado que las posibles causas de dicho incoven
 
 En base a esto, se optó por implementar las siguientes estrategias para solucionar esta situación. Las cuales fueron Boosting y la adición de features a RF.
 
-#### Boosting
+#### **Boosting**
 
 Al implementar el algoritmo ADA Boosting obtuvimos los siguientes resultados.
 
@@ -509,7 +548,7 @@ Al implementar el algoritmo ADA Boosting obtuvimos los siguientes resultados.
 
 **Figura 28.** Curva de aprendizaje de Random Forest con ADA Boost.
 
-Podemos observar en el gráfico que no muestra una mejora significativa comparado con el modelo sin boost. Por lo cual esta solución queda descartada.
+Podemos observar en la figura 28 que no muestra una mejora significativa comparado con el modelo sin boost. Por lo cual esta solución queda descartada.
 
 **Adición de features**
 
@@ -527,7 +566,7 @@ Obteniendo los siguientes resultados:
 
 **Figura 29.** Curva de aprendizaje de Random Forest con nuevas features.
 
-Como se puede observar, el modelo presenta un sesgo menor que el modelo anterior. Por lo que se puede concluir que la causa del sesgo alto era la falta de features informativas. Sin embargo, esta elección de features empeora considerablemente el puntaje obtenido en las metricas comparado con el modelo anterior. Esto se puede observar en el siguiente gráfico de cajas.
+Como se puede observar en la figura 29, el modelo presenta un sesgo menor que el modelo anterior. Por lo que se puede concluir que la causa del sesgo alto era la falta de features informativas. Sin embargo, esta elección de features empeora considerablemente el puntaje obtenido en las metricas comparado con el modelo anterior. Esto se puede observar en el siguiente gráfico de cajas (Figura 30).
 
 ![boxplot_rf_metrics](./results/plots/rf_boxplot_30_v2.png)
 
@@ -547,7 +586,7 @@ SVM, a pesar de tener una mayor complejidad computacional, presentó resultados 
 
 En la evaluación de sesgo y varianza, identificamos que Random Forest inicialmente mostró un sesgo alto, que abordamos mediante la adición de features al modelo. Sin embargo, esta mejora en el sesgo vino acompañada de una disminución en las métricas de rendimiento. La implementación de boosting mediante el algoritmo AdaBoost no proporcionó mejoras significativas.
 
-Para finalizar, cabe mencionar que este proyecto destaca la complejidad de abordar problemas de salud estudiantil utilizando aprendizaje automático y subraya la importancia de considerar cuidadosamente las decisiones de modelado. Aunque Random Forest presentó resultados decentes, queda abierta la posibilidad de investigar otros algoritmos adecuados para esta problemática.
+Para finalizar, cabe mencionar que este proyecto destaca la complejidad de abordar problemas de salud estudiantil utilizando aprendizaje automático y subraya la importancia de considerar cuidadosamente las decisiones de modelado. Aunque Random Forest presentó resultados decentes, queda abierta la posibilidad de investigar otros algoritmos adecuados para esta problemática, como podrían ser redes neuronales o K-Nearest Neighbors. Sin embargo, creemos que es difícl que alguno de estos algoritmos mejore significativamente los resultados obtenidos por Random Forest, debido a que las características no presentan altos niveles de correlación con la característica objetivo. 
 
 <a name="bibliografia"></a>
 
