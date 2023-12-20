@@ -376,8 +376,8 @@ Tras el análisis de las tablas 3 y 4, se puede observar que el modelo presenta 
 
 |                 | Precision | Recall | F1-Score | Support |
 | --------------- | --------- | ------ | -------- | ------- |
-| **Not bullied** | 0.73      | 0.66   | 0.70     | 6098    |
-| **Bullied**     | 0.56      | 0.64   | 0.60     | 4124    |
+| **No sufrió bullying** | 0.73      | 0.66   | 0.70     | 6098    |
+| **Sufrió bullying**     | 0.56      | 0.64   | 0.60     | 4124    |
 | **Accuracy**    |           |        | 0.65     | 10222   |
 
 **Tabla 4.** Reporte de clasificación de Random Forest en el conjunto de validación.
